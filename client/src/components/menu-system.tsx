@@ -65,21 +65,71 @@ export default function MenuSystem() {
     ],
     indian: [
       {
-        title: "Tandoor Specialties",
-        description: "Fresh from our traditional clay oven, perfectly spiced and expertly prepared.",
+        title: "Appetizers",
+        description: "Start your Indian culinary journey with these traditional appetizers",
         items: [
-          { name: "Tandoori Chicken", price: "$18.99" },
-          { name: "Naan Bread", price: "$4.99" },
-          { name: "Seekh Kebab", price: "$16.99" }
+          { name: "Papadum", price: "0,90 €", description: "Thin Indian crispy flatbread" },
+          { name: "Spicy Papadum", price: "1,00 €", description: "Thin Indian crispy spicy flatbread" },
+          { name: "Pickle Tray", price: "3,50 €", description: "Mango chutney, Mint sauce & Chopped Onions" },
+          { name: "Tamarind Sauce", price: "0,90 €", description: "Bittersweet sauce from the fruit of tamarind" },
+          { name: "Spicy Garlic Sauce", price: "0,90 €", description: "Sauce made with fresh garlic & spicy mayonnaise" },
+          { name: "Mango Chutney", price: "0,90 €", description: "Mango flavour sweet sauce" },
+          { name: "Mint Sauce", price: "0,90 €", description: "Sauce made with fresh mint & yogurt" },
+          { name: "Spicy Onions", price: "0,90 €", description: "Chopped onions with cucumber & capsicum" },
+          { name: "Mixed Salad", price: "5,50 €", description: "Fresh mixed vegetables and greens" },
+          { name: "Plain Yoghurt", price: "2,90 €", description: "Traditional Indian yogurt" }
         ]
       },
       {
-        title: "Curry House Classics",
-        description: "Rich, aromatic curries prepared with traditional Indian spices and techniques.",
+        title: "Normal Starters",
+        description: "Traditional Indian starters prepared with authentic spices and techniques",
         items: [
-          { name: "Butter Chicken", price: "$19.99" },
-          { name: "Palak Paneer", price: "$15.99" },
-          { name: "Biryani", price: "$17.99" }
+          { name: "Onion Bhaji", price: "4,25 €", description: "Onions balls bound together with lightly spiced & fragrant chickpea flour batter" },
+          { name: "Vegetable Samosa", price: "4,50 €", description: "Triangular pastry filled with potatoes & peas, golden fried" },
+          { name: "Garlic Mushroom", price: "4,50 €", description: "Juicy mushroom sauteed in a rich garlic butter sauce with a hint of spice" },
+          { name: "Meat Samosa", price: "4,75 €", description: "Triangular pastry filled with potatoes, peas & meat, golden fried" },
+          { name: "Vegetable Pakora", price: "4,50 €", description: "Sliced vegetables wrapped in batter & deep fried" },
+          { name: "Chicken Pakora", price: "4,25 €", description: "Marinated chicken pieces in a batter, golden fried" },
+          { name: "Chicken Puri", price: "5,50 €", description: "Chicken cooked & served on deep fried round bread" },
+          { name: "King Prawn Puri", price: "5,95 €", description: "King prawn cooked with ginger - garlic & served on deep fried round bread" },
+          { name: "Garlic Chicken", price: "5,95 €", description: "Chicken cooked with garlic & lemon" },
+          { name: "Chicken Lollipop", price: "5,50 €", description: "Crispy, deep-fried chicken drumettes coated in a bold & zesty spicy mix" },
+          { name: "Hot Chicken Wings", price: "5,50 €", description: "Spicy, juicy wings coated in a fiery marinade that packs a punch" }
+        ]
+      },
+      {
+        title: "Tandoori Starters",
+        description: "Fresh from our traditional clay oven, perfectly spiced and expertly prepared",
+        items: [
+          { name: "Chicken Tikka", price: "4,50 €", description: "Boneless chicken pieces marinated spicy yogurt cooked in a tandoor" },
+          { name: "Tandoor Chicken", price: "5,50 €", description: "Chicken leg piece marinated in a spicy yogurt cooked in tandoor" },
+          { name: "Pudina Tikka", price: "5,50 €", description: "Boneless chicken pieces marinated with mint, ginger & cooked in tandoor" },
+          { name: "Lamb Tikka", price: "6,50 €", description: "Boneless lamb pieces marinated in a spicy yogurt & grilled in tandoor" },
+          { name: "Barra Kebab", price: "5,50 €", description: "Succulent lamb chop marinated in a yogurt & spices, flame-grilled for a smoky bite" },
+          { name: "Sheek Kebab", price: "5,50 €", description: "Minced lamb marinated with spiced, ginger, coriander & cooked on skewers in a tandoor" },
+          { name: "Garlic King Prawn", price: "5,90 €", description: "Grilled king prawn cooked with garlic & lemon" }
+        ]
+      },
+      {
+        title: "Special Platter",
+        description: "Perfect for sharing and experiencing multiple flavors",
+        items: [
+          { name: "Special Himalayan", price: "15,50 €", description: "Includes: Onion Bhaji, veg pakora, barra kebab, chicken tikka, pudina tikka, chicken pakora & sheekh kebab" }
+        ]
+      },
+      {
+        title: "Proteins",
+        description: "Dishes from the cuisine of the Indian subcontinent which combines the use of a varieties of spices, vegetables, herbs like ginger, garlic, green chillies, turmeric, mustard seed, cumin seeds, coriander etc. Each dish has the combination of ingredients that makes it unique.",
+        items: [
+          { name: "Chicken", price: "9,95 €", description: "Traditional chicken curry with authentic Indian spices" },
+          { name: "Chicken Tikka", price: "10,95 €", description: "Marinated chicken pieces in rich curry sauce" },
+          { name: "Lamb", price: "11,95 €", description: "Tender lamb cooked with aromatic spices" },
+          { name: "Lamb Tikka", price: "12,95 €", description: "Grilled lamb pieces in flavorful curry" },
+          { name: "King Prawn", price: "13,95 €", description: "Fresh king prawns in exotic spice blend" },
+          { name: "Mix Vegetables", price: "10,95 €", description: "Seasonal vegetables cooked with traditional spices" },
+          { name: "Soya Meat", price: "12,95 €", description: "Plant-based protein with authentic Indian flavors" },
+          { name: "Paneer", price: "12,95 €", description: "Fresh cottage cheese in rich curry sauce" },
+          { name: "Special Himalayan", price: "15,95 €", description: "Our signature protein dish with unique spice blend" }
         ]
       }
     ]
