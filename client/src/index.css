@@ -155,8 +155,9 @@
   position: relative;
   overflow: hidden;
   border-radius: 50px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(4, 8, 68, 0.05));
-  border: 2px solid rgba(4, 8, 68, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(4, 8, 68, 0.1));
+  border: 2px solid rgba(4, 8, 68, 0.4);
+  color: #040844;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

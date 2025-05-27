@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-type MainTab = "menu" | "drinks" | "wine";
+type MainTab = "menu" | "drinks";
 type FoodTab = "nepali" | "indian";
-type DrinkTab = "softDrinks" | "coffeeTea" | "beer" | "spirits" | "cocktails";
+type DrinkTab = "softDrinks" | "coffeeTea" | "beer" | "spirits" | "cocktails" | "wine";
 
 export default function MenuSystem() {
   const [activeMainTab, setActiveMainTab] = useState<MainTab>("menu");
@@ -243,10 +243,8 @@ export default function MenuSystem() {
           { name: "Real Lemonade", price: "6,00 €", description: "Fresh squeezed lemonade" }
         ]
       }
-    ]
-  };
-
-  const wineMenuData = [
+    ],
+    wine: [
     {
       title: "House Wine",
       description: "Our carefully selected house wines by the glass or bottle",
@@ -329,7 +327,7 @@ export default function MenuSystem() {
                 activeMainTab === "drinks" ? "active" : ""
               }`}
             >
-              Drinks
+              Drinks & Wine
             </Button>
           </div>
 
@@ -475,6 +473,51 @@ export default function MenuSystem() {
                               </div>
                               {(item as any).description && (
                                 <p className="text-sm text-gray-600 italic">
+                                  {(item as any).description}
+                                </p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Wine Tab Content */}
+          <div className={`tab-content ${activeMainTab === "wine" ? "active" : ""}`}>
+            {activeMainTab === "wine" && (
+              <div>
+                <div className="text-center mb-8">
+                  <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-4">Wine Selection</h4>
+                  <p className="text-primary-custom">Discover our carefully curated collection of fine wines</p>
+                </div>
+                
+                {/* Wine Content */}
+                <div className="grid lg:grid-cols-2 gap-6 slide-in stagger-animation">
+                  {wineMenuData.map((section, index) => (
+                    <Card key={index} className="menu-card bg-white border border-gray-200">
+                      <CardContent className="p-6">
+                        <h5 className="yadri-font text-xl font-bold text-primary-custom mb-3 leading-relaxed">
+                          {section.title}
+                        </h5>
+                        <p className="text-primary-custom mb-5 leading-relaxed text-sm">{section.description}</p>
+                        <div className="space-y-4">
+                          {section.items.map((item, itemIndex) => (
+                            <div key={itemIndex} className="flex flex-col gap-2">
+                              <div className="flex justify-between items-start">
+                                <span className="font-medium text-primary-custom leading-relaxed">
+                                  {item.name}
+                                </span>
+                                <span className="text-primary-custom font-semibold text-sm whitespace-nowrap ml-2">
+                                  {item.price}
+                                </span>
+                              </div>
+                              {(item as any).description && (
+                                <p className="text-sm text-gray-600 italic leading-relaxed">
                                   {(item as any).description}
                                 </p>
                               )}
