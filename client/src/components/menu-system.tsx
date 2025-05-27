@@ -581,7 +581,7 @@ export default function MenuSystem() {
                                   </span>
                                 )}
                               </div>
-                              {item.description && (
+                              {'description' in item && item.description && (
                                 <p className="text-gray-600 text-sm leading-relaxed">
                                   {item.description}
                                 </p>

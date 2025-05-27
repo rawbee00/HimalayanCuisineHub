@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-const backgroundImage = "/temple-background.png";
+const backgroundImage = "/attached_assets/5761A4A3-073E-4CB8-9054-2E7BB28A077D.PNG";
 
 export default function HeroSection() {
   return (
