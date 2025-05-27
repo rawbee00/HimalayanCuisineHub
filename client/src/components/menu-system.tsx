@@ -560,7 +560,7 @@ export default function MenuSystem() {
                         <p className="text-primary-custom mb-5 leading-relaxed text-sm">{section.description}</p>
                         <div className="space-y-4">
                           {section.items.map((item, itemIndex) => (
-                            <div key={itemIndex} className="flex flex-col gap-1">
+                            <div key={itemIndex} className="flex flex-col gap-2">
                               <div className="flex justify-between items-start">
                                 <span className={`text-primary-custom leading-relaxed ${
                                   item.name.startsWith('•') 
@@ -581,6 +581,11 @@ export default function MenuSystem() {
                                   </span>
                                 )}
                               </div>
+                              {item.description && (
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                  {item.description}
+                                </p>
+                              )}
                             </div>
                           ))}
                         </div>
