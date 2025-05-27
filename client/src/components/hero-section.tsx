@@ -1,13 +1,16 @@
 import { Button } from "@/components/ui/button";
 
-// import backgroundImage from "@assets/5761A4A3-073E-4CB8-9054-2E7BB28A077D.PNG";
+const backgroundImage = "/temple-background.png";
 
 export default function HeroSection() {
   return (
     <section 
       className="bg-black text-white py-16 md:py-24 hero-pattern relative"
       style={{
-        background: 'linear-gradient(135deg, #040844 0%, #1a1f8a 50%, #040844 100%)'
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
       <div className="max-w-4xl mx-auto px-4 text-center">
