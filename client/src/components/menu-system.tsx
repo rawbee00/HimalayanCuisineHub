@@ -69,13 +69,13 @@ export default function MenuSystem() {
         description: "Start your Indian culinary journey with these traditional appetizers",
         items: [
           { name: "Papadum", price: "0,90 €", description: "Thin Indian crispy flatbread" },
-          { name: "Spicy Papadum", price: "1,00 €", description: "Thin Indian crispy spicy flatbread" },
+          { name: "Spicy Papadum", price: "1,00 €", description: "Thin Indian crispy spicy flatbread." },
           { name: "Pickle Tray", price: "3,50 €", description: "Mango chutney, Mint sauce & Chopped Onions" },
-          { name: "Tamarind Sauce", price: "0,90 €", description: "Bittersweet sauce from the fruit of tamarind" },
-          { name: "Spicy Garlic Sauce", price: "0,90 €", description: "Sauce made with fresh garlic & spicy mayonnaise" },
-          { name: "Mango Chutney", price: "0,90 €", description: "Mango flavour sweet sauce" },
-          { name: "Mint Sauce", price: "0,90 €", description: "Sauce made with fresh mint & yogurt" },
-          { name: "Spicy Onions", price: "0,90 €", description: "Chopped onions with cucumber & capsicum" },
+          { name: "Tamarind Sauce", price: "0,90 €", description: "Bittersweet sauce from the fruit of tamarind." },
+          { name: "Spicy Garlic Sauce", price: "0,90 €", description: "Sauce made with fresh garlic & spicy mayonnaise." },
+          { name: "Mango Chutney", price: "0,90 €", description: "Mango flavour sweet sauce." },
+          { name: "Mint Sauce", price: "0,90 €", description: "Sauce made with fresh mint & yogurt." },
+          { name: "Spicy Onions", price: "0,90 €", description: "Chopped onions with cucumber & capsicum." },
           { name: "Mixed Salad", price: "5,50 €", description: "Fresh mixed vegetables and greens" },
           { name: "Plain Yoghurt", price: "2,90 €", description: "Traditional Indian yogurt" }
         ]
