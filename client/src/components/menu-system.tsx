@@ -260,21 +260,19 @@ export default function MenuSystem() {
 
         <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8">
           {/* Main Menu Categories */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-8">
             <Button
               onClick={() => setActiveMainTab("menu")}
-              className={`tab-button px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 ${
-                activeMainTab === "menu"
-                  ? "bg-white text-primary-custom border-primary-custom active"
-                  : "bg-transparent text-primary-custom border-gray-300 hover:border-primary-custom"
+              className={`slide-button px-12 py-4 font-semibold text-lg ${
+                activeMainTab === "menu" ? "active" : ""
               }`}
-            >Food Menu</Button>
+            >
+              Food Menu
+            </Button>
             <Button
               onClick={() => setActiveMainTab("drinks")}
-              className={`tab-button px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 ${
-                activeMainTab === "drinks"
-                  ? "bg-white text-primary-custom border-primary-custom active"
-                  : "bg-transparent text-primary-custom border-gray-300 hover:border-primary-custom"
+              className={`slide-button px-12 py-4 font-semibold text-lg ${
+                activeMainTab === "drinks" ? "active" : ""
               }`}
             >
               Drinks
@@ -291,23 +289,19 @@ export default function MenuSystem() {
                 </div>
                 
                 {/* Food Menu Sliding Buttons */}
-                <div className="flex justify-center gap-4 mb-8">
+                <div className="flex justify-center gap-6 mb-8">
                   <Button
                     onClick={() => setActiveFoodTab("nepali")}
-                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeFoodTab === "nepali"
-                        ? "bg-primary-custom text-white"
-                        : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
+                    className={`slide-button px-10 py-3 font-medium ${
+                      activeFoodTab === "nepali" ? "active" : ""
                     }`}
                   >
                     Himalayan/Nepali
                   </Button>
                   <Button
                     onClick={() => setActiveFoodTab("indian")}
-                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeFoodTab === "indian"
-                        ? "bg-primary-custom text-white"
-                        : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
+                    className={`slide-button px-10 py-3 font-medium ${
+                      activeFoodTab === "indian" ? "active" : ""
                     }`}
                   >
                     Indian
@@ -367,53 +361,43 @@ export default function MenuSystem() {
                 </div>
                 
                 {/* Drinks Menu Sliding Buttons */}
-                <div className="flex flex-wrap justify-center gap-2 mb-8">
+                <div className="flex flex-wrap justify-center gap-3 mb-8">
                   <Button
                     onClick={() => setActiveDrinkTab("softDrinks")}
-                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeDrinkTab === "softDrinks"
-                        ? "bg-primary-custom text-white"
-                        : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
+                    className={`slide-button px-6 py-3 font-medium text-sm ${
+                      activeDrinkTab === "softDrinks" ? "active" : ""
                     }`}
                   >
                     Soft Drinks
                   </Button>
                   <Button
                     onClick={() => setActiveDrinkTab("coffeeTea")}
-                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeDrinkTab === "coffeeTea"
-                        ? "bg-primary-custom text-white"
-                        : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
+                    className={`slide-button px-6 py-3 font-medium text-sm ${
+                      activeDrinkTab === "coffeeTea" ? "active" : ""
                     }`}
                   >
                     Coffee & Tea
                   </Button>
                   <Button
                     onClick={() => setActiveDrinkTab("beer")}
-                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeDrinkTab === "beer"
-                        ? "bg-primary-custom text-white"
-                        : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
+                    className={`slide-button px-6 py-3 font-medium text-sm ${
+                      activeDrinkTab === "beer" ? "active" : ""
                     }`}
                   >
                     Beer
                   </Button>
                   <Button
                     onClick={() => setActiveDrinkTab("spirits")}
-                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeDrinkTab === "spirits"
-                        ? "bg-primary-custom text-white"
-                        : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
+                    className={`slide-button px-6 py-3 font-medium text-sm ${
+                      activeDrinkTab === "spirits" ? "active" : ""
                     }`}
                   >
                     Spirits
                   </Button>
                   <Button
                     onClick={() => setActiveDrinkTab("cocktails")}
-                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeDrinkTab === "cocktails"
-                        ? "bg-primary-custom text-white"
-                        : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
+                    className={`slide-button px-6 py-3 font-medium text-sm ${
+                      activeDrinkTab === "cocktails" ? "active" : ""
                     }`}
                   >
                     Cocktails

@@ -1,0 +1,167 @@
+HOUSE WINE 	GLASS	BOTTLE
+	4,50 €	14,00 €
+Blason Esquide White		
+Region : Rioja		
+Grapes : Viura 		
+Tasting Notes : Pale green & crystalline color. 		
+Soft & delicious aroma.		
+		
+Blason Esquide Red	4,50 €	14,00 €
+Region : Rioja		
+Grape : Tempranillo		
+Tastting Notes : Cherry red. Fresh & fruity aroma.		
+		
+Blason Esquide Rose 	4,50 €	14,00 €
+Region : Rioja		
+Grapes : Tempranillo, Viura, Garnacha		
+Tastting Notes : Bright ruby. Soft & delicate aroma.		
+		
+WHITE WINE		
+		
+Lagarto Blanco	6,90 €	20,00 €
+Region: Castilla y León		
+Grape: Verdejo		
+Tasting Notes: Dry, fresh, and fragrant white. 		
+Aromas of green apple, mango, and passion fruit.		
+		
+Fraktique Sauvignon		21,00 €
+Region: Languedoc, France		
+Grapes: Sauvignon Blanc 99% / Grenache Blanc 10%		
+Tasting Notes: Bright pale green. Earthy fragrances and 		
+crisp fruit like kiwi, apple, and white apricot.		
+		
+Fraktique Chardonnay		22,90 €
+Region: Languedoc, France		
+Grape: Chardonnay		
+Tasting Notes: Bright and dense yellow. Floral and tropical aromas,		
+ with notes of pear and stone fruit. Balanced and refreshing.		
+		
+Le Couchon Pinot Grigio		24,00 €
+Region: Puglia, Italy		
+Grape: Pinot Grigio		
+Tasting Notes: Flavors of green apple, kiwi, lime, and ripe citrus. 		
+Rich in flavor, good texture, and fine finish.		
+		
+Mar Blanco		29,00 €
+Region: Güímar, Tenerife		
+Grape: Listán Blanco (1300 m altitude)		
+Tasting Notes: Straw-colored with greenish hues. Unfiltered, clean, 		
+fresh, and elegant. Notes of pear and pineapple.		
+		
+Irache Chardonnay		18,90 €
+Region: D.O. Navarra		
+Grape: Chardonnay		
+Tasting Notes: Pale yellow with green highlights. 		
+Tropical and citrus aromas.		
+		
+Viña Sol		15,00 €
+Region: D.O. Catalunya		
+Grapes: Parellada and Garnacha		
+Tasting Notes: Light and bright golden color. Citrus aromas. 		
+Silky, with subtle acidity and a delicate mouthfeel.		
+		
+Viña Alzará Blanco		15,00 €
+Region: Rioja		
+Grape: Viura		
+Tasting Notes: Transparent, fruity, ideal to drink very cold.		
+		
+Eido de Fonte		24,00 €
+Region: D.O. Rías Baixas (Subzone O Condado)		
+Grape: 100% Albariño		
+Tasting Notes: Lemon yellow with green reflections. Intense and 		
+complex aroma, with citrus notes, pear, apple, and peach.		
+		
+Red Wines		
+		
+		
+		
+		
+		
+		
+Lagarto Tinto	6,90 €	20,00 €
+Region: Castilla y León		
+Grapes: Tempranillo, Mencía		
+Tasting Notes: Deep red with violet rims.		
+Floral and blackberry aromas. Smooth and		
+silky with ripe tannins.		
+		
+Sembro 2019		24,00 €
+Region: Ribera del Duero		
+Grape: Tempranillo		
+Tasting Notes: Deep red. Aromas of blackberry		
+and currant. Raspberry jam finish.		
+		
+Acappele Crianza 2019		28,00 €
+Region: Ribera del Duero		
+Grape: Tempranillo		
+Tasting Notes: Intense cherry with garnet edge.		
+Aromas of candied fruit and sweet spices.		
+Powerful and tasty.		
+		
+Viña Alzará Joven		16,00 €
+Region: (not specified)		
+Grapes: Tempranillo, Graciano, Garnacha		
+Tasting Notes: Ripe fruit and bright color.		
+Traditional Rioja style.		
+		
+Rosé Wines		
+		
+		
+		
+		
+		
+		
+Lagarto Rosado	6,90 €	20,00 €
+Region: Castilla y León		
+Grape: Tempranillo		
+Tasting Notes: Pale pink. Fresh aromas of strawberry,		
+pear, and peach.		
+		
+Irache Rosado		17,50 €
+Region: D.O. Navarra		
+Grapes: Tempranillo, Garnacha		
+Tasting Notes: Raspberry pink. Aromas of strawberry		
+and raspberry. Fresh, tasty, and balanced.		
+		
+Mateus Rosado		16,50 €
+Region: Portugal		
+Grapes: Baga, Rufete, Tinta Barroca, Touriga Franca		
+Tasting Notes: Raspberry pink. Floral and fruity aroma.		
+Fresh, fruity, with fine bubbles.		
+		
+Proseccos and Sparkling Wines		
+		
+Le Couchon Bubblesque Prosecco		26,00 €
+Region: Veneto, Italy		
+Grapes: Blend of white grapes		
+Tasting Notes: Light straw yellow. Fine bubbles.		
+Dry and slightly bitter taste.		
+		
+Le Couchon Brut Prosecco		39,00 €
+Region: Treviso, Italy		
+Grape: Glera		
+Tasting Notes: Pale straw yellow. Fine perlage.		
+Dry and fragrant taste.		
+		
+Le Couchon Rosé Prosecco		32,00 €
+Region: Trevigiana		
+Grapes: Glera, Pinot Nero, Raboso		
+Tasting Notes: Bright pale pink. Fragrance of		
+strawberry, raspberry, and rose. Fresh and aromatic.		
+		
+Cava		22,00 €
+Grapes: Macabeo, Xarel·lo, Parellada		
+Tasting Notes: Traditional sparkling wine,		
+ideal for celebrations.		
+		
+Moët & Chandon		52,00 €
+Origin: France		
+Type: Champagne		
+Tasting Notes: Classic, elegant, and refined.		
+Persistent and balanced bubbles.		
+		
+SANGRIAS		1L
+		
+• Red Sangria	8,00 €	14,00 €
+• White Sangria	8,00 €	14,00 €
+• Cava Sangria	10,00 €	16,00 €
