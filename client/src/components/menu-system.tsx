@@ -131,6 +131,26 @@ export default function MenuSystem() {
           { name: "Paneer", price: "12,95 €", description: "Fresh cottage cheese in rich curry sauce" },
           { name: "Special Himalayan", price: "15,95 €", description: "Our signature protein dish with unique spice blend" }
         ]
+      },
+      {
+        title: "Curry Sauces",
+        description: "Choose your preferred curry sauce to combine with any protein above",
+        items: [
+          { name: "Masala", price: "", description: "Masala curry is one of the most popular dish with a mild flavour but rich in cream & almond" },
+          { name: "Korma", price: "", description: "Mild curry consisting of cream grated coconut" },
+          { name: "Balti", price: "", description: "Balti sauce is based on green peppers, garlic & onions with turmeric & garam masala among other spices" },
+          { name: "Bhuna", price: "", description: "Made with chopped onions, roasted red and green peppers, coriander seeds, ginger garlic coriander & fenugreek leaves" },
+          { name: "Curry", price: "", description: "Classic curry with fresh tomatoes & red onions in smooth sauce decorated with coriander" },
+          { name: "Dhansak", price: "", description: "Combines elements of Persian & Gujarati cuisine. Made with lentils, ginger, garlic, coconut, pineapple & fresh coriander" },
+          { name: "Dopiaza", price: "", description: "Dopiaza curry sauce is based on onions family (Brown onions, chives & spring onions)" },
+          { name: "Jalfrezi", price: "", description: "Involves bell peppers, ginger, garlic, cumin, coriander & spices in a thick sauce with a touch of cream" },
+          { name: "Karahi", price: "", description: "Prepared in special cast iron skillet, this curry is turned brown with chopped tomato, onions, coriander, ginger & garlic" },
+          { name: "Pathia", price: "", description: "Pathia is an ancient parsi cuisine from persia. It's bittersweet flavoured with a touch of coconut" },
+          { name: "Rogan Josh", price: "", description: "A kashmiri aromatic dish cooked with tomatoes, ginger, garlic & coriander" },
+          { name: "Saag", price: "", description: "Saag curry is a traditional Punjabi thick spinach curry cooked with spices & touch of cream" },
+          { name: "Manchuria", price: "", description: "Fresh mint in semidry sauce with tomatoes, lemon juice & garam masala" },
+          { name: "Jai Puri", price: "", description: "Semi dense curry prepared with fresh mushroom & onions with a touch of coconut, ginger & coriander" }
+        ]
       }
     ]
   };
