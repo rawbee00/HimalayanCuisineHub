@@ -84,30 +84,30 @@ export default function MenuSystem() {
         title: "Normal Starters",
         description: "Traditional Indian starters prepared with authentic spices and techniques",
         items: [
-          { name: "Onion Bhaji", price: "4,25 €", description: "Onions balls bound together with lightly spiced & fragrant chickpea flour batter" },
-          { name: "Vegetable Samosa", price: "4,50 €", description: "Triangular pastry filled with potatoes & peas, golden fried" },
-          { name: "Garlic Mushroom", price: "4,50 €", description: "Juicy mushroom sauteed in a rich garlic butter sauce with a hint of spice" },
-          { name: "Meat Samosa", price: "4,75 €", description: "Triangular pastry filled with potatoes, peas & meat, golden fried" },
-          { name: "Vegetable Pakora", price: "4,50 €", description: "Sliced vegetables wrapped in batter & deep fried" },
-          { name: "Chicken Pakora", price: "4,25 €", description: "Marinated chicken pieces in a batter, golden fried" },
-          { name: "Chicken Puri", price: "5,50 €", description: "Chicken cooked & served on deep fried round bread" },
-          { name: "King Prawn Puri", price: "5,95 €", description: "King prawn cooked with ginger - garlic & served on deep fried round bread" },
-          { name: "Garlic Chicken", price: "5,95 €", description: "Chicken cooked with garlic & lemon" },
-          { name: "Chicken Lollipop", price: "5,50 €", description: "Crispy, deep-fried chicken drumettes coated in a bold & zesty spicy mix" },
-          { name: "Hot Chicken Wings", price: "5,50 €", description: "Spicy, juicy wings coated in a fiery marinade that packs a punch" }
+          { name: "Onion Bhaji", price: "4,25 €", description: "Onions balls bound together with lightly spiced & fragrant chickpea flour batter." },
+          { name: "Vegetable Samosa", price: "4,50 €", description: "Triangular pastry filled with potatoes & peas, golden fried." },
+          { name: "Garlic Mushroom", price: "4,50 €", description: "Juicy mushroom sauteed in a rich garlic butter sauce with a hint of spice." },
+          { name: "Meat Samosa", price: "4,75 €", description: "Triangular pastry filled with potatoes, peas & meat, golden fried." },
+          { name: "Vegetable Pakora", price: "4,50 €", description: "Sliced vegetables wrapped in batter & deep fried." },
+          { name: "Chicken Pakora", price: "4,25 €", description: "Marinated chicken pieces in a batter, golden fried." },
+          { name: "Chicken Puri", price: "5,50 €", description: "Chicken cooked & served on deep fried round bread." },
+          { name: "King Prawn Puri", price: "5,95 €", description: "King prawn cooked with ginger - garlic & served on deep fried round bread." },
+          { name: "Garlic Chicken", price: "5,95 €", description: "Chicken cooked with garlic & lemon." },
+          { name: "Chicken Lollipop", price: "5,50 €", description: "Crispy, deep-fried chicken drumettes coated in a bold & zesty spicy mix." },
+          { name: "Hot Chicken Wings", price: "5,50 €", description: "Spicy, juicy wings coated in a fiery marinade that packs a punch." }
         ]
       },
       {
         title: "Tandoori Starters",
         description: "Fresh from our traditional clay oven, perfectly spiced and expertly prepared",
         items: [
-          { name: "Chicken Tikka", price: "4,50 €", description: "Boneless chicken pieces marinated spicy yogurt cooked in a tandoor" },
-          { name: "Tandoor Chicken", price: "5,50 €", description: "Chicken leg piece marinated in a spicy yogurt cooked in tandoor" },
-          { name: "Pudina Tikka", price: "5,50 €", description: "Boneless chicken pieces marinated with mint, ginger & cooked in tandoor" },
-          { name: "Lamb Tikka", price: "6,50 €", description: "Boneless lamb pieces marinated in a spicy yogurt & grilled in tandoor" },
-          { name: "Barra Kebab", price: "5,50 €", description: "Succulent lamb chop marinated in a yogurt & spices, flame-grilled for a smoky bite" },
-          { name: "Sheek Kebab", price: "5,50 €", description: "Minced lamb marinated with spiced, ginger, coriander & cooked on skewers in a tandoor" },
-          { name: "Garlic King Prawn", price: "5,90 €", description: "Grilled king prawn cooked with garlic & lemon" }
+          { name: "Chicken Tikka", price: "4,50 €", description: "Boneless chicken pieces marinated spicy yogurt cooked in a tandoor." },
+          { name: "Tandoor Chicken", price: "5,50 €", description: "Chicken leg piece marinated in a spicy yogurt cooked in tandoor." },
+          { name: "Pudina Tikka", price: "5,50 €", description: "Boneless chicken pieces marinated with mint, ginger & cooked in tandoor." },
+          { name: "Lamb Tikka", price: "6,50 €", description: "Boneless lamb pieces marinated in a spicy yogurt & grilled in tandoor." },
+          { name: "Barra Kebab", price: "5,50 €", description: "Succulent lamb chop marinated in a yogurt & spices, flame-grilled for a smoky bite." },
+          { name: "Sheek Kebab", price: "5,50 €", description: "Minced lamb marinated with spiced, ginger, coriander & cooked on skewers in a tandoor." },
+          { name: "Garlic King Prawn", price: "5,90 €", description: "Grilled king prawn cooked with garlic & lemon." }
         ]
       },
       {
@@ -136,20 +136,20 @@ export default function MenuSystem() {
         title: "Curry Sauces",
         description: "Choose your preferred curry sauce to combine with any protein above",
         items: [
-          { name: "Masala", price: "", description: "Masala curry is one of the most popular dish with a mild flavour but rich in cream & almond" },
-          { name: "Korma", price: "", description: "Mild curry consisting of cream grated coconut" },
-          { name: "Balti", price: "", description: "Balti sauce is based on green peppers, garlic & onions with turmeric & garam masala among other spices" },
-          { name: "Bhuna", price: "", description: "Made with chopped onions, roasted red and green peppers, coriander seeds, ginger garlic coriander & fenugreek leaves" },
-          { name: "Curry", price: "", description: "Classic curry with fresh tomatoes & red onions in smooth sauce decorated with coriander" },
-          { name: "Dhansak", price: "", description: "Combines elements of Persian & Gujarati cuisine. Made with lentils, ginger, garlic, coconut, pineapple & fresh coriander" },
+          { name: "Masala", price: "", description: "Masala curry is one of the most popular dish with a mild flavour but rich in a cream & almond." },
+          { name: "Korma", price: "", description: "Mild curry consisting of cream grated coconut." },
+          { name: "Balti", price: "", description: "Balti sauce is based on green peppers, garlic & onions with turmeric & garam masala among other spices." },
+          { name: "Bhuna", price: "", description: "Made with chopped onions, roasted red and green peppers, coriander seeds, ginger garlic coriander & fenugreek leaves." },
+          { name: "Curry", price: "", description: "Classic curry with a fresh tomatoes & red onions in smooth sauce decorated with coriander." },
+          { name: "Dhansak", price: "", description: "Combines elements of Persian & Gujarati cuisine. Dhansak is made with lentils, ginger, garlic, coconut, pineapple & fresh coriander." },
           { name: "Dopiaza", price: "", description: "Dopiaza curry sauce is based on onions family (Brown onions, chives & spring onions)" },
-          { name: "Jalfrezi", price: "", description: "Involves bell peppers, ginger, garlic, cumin, coriander & spices in a thick sauce with a touch of cream" },
-          { name: "Karahi", price: "", description: "Prepared in special cast iron skillet, this curry is turned brown with chopped tomato, onions, coriander, ginger & garlic" },
-          { name: "Pathia", price: "", description: "Pathia is an ancient parsi cuisine from persia. It's bittersweet flavoured with a touch of coconut" },
-          { name: "Rogan Josh", price: "", description: "A kashmiri aromatic dish cooked with tomatoes, ginger, garlic & coriander" },
-          { name: "Saag", price: "", description: "Saag curry is a traditional Punjabi thick spinach curry cooked with spices & touch of cream" },
-          { name: "Manchuria", price: "", description: "Fresh mint in semidry sauce with tomatoes, lemon juice & garam masala" },
-          { name: "Jai Puri", price: "", description: "Semi dense curry prepared with fresh mushroom & onions with a touch of coconut, ginger & coriander" }
+          { name: "Jalfrezi", price: "", description: "Involves bell peppers, ginger, garlic, cumin, coriander & spices in a thick sauce with a touch of cream." },
+          { name: "Karahi", price: "", description: "Prepared in special cast iron skillet, this curry is turned brown with chopped tomato, onions, coriander, ginger & garlic." },
+          { name: "Pathia", price: "", description: "Pathia is an ancient parsi cuisine from persia. It's bittersweet flavoured with a touch of coconut." },
+          { name: "Rogan Josh", price: "", description: "A kashmiri aromatic dish cooked with tomatoes, ginger, garlic & coriander." },
+          { name: "Saag", price: "", description: "Saag curry is a traditional Punjabi thick spinach curry cooked with spices & touch of cream." },
+          { name: "Manchuria", price: "", description: "Fresh mint in semidry sauce with tomatoes, lemon juice & garam masala." },
+          { name: "Jai Puri", price: "", description: "Semi dense curry prepared with fresh mushroom & onions with a touch of coconut, ginger & coriander." }
         ]
       },
       {
