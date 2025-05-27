@@ -245,58 +245,59 @@ export default function MenuSystem() {
       }
     ],
     wine: [
-    {
-      title: "House Wine",
-      description: "Our carefully selected house wines by the glass or bottle",
-      items: [
-        { name: "Blason Esquide White", price: "Glass: 4,50 € | Bottle: 14,00 €", description: "Region: Rioja | Grapes: Viura | Pale green & crystalline color. Soft & delicious aroma." },
-        { name: "Blason Esquide Red", price: "Glass: 4,50 € | Bottle: 14,00 €", description: "Region: Rioja | Grape: Tempranillo | Cherry red. Fresh & fruity aroma." },
-        { name: "Blason Esquide Rosé", price: "Glass: 4,50 € | Bottle: 14,00 €", description: "Region: Rioja | Grapes: Tempranillo, Viura, Garnacha | Bright ruby. Soft & delicate aroma." }
-      ]
-    },
-    {
-      title: "White Wines",
-      description: "Premium white wines from renowned regions",
-      items: [
-        { name: "Lagarto Blanco", price: "Glass: 6,90 € | Bottle: 20,00 €", description: "Region: Castilla y León | Grape: Verdejo | Dry, fresh, and fragrant white. Aromas of green apple, mango, and passion fruit." },
-        { name: "Fraktique Sauvignon", price: "21,00 €", description: "Region: Languedoc, France | Grapes: Sauvignon Blanc 99% / Grenache Blanc 10% | Bright pale green. Earthy fragrances and crisp fruit like kiwi, apple, and white apricot." },
-        { name: "Fraktique Chardonnay", price: "22,90 €", description: "Region: Languedoc, France | Grape: Chardonnay | Bright and dense yellow. Floral and tropical aromas, with notes of pear and stone fruit." },
-        { name: "Le Couchon Pinot Grigio", price: "24,00 €", description: "Region: Puglia, Italy | Grape: Pinot Grigio | Flavors of green apple, kiwi, lime, and ripe citrus. Rich in flavor, good texture." },
-        { name: "Mar Blanco", price: "29,00 €", description: "Region: Güímar, Tenerife | Grape: Listán Blanco (1300m altitude) | Straw-colored with greenish hues. Notes of pear and pineapple." },
-        { name: "Irache Chardonnay", price: "18,90 €", description: "Region: D.O. Navarra | Grape: Chardonnay | Pale yellow with green highlights. Tropical and citrus aromas." }
-      ]
-    },
-    {
-      title: "Red Wines",
-      description: "Rich and complex red wines",
-      items: [
-        { name: "Lagarto Tinto", price: "Glass: 6,90 € | Bottle: 20,00 €", description: "Region: Castilla y León | Grapes: Tempranillo, Mencía | Deep red with violet rims. Floral and blackberry aromas." },
-        { name: "Sembro 2019", price: "24,00 €", description: "Region: Ribera del Duero | Grape: Tempranillo | Deep red. Aromas of blackberry and currant. Raspberry jam finish." },
-        { name: "Acappele Crianza 2019", price: "28,00 €", description: "Region: Ribera del Duero | Grape: Tempranillo | Intense cherry with garnet edge. Aromas of candied fruit and sweet spices." },
-        { name: "Viña Alzará Joven", price: "16,00 €", description: "Grapes: Tempranillo, Graciano, Garnacha | Ripe fruit and bright color. Traditional Rioja style." }
-      ]
-    },
-    {
-      title: "Rosé & Sparkling Wines",
-      description: "Light rosés and celebratory sparkling wines",
-      items: [
-        { name: "Lagarto Rosado", price: "Glass: 6,90 € | Bottle: 20,00 €", description: "Region: Castilla y León | Grape: Tempranillo | Pale pink. Fresh aromas of strawberry, pear, and peach." },
-        { name: "Irache Rosado", price: "17,50 €", description: "Region: D.O. Navarra | Grapes: Tempranillo, Garnacha | Raspberry pink. Aromas of strawberry and raspberry." },
-        { name: "Le Couchon Bubblesque Prosecco", price: "26,00 €", description: "Region: Veneto, Italy | Light straw yellow. Fine bubbles. Dry and slightly bitter taste." },
-        { name: "Le Couchon Brut Prosecco", price: "39,00 €", description: "Region: Treviso, Italy | Grape: Glera | Pale straw yellow. Fine perlage. Dry and fragrant taste." },
-        { name: "Moët & Chandon", price: "52,00 €", description: "Origin: France | Type: Champagne | Classic, elegant, and refined. Persistent and balanced bubbles." }
-      ]
-    },
-    {
-      title: "Sangrias",
-      description: "Traditional Spanish sangrias - perfect for sharing",
-      items: [
-        { name: "Red Sangria", price: "Glass: 8,00 € | 1L: 14,00 €", description: "Traditional red wine sangria with fresh fruits" },
-        { name: "White Sangria", price: "Glass: 8,00 € | 1L: 14,00 €", description: "Refreshing white wine sangria with citrus fruits" },
-        { name: "Cava Sangria", price: "Glass: 10,00 € | 1L: 16,00 €", description: "Sparkling sangria made with premium cava" }
-      ]
-    }
-  ];
+      {
+        title: "House Wine",
+        description: "Our carefully selected house wines by the glass or bottle",
+        items: [
+          { name: "Blason Esquide White", price: "Glass: 4,50 € | Bottle: 14,00 €", description: "Region: Rioja | Grapes: Viura | Pale green & crystalline color. Soft & delicious aroma." },
+          { name: "Blason Esquide Red", price: "Glass: 4,50 € | Bottle: 14,00 €", description: "Region: Rioja | Grape: Tempranillo | Cherry red. Fresh & fruity aroma." },
+          { name: "Blason Esquide Rosé", price: "Glass: 4,50 € | Bottle: 14,00 €", description: "Region: Rioja | Grapes: Tempranillo, Viura, Garnacha | Bright ruby. Soft & delicate aroma." }
+        ]
+      },
+      {
+        title: "White Wines",
+        description: "Premium white wines from renowned regions",
+        items: [
+          { name: "Lagarto Blanco", price: "Glass: 6,90 € | Bottle: 20,00 €", description: "Region: Castilla y León | Grape: Verdejo | Dry, fresh, and fragrant white. Aromas of green apple, mango, and passion fruit." },
+          { name: "Fraktique Sauvignon", price: "21,00 €", description: "Region: Languedoc, France | Grapes: Sauvignon Blanc 99% / Grenache Blanc 10% | Bright pale green. Earthy fragrances and crisp fruit like kiwi, apple, and white apricot." },
+          { name: "Fraktique Chardonnay", price: "22,90 €", description: "Region: Languedoc, France | Grape: Chardonnay | Bright and dense yellow. Floral and tropical aromas, with notes of pear and stone fruit." },
+          { name: "Le Couchon Pinot Grigio", price: "24,00 €", description: "Region: Puglia, Italy | Grape: Pinot Grigio | Flavors of green apple, kiwi, lime, and ripe citrus. Rich in flavor, good texture." },
+          { name: "Mar Blanco", price: "29,00 €", description: "Region: Güímar, Tenerife | Grape: Listán Blanco (1300m altitude) | Straw-colored with greenish hues. Notes of pear and pineapple." },
+          { name: "Irache Chardonnay", price: "18,90 €", description: "Region: D.O. Navarra | Grape: Chardonnay | Pale yellow with green highlights. Tropical and citrus aromas." }
+        ]
+      },
+      {
+        title: "Red Wines",
+        description: "Rich and complex red wines",
+        items: [
+          { name: "Lagarto Tinto", price: "Glass: 6,90 € | Bottle: 20,00 €", description: "Region: Castilla y León | Grapes: Tempranillo, Mencía | Deep red with violet rims. Floral and blackberry aromas." },
+          { name: "Sembro 2019", price: "24,00 €", description: "Region: Ribera del Duero | Grape: Tempranillo | Deep red. Aromas of blackberry and currant. Raspberry jam finish." },
+          { name: "Acappele Crianza 2019", price: "28,00 €", description: "Region: Ribera del Duero | Grape: Tempranillo | Intense cherry with garnet edge. Aromas of candied fruit and sweet spices." },
+          { name: "Viña Alzará Joven", price: "16,00 €", description: "Grapes: Tempranillo, Graciano, Garnacha | Ripe fruit and bright color. Traditional Rioja style." }
+        ]
+      },
+      {
+        title: "Rosé & Sparkling Wines",
+        description: "Light rosés and celebratory sparkling wines",
+        items: [
+          { name: "Lagarto Rosado", price: "Glass: 6,90 € | Bottle: 20,00 €", description: "Region: Castilla y León | Grape: Tempranillo | Pale pink. Fresh aromas of strawberry, pear, and peach." },
+          { name: "Irache Rosado", price: "17,50 €", description: "Region: D.O. Navarra | Grapes: Tempranillo, Garnacha | Raspberry pink. Aromas of strawberry and raspberry." },
+          { name: "Le Couchon Bubblesque Prosecco", price: "26,00 €", description: "Region: Veneto, Italy | Light straw yellow. Fine bubbles. Dry and slightly bitter taste." },
+          { name: "Le Couchon Brut Prosecco", price: "39,00 €", description: "Region: Treviso, Italy | Grape: Glera | Pale straw yellow. Fine perlage. Dry and fragrant taste." },
+          { name: "Moët & Chandon", price: "52,00 €", description: "Origin: France | Type: Champagne | Classic, elegant, and refined. Persistent and balanced bubbles." }
+        ]
+      },
+      {
+        title: "Sangrias",
+        description: "Traditional Spanish sangrias - perfect for sharing",
+        items: [
+          { name: "Red Sangria", price: "Glass: 8,00 € | 1L: 14,00 €", description: "Traditional red wine sangria with fresh fruits" },
+          { name: "White Sangria", price: "Glass: 8,00 € | 1L: 14,00 €", description: "Refreshing white wine sangria with citrus fruits" },
+          { name: "Cava Sangria", price: "Glass: 10,00 € | 1L: 16,00 €", description: "Sparkling sangria made with premium cava" }
+        ]
+      }
+    ]
+  };
 
   return (
     <section className="bg-white py-16 md:py-20">
@@ -454,6 +455,14 @@ export default function MenuSystem() {
                   >
                     Cocktails
                   </Button>
+                  <Button
+                    onClick={() => setActiveDrinkTab("wine")}
+                    className={`slide-button px-6 py-3 font-medium text-sm ${
+                      activeDrinkTab === "wine" ? "active" : ""
+                    }`}
+                  >
+                    Wine
+                  </Button>
                 </div>
 
                 {/* Drinks Content */}
@@ -487,50 +496,7 @@ export default function MenuSystem() {
             )}
           </div>
 
-          {/* Wine Tab Content */}
-          <div className={`tab-content ${activeMainTab === "wine" ? "active" : ""}`}>
-            {activeMainTab === "wine" && (
-              <div>
-                <div className="text-center mb-8">
-                  <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-4">Wine Selection</h4>
-                  <p className="text-primary-custom">Discover our carefully curated collection of fine wines</p>
-                </div>
-                
-                {/* Wine Content */}
-                <div className="grid lg:grid-cols-2 gap-6 slide-in stagger-animation">
-                  {wineMenuData.map((section, index) => (
-                    <Card key={index} className="menu-card bg-white border border-gray-200">
-                      <CardContent className="p-6">
-                        <h5 className="yadri-font text-xl font-bold text-primary-custom mb-3 leading-relaxed">
-                          {section.title}
-                        </h5>
-                        <p className="text-primary-custom mb-5 leading-relaxed text-sm">{section.description}</p>
-                        <div className="space-y-4">
-                          {section.items.map((item, itemIndex) => (
-                            <div key={itemIndex} className="flex flex-col gap-2">
-                              <div className="flex justify-between items-start">
-                                <span className="font-medium text-primary-custom leading-relaxed">
-                                  {item.name}
-                                </span>
-                                <span className="text-primary-custom font-semibold text-sm whitespace-nowrap ml-2">
-                                  {item.price}
-                                </span>
-                              </div>
-                              {(item as any).description && (
-                                <p className="text-sm text-gray-600 italic leading-relaxed">
-                                  {(item as any).description}
-                                </p>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+
         </div>
       </div>
     </section>

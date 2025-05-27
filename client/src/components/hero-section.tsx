@@ -1,8 +1,15 @@
 import { Button } from "@/components/ui/button";
 
+// import backgroundImage from "@assets/5761A4A3-073E-4CB8-9054-2E7BB28A077D.PNG";
+
 export default function HeroSection() {
   return (
-    <section className="bg-black text-white py-16 md:py-24 hero-pattern">
+    <section 
+      className="bg-black text-white py-16 md:py-24 hero-pattern relative"
+      style={{
+        background: 'linear-gradient(135deg, #040844 0%, #1a1f8a 50%, #040844 100%)'
+      }}
+    >
       <div className="max-w-4xl mx-auto px-4 text-center">
         <h3 className="yadri-font text-3xl md:text-5xl font-bold mb-6 slide-in">
           Authentic Flavors from the Himalayas
