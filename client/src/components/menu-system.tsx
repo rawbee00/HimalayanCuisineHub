@@ -156,47 +156,47 @@ export default function MenuSystem() {
         title: "Sizzlers",
         description: "Served on hot sizzling plates straight from our tandoor - a feast for all your senses",
         items: [
-          { name: "Paneer Shashlik", price: "11,50 €", description: "Chunks of paneer marinated in spices, cooked with onions & bell peppers" },
-          { name: "Chicken Tikka Sizzler", price: "11,50 €", description: "Chicken marinated in spicy yogurt & cooked in tandoor. Served with lemon & fried spicy onions" },
-          { name: "Chicken Tikka Shashlik", price: "13,50 €", description: "Chicken marinated in spicy yogurt & cooked in tandoor. Served with peppers, tomato, lemon & onions" },
-          { name: "Lamb Tikka Sizzler", price: "12,95 €", description: "Lamb marinated in spicy yogurt & cooked in tandoor. Served with lemon & fried spicy onions" },
-          { name: "Lamb Tikka Shashlik", price: "14,50 €", description: "Lamb marinated in spicy yogurt & cooked in tandoor. Served with peppers, tomato, lemon & onions" },
-          { name: "Tandoori Chicken Sizzler", price: "11,50 €", description: "Chicken leg with bone marinated in spicy yogurt, cooked in tandoor & served with lemon & fried onions" },
-          { name: "King Prawn Sizzler", price: "13,95 €", description: "King prawns marinated in spices, cooked in tandoori oven & served with lemons & onions" },
-          { name: "Tandoori Mix Grill", price: "15,95 €", description: "Mix of lamb tikka, sheekh kebab, chicken tikka & king prawns" }
+          { name: "Paneer Shashlik", price: "11,50 €", description: "Chunks of paneer marinated in spices, cooked with onions & bell peppers." },
+          { name: "Chicken Tikka Sizzler", price: "11,50 €", description: "Chicken marinated in spicy yogurt & cooked in tandoor. Served with lemon & fried spicy onions." },
+          { name: "Chicken Tikka Shashlik", price: "13,50 €", description: "Chicken marinated in spicy yogurt & cooked in tandoor. Served with peppers, tomato, lemon & onions." },
+          { name: "Lamb Tikka Sizzler", price: "12,95 €", description: "Lamb marinated in spicy yogurt & cooked in tandoor. Served with lemon & fried spicy onions." },
+          { name: "Lamb Tikka Shashlik", price: "14,50 €", description: "Lamb marinated in spicy yogurt & cooked in tandoor. Served with peppers, tomato, lemon & onions." },
+          { name: "Tandoori Chicken Sizzler", price: "11,50 €", description: "Chicken leg with bone marinated in spicy yogurt, cooked in tandoor & served with lemon & fried onions." },
+          { name: "King Prawn Sizzler", price: "13,95 €", description: "King prawns marinated in spices, cooked in tandoori oven & served with lemons & onions." },
+          { name: "Tandoori Mix Grill", price: "15,95 €", description: "Mix of lamb tikka, sheekh kebab, chicken tikka & king prawns." }
         ]
       },
       {
         title: "House Special",
         description: "Our chef's signature creations - unique dishes that showcase the best of our kitchen",
         items: [
-          { name: "Mango Chicken", price: "11,95 €", description: "Boneless chicken cooked with mango pulp in traditional curry sauce" },
-          { name: "Methi Gosht", price: "12,95 €", description: "Tender pieces of lamb cooked with fenugreek leaves, herbs & spices" },
-          { name: "Chilli Chicken", price: "14,50 €", description: "Cooked with onions, tomatoes, cumin seeds" },
-          { name: "Butter Chicken", price: "14,50 €", description: "Chicken pieces in a creamy sauce with extra butter, almond & a touch of garlic & fenugreek" },
-          { name: "Chilli Paneer", price: "14,50 €", description: "Soft paneer cubes in a vibrant spicy sauce" },
-          { name: "Keema Mutter Masala", price: "14,50 €", description: "Minced meat & peas in a flavorful gravy" },
-          { name: "Hakka Noodles", price: "13,50 €", description: "Stir-fried noodles with crisp vegetables" },
-          { name: "Malai Kofta", price: "14,50 €", description: "Cottage cheese dumplings in a creamy tomato gravy" },
-          { name: "Butter Lamb", price: "15,50 €", description: "Slow-cooked lamb in a silky butter sauce" },
-          { name: "Chilli King Prawn", price: "15,50 €", description: "Jumbo prawns in a tangy chilli sauce" }
+          { name: "Mango Chicken", price: "11,95 €", description: "Boneless chicken cooked with mango pulp in traditional curry sauce." },
+          { name: "Methi Gosht", price: "12,95 €", description: "Tender pieces of lamb cooked with fenugreek, leaves, herbs & spices." },
+          { name: "Chilli Chicken", price: "14,50 €", description: "Cooked with onions, tomatoes, cumin seeds." },
+          { name: "Butter Chicken", price: "14,50 €", description: "Chicken pieces in a creamy sauce with extra butter, almond & a touch of garlic & fenugreek." },
+          { name: "Chilli Paneer", price: "14,50 €", description: "Soft paneer cubes in a vibrant spicy sauce." },
+          { name: "Keema Mutter Masala", price: "14,50 €", description: "Minced meat & peas in a flavorful gravy." },
+          { name: "Hakka Noodles", price: "13,50 €", description: "Stir-fried noodles with crisp vegetables." },
+          { name: "Malai Kofta", price: "14,50 €", description: "Cottage cheese dumplings in a creamy tomato gravy." },
+          { name: "Butter Lamb", price: "15,50 €", description: "Slow-cooked lamb in a silky butter sauce." },
+          { name: "Chilli King Prawn", price: "15,50 €", description: "Jumbo prawns in a tangy chilli sauce." }
         ]
       },
       {
         title: "Sides",
         description: "Traditional Indian side dishes to complement your main course",
         items: [
-          { name: "Bombay Aloo", price: "7,90 €", description: "Classic potatoes curry served in a semi dry sauce & flavoured with various spices as cumin, turmeric & garam masala" },
-          { name: "Aubergine Bhaji", price: "7,90 €", description: "Aubergine cooked in a tandoor then peeled in a semi spicy curry base" },
-          { name: "Aloo Gobi", price: "8,50 €", description: "Potatoes & cauliflower curry served in a semi dry sauce" },
-          { name: "Saag Aloo", price: "7,90 €", description: "Spinach curry with potatoes, spices & touch of cream" },
-          { name: "Saag Bhaji", price: "7,90 €", description: "Spinach cooked with spices & a touch of cream for a deliciously mild & comforting dish" },
-          { name: "Palak Paneer", price: "9,95 €", description: "Homemade cheese cooked with spinach & seasoned with garlic, garam masala" },
-          { name: "Mutter Paneer", price: "9,95 €", description: "Soft paneer & green peas in a luscious tomato-based sauce" },
-          { name: "Tadka Daal", price: "7,90 €", description: "Yellow split peas cooked with chopped onions, cumin, ginger, garlic & coriander" },
-          { name: "Daal Makhani", price: "8,50 €", description: "Daal makhani is a classic north indian dish where the lentils are cooked in a very aromatic buttery, creamy tomato sauce" },
-          { name: "Chana Masala", price: "8,50 €", description: "Chickpeas cooked with tomatoes, garlic, onions, & various spices such as turmeric & garam masala" },
-          { name: "Mushroom Bhaji", price: "9,95 €", description: "Sliced mushroom cooked with onions & spices" }
+          { name: "Bombay Aloo", price: "7,90 €", description: "Classic potatoes curry served in a semi dry sauce & flavoured with various spices as cumin, turmeric & garam masala." },
+          { name: "Aubergine Bhaji", price: "7,90 €", description: "Aubergine cooked in a tandoor then peeled in a semi spicy curry base." },
+          { name: "Aloo Gobi", price: "8,50 €", description: "Potatoes & cauliflower curry served in a semi dry sauce." },
+          { name: "Saag Aloo", price: "7,90 €", description: "Spinach curry with potatoes, spices & touch of cream." },
+          { name: "Saag Bhaji", price: "7,90 €", description: "Spinach cooked with spices & a touch of cream for a deliciously mild & comforting dish." },
+          { name: "Palak Paneer", price: "9,95 €", description: "Homemade cheese cooked with spinach & seasoned with garlic, garam masala." },
+          { name: "Mutter Paneer", price: "9,95 €", description: "Soft paneer & green peas in a luscious tomato-based sauce." },
+          { name: "Tadka Daal", price: "7,90 €", description: "Yellow split peas cooked with chopped onions, cumin, ginger, garlic & coriander." },
+          { name: "Daal Makhani", price: "8,50 €", description: "Daal makhani is a classic north indian dish where the lentils are cooked in a very aromatic buttery, creamy tomato sauce." },
+          { name: "Chana Masala", price: "8,50 €", description: "Chickpeas cooked with tomatoes, garlic, onions, & various spices such as turmeric & garam masala." },
+          { name: "Mushroom Bhaji", price: "9,95 €", description: "Sliced mushroom, cooked with onions & spices." }
         ]
       },
       {
