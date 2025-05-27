@@ -218,48 +218,48 @@ export default function MenuSystem() {
         title: "Rice",
         description: "Traditional basmati rice dishes to complement your meal",
         items: [
-          { name: "Plain Boiled Rice", price: "3,50 €", description: "Traditional white basmati rice" },
-          { name: "Pilau Rice", price: "3,80 €", description: "Indian basmati rice with three colours. Flavoured with onions, cinnamon, cloves & herbs" },
-          { name: "Keema Rice", price: "4,95 €", description: "Basmati rice cooked with mincemeat & spices" },
-          { name: "Coconut Rice", price: "4,50 €", description: "Sweet basmati coconut rice served in its special colour" },
-          { name: "Mix Vegetable Rice", price: "4,50 €", description: "Stir fried mix vegetable in basmati rice" },
-          { name: "Mushroom Rice", price: "4,50 €", description: "Stir fried mushroom in basmati rice" },
-          { name: "Garlic Rice", price: "4,50 €", description: "Basmati rice with garlic & spices" },
-          { name: "Zeera Rice", price: "4,50 €", description: "Basmati rice cooked with cumin & garnished with coriander" },
-          { name: "Egg Fried Rice", price: "4,50 €", description: "Egg fried basmati rice" },
-          { name: "Onion Rice", price: "4,50 €", description: "Basmati rice cooked with onions" },
-          { name: "Special Fried Rice", price: "5,50 €", description: "Basmati rice with eggs & peas" },
-          { name: "Himalayan Rice", price: "5,95 €", description: "Rice prepared in the chef's special style with prawn, mix vegetables & touch of mint" }
+          { name: "Plain Boiled Rice", price: "3,50 €", description: "Traditional white basmati rice." },
+          { name: "Pilau Rice", price: "3,80 €", description: "Indian basmati rice with three colours. Flavoured with onions, cinnamon, cloves & herbs." },
+          { name: "Keema Rice", price: "4,95 €", description: "Basmati rice cooked with mincemeat & spices." },
+          { name: "Coconut Rice", price: "4,50 €", description: "Sweet basmati coconut rice served in its special colour." },
+          { name: "Mix Vegetable Rice", price: "4,50 €", description: "Stir fried mix vegetable in basmati rice." },
+          { name: "Mushroom Rice", price: "4,50 €", description: "Stir fried mushroom in basmati rice." },
+          { name: "Garlic Rice", price: "4,50 €", description: "Basmati rice with garlic & spices." },
+          { name: "Zeera Rice", price: "4,50 €", description: "Basmati rice cooked with cumin & garnished with coriander." },
+          { name: "Egg Fried Rice", price: "4,50 €", description: "Egg fried basmati rice." },
+          { name: "Onion Rice", price: "4,50 €", description: "Basmati rice cooked with onions." },
+          { name: "Special Fried Rice", price: "5,50 €", description: "Basmati rice with eggs & peas." },
+          { name: "Himalayan Rice", price: "5,95 €", description: "Rice prepared in the chef's special style with prawn, mix vegetables & touch of mint." }
         ]
       },
       {
         title: "Indian Bread",
         description: "Freshly baked naan bread from our tandoor oven",
         items: [
-          { name: "Plain Naan", price: "2,95 €", description: "Naan bread slightly buttered on top" },
-          { name: "Garlic Naan", price: "3,25 €", description: "Naan bread topped with garlic & coriander" },
-          { name: "Coconut Naan", price: "3,75 €", description: "Naan bread topped with coconut" },
-          { name: "Keema Naan", price: "3,95 €", description: "Naan bread filled with spiced minced meat" },
-          { name: "Peshwari Naan", price: "3,95 €", description: "Naan bread filled with coconut, sultanas, almonds & sugar" },
-          { name: "Cheese Naan", price: "3,95 €", description: "Naan bread filled with cheese" },
-          { name: "Butter Naan", price: "3,50 €", description: "Naan bread with butter" },
-          { name: "Onion Naan", price: "3,75 €", description: "Naan bread topped with fresh onions & coriander" },
-          { name: "Kulcha Naan", price: "3,95 €", description: "Topped with green & red peppers & touch of green chilli" },
-          { name: "Chilli Naan", price: "3,50 €", description: "Naan bread topped with chilli" },
-          { name: "Garlic Chilli Naan", price: "3,95 €", description: "Naan bread topped with garlic & chilli" },
-          { name: "Garlic Cheese Naan", price: "4,20 €", description: "Naan bread filled with cheese & topped with garlic" },
-          { name: "Chilli Cheese Naan", price: "4,20 €", description: "Naan bread filled with cheese & topped with chilli" }
+          { name: "Plain Naan", price: "2,95 €", description: "Naan Bread slightly buttered on top." },
+          { name: "Garlic Naan", price: "3,25 €", description: "Naan bread topped with garlic & coriander." },
+          { name: "Coconut Naan", price: "3,75 €", description: "Naan bread topped with coconut." },
+          { name: "Keema Naan", price: "3,95 €", description: "Naan bread filled with spiced minced meat." },
+          { name: "Peshwari Naan", price: "3,95 €", description: "Naan bread filled with coconut, sultanas, almonds & sugar." },
+          { name: "Cheese Naan", price: "3,95 €", description: "Naan bread filled with cheese." },
+          { name: "Butter Naan", price: "3,50 €", description: "Naan bread with butter." },
+          { name: "Onion Naan", price: "3,75 €", description: "Naan bread topped with fresh onions & coriander." },
+          { name: "Kulcha Naan", price: "3,95 €", description: "Topped with green & red peppers & touch of green chilli." },
+          { name: "Chilli Naan", price: "3,50 €", description: "Naan bread topped with chilli." },
+          { name: "Garlic Chilli Naan", price: "3,95 €", description: "Naan bread topped with garlic & chilli." },
+          { name: "Garlic Cheese Naan", price: "4,20 €", description: "Naan bread filled with cheese & topped with garlic." },
+          { name: "Chilli Cheese Naan", price: "4,20 €", description: "Naan bread filled with cheese & topped with chilli." }
         ]
       },
       {
-        title: "Chapatis & Parathas",
-        description: "Traditional Indian flatbreads made fresh daily",
+        title: "Chapatis",
+        description: "Traditional thin Indian breads",
         items: [
-          { name: "Chapati", price: "2,50 €", description: "Thin Indian bread" },
-          { name: "Butter Chapati", price: "2,95 €", description: "Thin Indian bread with butter" },
-          { name: "Tandoori Roti", price: "2,95 €", description: "Thin Indian bread cooked in tandoor" },
-          { name: "Plain Paratha", price: "3,25 €", description: "Indian bread made with layers of butter" },
-          { name: "Aloo Paratha", price: "3,50 €", description: "Filled with mashed potatoes & peas with spices & butter" }
+          { name: "Chapati", price: "2,50 €", description: "Thin Indian bread." },
+          { name: "Butter Chapati", price: "2,95 €", description: "Thin Indian bread with butter." },
+          { name: "Tandoori Roti", price: "2,95 €", description: "Thin Indian bread cooked in tandoor." },
+          { name: "Plain Paratha", price: "3,25 €", description: "Indian bread made with layers of butter." },
+          { name: "Aloo Paratha", price: "3,50 €", description: "Filled with mashed potatoes & peas with spices & butter." }
         ]
       }
     ]
