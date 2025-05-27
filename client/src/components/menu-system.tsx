@@ -22,43 +22,50 @@ export default function MenuSystem() {
       },
       {
         title: "1. Starter: Nepali Flavor",
-        description: "Begin your culinary journey with traditional appetizers",
+        description: "Choose your appetizer to begin the journey",
         items: [
-          { name: "Mo:Mo (Choose your filling)", price: "Included" },
+          { name: "Mo:Mo (Choose your filling)", price: "" },
           { name: "• Vegan: Textured soy, cabbage, Himalayan spices", price: "" },
           { name: "• Chicken: Free-range chicken with garlic & ginger", price: "" },
           { name: "• Pork: Traditional Kathmandu-style rich & gamey", price: "" },
-          { name: "Aloo Sadeko (potato salad with lemon & toasted mustard)", price: "Included" },
-          { name: "Gundruk Ko Achar (fermented leafy greens with kale)", price: "Included" },
-          { name: "Served with tomato achar (spiced Nepali sauce)", price: "Included" }
+          { name: "OR", price: "" },
+          { name: "Aloo Sadeko (potato salad with lemon & toasted mustard)", price: "" },
+          { name: "OR", price: "" },
+          { name: "Gundruk Ko Achar (fermented leafy greens with kale)", price: "" },
+          { name: "Served with tomato achar (spiced Nepali sauce)", price: "" }
         ]
       },
       {
         title: "2. Soup: Reimagined Thukpa / Sherpa's Bowl",
-        description: "Warming broths inspired by mountain traditions",
+        description: "Choose your warming broth",
         items: [
-          { name: "Vegan: Shiitake & ginger broth with rice noodles", price: "Included" },
-          { name: "Standard: Chicken broth with vegetables & dhaniya", price: "Included" },
-          { name: "Kwati (mixed legumes with cumin & turmeric)", price: "Included" }
+          { name: "Vegan: Shiitake & ginger broth with rice noodles", price: "" },
+          { name: "OR", price: "" },
+          { name: "Standard: Chicken broth with vegetables & dhaniya", price: "" },
+          { name: "OR", price: "" },
+          { name: "Kwati (mixed legumes with cumin & turmeric)", price: "" }
         ]
       },
       {
         title: "3. Main Course: Thakali",
-        description: "Hearty mountain curries prepared with traditional techniques",
+        description: "Choose your main curry dish",
         items: [
-          { name: "Vegan: Soy in jimbu & tomato sauce", price: "Included" },
-          { name: "Chicken Curry (Bone-in with fenugreek seeds)", price: "Included" },
-          { name: "Kahsi ko Masu / Goat Curry", price: "Included" },
+          { name: "Vegan: Soy in jimbu & tomato sauce", price: "" },
+          { name: "OR", price: "" },
+          { name: "Chicken Curry (Bone-in with fenugreek seeds)", price: "" },
+          { name: "OR", price: "" },
+          { name: "Kahsi ko Masu / Goat Curry", price: "" },
           { name: "(Bone-in slow-cooked with cardamom & black pepper)", price: "" }
         ]
       },
       {
         title: "4. Dessert: Yomari & Dhau",
-        description: "Traditional sweets to complete your mountain feast",
+        description: "Choose your traditional sweet ending",
         items: [
-          { name: "Dhau (coconut yogurt with cardamom)", price: "Included" },
-          { name: "Yomari (coconut & nut molasses dumpling)", price: "Included" },
-          { name: "Optional: Kheer (Nepali-style rice pudding)", price: "Available" }
+          { name: "Dhau (coconut yogurt with cardamom)", price: "" },
+          { name: "OR", price: "" },
+          { name: "Yomari (coconut & nut molasses dumpling)", price: "" },
+          { name: "Optional Add-on: Kheer (Nepali-style rice pudding)", price: "+3,00 €" }
         ]
       }
     ],
@@ -337,8 +344,8 @@ export default function MenuSystem() {
                                 </span>
                                 {item.price && (
                                   <span className={`text-primary-custom font-semibold ${
-                                    item.price === 'Included' || item.price === 'Available' 
-                                      ? 'text-sm text-green-600' 
+                                    item.price.startsWith('+') 
+                                      ? 'text-sm text-orange-600' 
                                       : 'text-lg'
                                   }`}>
                                     {item.price}
