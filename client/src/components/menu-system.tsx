@@ -4,12 +4,12 @@ import { Card, CardContent } from "@/components/ui/card";
 
 type MainTab = "menu" | "drinks";
 type FoodTab = "nepali" | "indian";
-type DrinkTab = "beverages" | "coffeeTea" | "wine";
+type DrinkTab = "softDrinks" | "coffeeTea" | "beer" | "spirits" | "cocktails";
 
 export default function MenuSystem() {
   const [activeMainTab, setActiveMainTab] = useState<MainTab>("menu");
   const [activeFoodTab, setActiveFoodTab] = useState<FoodTab>("nepali");
-  const [activeDrinkTab, setActiveDrinkTab] = useState<DrinkTab>("beverages");
+  const [activeDrinkTab, setActiveDrinkTab] = useState<DrinkTab>("softDrinks");
 
   const foodMenuData = {
     nepali: [
@@ -55,57 +55,161 @@ export default function MenuSystem() {
   };
 
   const drinkMenuData = {
-    beverages: [
+    softDrinks: [
       {
-        title: "Fresh & Traditional",
+        title: "Soft Drinks",
         items: [
-          { name: "Mango Lassi", price: "$5.99" },
-          { name: "Fresh Lime Soda", price: "$4.99" },
-          { name: "Himalayan Spring Water", price: "$3.99" }
+          { name: "Coca-Cola", price: "2,50 €" },
+          { name: "Coca-Cola Zero", price: "2,50 €" },
+          { name: "Fanta Orange", price: "2,50 €" },
+          { name: "Fanta Lemon", price: "2,50 €" },
+          { name: "Sprite", price: "2,50 €" },
+          { name: "Tonic (Normal)", price: "2,50 €" },
+          { name: "Tonic (Zero)", price: "2,50 €" },
+          { name: "Tonic (Red)", price: "2,50 €" },
+          { name: "Ice Tea Mango-Pineapple", price: "2,50 €" },
+          { name: "Ice Tea Lemon", price: "2,50 €" }
         ]
       },
       {
-        title: "Specialty Drinks",
+        title: "Juices & Specialties",
         items: [
-          { name: "Butter Tea", price: "$6.99" },
-          { name: "Spiced Buttermilk", price: "$4.99" },
-          { name: "Rose Milk", price: "$5.99" }
+          { name: "Appletizer", price: "3,00 €" },
+          { name: "Mango Lassi", price: "5,95 €" },
+          { name: "Salted Lassi", price: "5,95 €" },
+          { name: "Small Water", price: "1,95 €" },
+          { name: "Sparkling Water", price: "2,00 €" },
+          { name: "Orange Juice", price: "2,50 €" },
+          { name: "Apple Juice", price: "2,50 €" },
+          { name: "Pineapple Juice", price: "2,50 €" }
         ]
       }
     ],
     coffeeTea: [
       {
-        title: "Hot Beverages",
+        title: "Coffee",
         items: [
-          { name: "Masala Chai", price: "$4.99" },
-          { name: "Himalayan Green Tea", price: "$3.99" },
-          { name: "Espresso", price: "$3.99" }
+          { name: "Espresso", price: "1,00 €" },
+          { name: "Cortado Natural", price: "1,20 €" },
+          { name: "Leche y Leche", price: "1,50 €" },
+          { name: "Americano", price: "1,80 €" },
+          { name: "White Coffee", price: "2,50 €" },
+          { name: "Capuchino", price: "2,75 €" },
+          { name: "Barraquito", price: "2,95 €" },
+          { name: "Carajillo", price: "2,50 €" }
         ]
       },
       {
-        title: "Specialty Coffee",
+        title: "Special Coffee & Tea",
         items: [
-          { name: "Cardamom Coffee", price: "$5.99" },
-          { name: "Himalayan Black Coffee", price: "$4.99" },
-          { name: "Ginger Tea", price: "$4.99" }
+          { name: "Irish Coffee", price: "4,00 €" },
+          { name: "Calypso", price: "3,20 €" },
+          { name: "Baileys Coffee", price: "3,50 €" },
+          { name: "Tea (Infusions)", price: "2,00 €" },
+          { name: "Indian Tea", price: "3,50 €" }
         ]
       }
     ],
-    wine: [
+    beer: [
       {
-        title: "Red Wine Selection",
+        title: "Local & International Beer",
         items: [
-          { name: "Cabernet Sauvignon", price: "$8.99" },
-          { name: "Merlot", price: "$7.99" },
-          { name: "Pinot Noir", price: "$9.99" }
+          { name: "Dorada Large", price: "2,80 €" },
+          { name: "Dorada Small", price: "1,95 €" },
+          { name: "Stella Artois Large", price: "2,80 €" },
+          { name: "Stella Artois Small", price: "1,95 €" },
+          { name: "Shandy Large", price: "3,00 €" },
+          { name: "Shandy Small", price: "2,95 €" },
+          { name: "Dorada Special Bot.", price: "2,80 €" },
+          { name: "Dorada Sin Bot.", price: "2,50 €" },
+          { name: "Dorada Limon Sin Bot.", price: "2,00 €" }
         ]
       },
       {
-        title: "White Wine & Others",
+        title: "Premium & Specialty Beer",
         items: [
-          { name: "Chardonnay", price: "$7.99" },
-          { name: "Sauvignon Blanc", price: "$8.99" },
-          { name: "House Special Rose", price: "$6.99" }
+          { name: "Corona", price: "3,00 €" },
+          { name: "Kopperberg Strawberry", price: "4,50 €" },
+          { name: "Leffe Blond", price: "4,00 €" },
+          { name: "Cobra (Indian)", price: "4,50 €" },
+          { name: "King Fisher (Indian)", price: "4,50 €" },
+          { name: "Gorkha (Nepali)", price: "5,95 €" }
+        ]
+      }
+    ],
+    spirits: [
+      {
+        title: "Whiskey & Brandy",
+        items: [
+          { name: "Famous Grouse", price: "3,50 €" },
+          { name: "J & B", price: "4,50 €" },
+          { name: "Red Label", price: "4,50 €" },
+          { name: "Black Label", price: "7,25 €" },
+          { name: "Chardú 12 Years", price: "6,25 €" },
+          { name: "Jack Daniel", price: "5,20 €" },
+          { name: "108 Brandy", price: "4,50 €" },
+          { name: "Carlos I", price: "6,95 €" },
+          { name: "Veterano", price: "4,50 €" },
+          { name: "Courvoisier", price: "7,50 €" }
+        ]
+      },
+      {
+        title: "Rum & Vodka",
+        items: [
+          { name: "Khukuri XXX", price: "7,90 €" },
+          { name: "Khukuri Spiced", price: "8,90 €" },
+          { name: "Khukuri Coronation", price: "17,95 €" },
+          { name: "Arehuchas", price: "3,90 €" },
+          { name: "Havana", price: "5,95 €" },
+          { name: "Malibu", price: "3,50 €" },
+          { name: "Bacardi", price: "4,50 €" },
+          { name: "Captain Morgan (Dark Rum)", price: "4,95 €" },
+          { name: "8848 (Nepal) Vodka", price: "7,20 €" },
+          { name: "Absoluto", price: "4,50 €" }
+        ]
+      },
+      {
+        title: "Gin & Others",
+        items: [
+          { name: "Gordon's", price: "4,20 €" },
+          { name: "Gordon's Pink", price: "4,50 €" },
+          { name: "Tanqueray", price: "4,95 €" },
+          { name: "Bombay", price: "4,95 €" },
+          { name: "Hendrick's", price: "4,95 €" },
+          { name: "Aperol", price: "4,50 €" },
+          { name: "Campari", price: "4,50 €" },
+          { name: "Martini (Bianco/Rosso/Dry)", price: "4,50 €" },
+          { name: "Tia Maria", price: "3,50 €" },
+          { name: "Tequila", price: "3,50 €" }
+        ]
+      }
+    ],
+    cocktails: [
+      {
+        title: "Classic Cocktails",
+        items: [
+          { name: "Aperol Spritz", price: "8,95 €", description: "Prosecco - aperol - soda" },
+          { name: "Blue Hawaii", price: "8,95 €", description: "White rum - blue curacao - liquid sugar - lime juice - pineapple - coconut juice" },
+          { name: "Amaretto Sour", price: "8,95 €", description: "Disaronno - lemon juice - liquid sugar" },
+          { name: "Espresso Martini", price: "8,95 €", description: "Vodka - coffee - coffee liquor - liquid sugar" },
+          { name: "Pornstar Martini", price: "8,95 €", description: "Vanilla vodka - passoa - lemon juice - vanilla syrup - passion fruit" }
+        ]
+      },
+      {
+        title: "Tropical & Frozen",
+        items: [
+          { name: "Mojito", price: "8,95 €", description: "White rum - brown sugar - lime - mint (strawberry, coconut, mango, passion fruit)" },
+          { name: "Piña Colada", price: "8,95 €", description: "White rum - pineapple juice - lemon juice - coconut" },
+          { name: "Daiquiri Frozen", price: "8,95 €", description: "White rum - triple sec - lime juice - sugar syrup (strawberry - coconut - mango - passion fruit)" }
+        ]
+      },
+      {
+        title: "Non-Alcoholic Cocktails",
+        items: [
+          { name: "Virgin Mojito", price: "6,00 €", description: "Lemon soda - lime - sugar syrup - mint (strawberry, coconut, mango, passion fruit)" },
+          { name: "Virgin Colada", price: "6,00 €", description: "Pineapple juice - coconut" },
+          { name: "Virgin Hawaii", price: "6,00 €", description: "Curacao - lime - pineapple - coconut" },
+          { name: "Real Lemonade", price: "6,00 €", description: "Fresh squeezed lemonade" }
         ]
       }
     ]
@@ -216,20 +320,20 @@ export default function MenuSystem() {
                 </div>
                 
                 {/* Drinks Menu Sliding Buttons */}
-                <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <div className="flex flex-wrap justify-center gap-2 mb-8">
                   <Button
-                    onClick={() => setActiveDrinkTab("beverages")}
-                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeDrinkTab === "beverages"
+                    onClick={() => setActiveDrinkTab("softDrinks")}
+                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                      activeDrinkTab === "softDrinks"
                         ? "bg-primary-custom text-white"
                         : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
                     }`}
                   >
-                    Beverages
+                    Soft Drinks
                   </Button>
                   <Button
                     onClick={() => setActiveDrinkTab("coffeeTea")}
-                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
                       activeDrinkTab === "coffeeTea"
                         ? "bg-primary-custom text-white"
                         : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
@@ -238,19 +342,39 @@ export default function MenuSystem() {
                     Coffee & Tea
                   </Button>
                   <Button
-                    onClick={() => setActiveDrinkTab("wine")}
-                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeDrinkTab === "wine"
+                    onClick={() => setActiveDrinkTab("beer")}
+                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                      activeDrinkTab === "beer"
                         ? "bg-primary-custom text-white"
                         : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
                     }`}
                   >
-                    Wine
+                    Beer
+                  </Button>
+                  <Button
+                    onClick={() => setActiveDrinkTab("spirits")}
+                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                      activeDrinkTab === "spirits"
+                        ? "bg-primary-custom text-white"
+                        : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
+                    }`}
+                  >
+                    Spirits
+                  </Button>
+                  <Button
+                    onClick={() => setActiveDrinkTab("cocktails")}
+                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                      activeDrinkTab === "cocktails"
+                        ? "bg-primary-custom text-white"
+                        : "bg-transparent text-primary-custom border border-primary-custom hover:bg-primary-custom hover:text-white"
+                    }`}
+                  >
+                    Cocktails
                   </Button>
                 </div>
 
                 {/* Drinks Content */}
-                <div className="grid md:grid-cols-2 gap-6 slide-in">
+                <div className="grid md:grid-cols-2 gap-6 slide-in stagger-animation">
                   {drinkMenuData[activeDrinkTab].map((section, index) => (
                     <Card key={index} className="menu-card bg-white border border-gray-200">
                       <CardContent className="p-6">
@@ -259,9 +383,16 @@ export default function MenuSystem() {
                         </h5>
                         <div className="space-y-3">
                           {section.items.map((item, itemIndex) => (
-                            <div key={itemIndex} className="flex justify-between">
-                              <span className="font-medium text-primary-custom">{item.name}</span>
-                              <span className="text-primary-custom font-semibold">{item.price}</span>
+                            <div key={itemIndex} className="flex flex-col gap-1">
+                              <div className="flex justify-between items-start">
+                                <span className="font-medium text-primary-custom">{item.name}</span>
+                                <span className="text-primary-custom font-semibold">{item.price}</span>
+                              </div>
+                              {(item as any).description && (
+                                <p className="text-sm text-gray-600 italic">
+                                  {(item as any).description}
+                                </p>
+                              )}
                             </div>
                           ))}
                         </div>
