@@ -14,21 +14,51 @@ export default function MenuSystem() {
   const foodMenuData = {
     nepali: [
       {
-        title: "Essence of Himalayan",
-        description: "Traditional Nepali dishes crafted with authentic mountain spices and time-honored techniques.",
+        title: "Essence of Himalayan - Complete Set Menu",
+        description: "A traditional 4-course journey through authentic Nepali flavors, featuring time-honored recipes from the mountains.",
         items: [
-          { name: "Dal Bhat", price: "$16.99" },
-          { name: "Momo (Dumplings)", price: "$12.99" },
-          { name: "Gundruk Soup", price: "$8.99" }
+          { name: "Complete Set Menu for 1 Person", price: "39,99 €" }
         ]
       },
       {
-        title: "Mountain Specialties",
-        description: "Signature dishes inspired by the flavors of the Himalayan region.",
+        title: "1. Starter: Nepali Flavor",
+        description: "Begin your culinary journey with traditional appetizers",
         items: [
-          { name: "Yak Curry", price: "$22.99" },
-          { name: "Thukpa", price: "$14.99" },
-          { name: "Sel Roti", price: "$6.99" }
+          { name: "Mo:Mo (Choose your filling)", price: "Included" },
+          { name: "• Vegan: Textured soy, cabbage, Himalayan spices", price: "" },
+          { name: "• Chicken: Free-range chicken with garlic & ginger", price: "" },
+          { name: "• Pork: Traditional Kathmandu-style rich & gamey", price: "" },
+          { name: "Aloo Sadeko (potato salad with lemon & toasted mustard)", price: "Included" },
+          { name: "Gundruk Ko Achar (fermented leafy greens with kale)", price: "Included" },
+          { name: "Served with tomato achar (spiced Nepali sauce)", price: "Included" }
+        ]
+      },
+      {
+        title: "2. Soup: Reimagined Thukpa / Sherpa's Bowl",
+        description: "Warming broths inspired by mountain traditions",
+        items: [
+          { name: "Vegan: Shiitake & ginger broth with rice noodles", price: "Included" },
+          { name: "Standard: Chicken broth with vegetables & dhaniya", price: "Included" },
+          { name: "Kwati (mixed legumes with cumin & turmeric)", price: "Included" }
+        ]
+      },
+      {
+        title: "3. Main Course: Thakali",
+        description: "Hearty mountain curries prepared with traditional techniques",
+        items: [
+          { name: "Vegan: Soy in jimbu & tomato sauce", price: "Included" },
+          { name: "Chicken Curry (Bone-in with fenugreek seeds)", price: "Included" },
+          { name: "Kahsi ko Masu / Goat Curry", price: "Included" },
+          { name: "(Bone-in slow-cooked with cardamom & black pepper)", price: "" }
+        ]
+      },
+      {
+        title: "4. Dessert: Yomari & Dhau",
+        description: "Traditional sweets to complete your mountain feast",
+        items: [
+          { name: "Dhau (coconut yogurt with cardamom)", price: "Included" },
+          { name: "Yomari (coconut & nut molasses dumpling)", price: "Included" },
+          { name: "Optional: Kheer (Nepali-style rice pudding)", price: "Available" }
         ]
       }
     ],
@@ -237,9 +267,7 @@ export default function MenuSystem() {
                   ? "bg-white text-primary-custom border-primary-custom active"
                   : "bg-transparent text-primary-custom border-gray-300 hover:border-primary-custom"
               }`}
-            >
-              Menu
-            </Button>
+            >Food Menu</Button>
             <Button
               onClick={() => setActiveMainTab("drinks")}
               className={`tab-button px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 ${
