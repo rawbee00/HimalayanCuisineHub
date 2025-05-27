@@ -15,9 +15,10 @@ export default function MenuSystem() {
     nepali: [
       {
         title: "Essence of Himalayan - Complete Set Menu",
-        description: "A traditional 4-course journey through authentic Nepali flavors, featuring time-honored recipes from the mountains.",
+        description: "A traditional 4-course journey through authentic Nepali flavors. Choose one dish from each course below for your complete dining experience.",
         items: [
-          { name: "Complete Set Menu for 1 Person", price: "39,99 €" }
+          { name: "Complete Set Menu for 1 Person", price: "39,99 €" },
+          { name: "How it works: Select one starter + one soup + one main + one dessert", price: "" }
         ]
       },
       {
@@ -28,9 +29,7 @@ export default function MenuSystem() {
           { name: "• Vegan: Textured soy, cabbage, Himalayan spices", price: "" },
           { name: "• Chicken: Free-range chicken with garlic & ginger", price: "" },
           { name: "• Pork: Traditional Kathmandu-style rich & gamey", price: "" },
-          { name: "OR", price: "" },
           { name: "Aloo Sadeko (potato salad with lemon & toasted mustard)", price: "" },
-          { name: "OR", price: "" },
           { name: "Gundruk Ko Achar (fermented leafy greens with kale)", price: "" },
           { name: "Served with tomato achar (spiced Nepali sauce)", price: "" }
         ]
@@ -40,9 +39,7 @@ export default function MenuSystem() {
         description: "Choose your warming broth",
         items: [
           { name: "Vegan: Shiitake & ginger broth with rice noodles", price: "" },
-          { name: "OR", price: "" },
           { name: "Standard: Chicken broth with vegetables & dhaniya", price: "" },
-          { name: "OR", price: "" },
           { name: "Kwati (mixed legumes with cumin & turmeric)", price: "" }
         ]
       },
@@ -51,9 +48,7 @@ export default function MenuSystem() {
         description: "Choose your main curry dish",
         items: [
           { name: "Vegan: Soy in jimbu & tomato sauce", price: "" },
-          { name: "OR", price: "" },
           { name: "Chicken Curry (Bone-in with fenugreek seeds)", price: "" },
-          { name: "OR", price: "" },
           { name: "Kahsi ko Masu / Goat Curry", price: "" },
           { name: "(Bone-in slow-cooked with cardamom & black pepper)", price: "" }
         ]
@@ -63,7 +58,6 @@ export default function MenuSystem() {
         description: "Choose your traditional sweet ending",
         items: [
           { name: "Dhau (coconut yogurt with cardamom)", price: "" },
-          { name: "OR", price: "" },
           { name: "Yomari (coconut & nut molasses dumpling)", price: "" },
           { name: "Optional Add-on: Kheer (Nepali-style rice pudding)", price: "+3,00 €" }
         ]
