@@ -314,19 +314,37 @@ export default function MenuSystem() {
                 </div>
 
                 {/* Food Content */}
-                <div className="grid md:grid-cols-2 gap-6 slide-in">
+                <div className="grid lg:grid-cols-2 gap-6 slide-in">
                   {foodMenuData[activeFoodTab].map((section, index) => (
                     <Card key={index} className="menu-card bg-white border border-gray-200">
                       <CardContent className="p-6">
-                        <h5 className="yadri-font text-xl font-bold text-primary-custom mb-3">
+                        <h5 className="yadri-font text-xl font-bold text-primary-custom mb-3 leading-relaxed">
                           {section.title}
                         </h5>
-                        <p className="text-primary-custom mb-4">{section.description}</p>
-                        <div className="space-y-3">
+                        <p className="text-primary-custom mb-5 leading-relaxed text-sm">{section.description}</p>
+                        <div className="space-y-4">
                           {section.items.map((item, itemIndex) => (
-                            <div key={itemIndex} className="flex justify-between">
-                              <span className="font-medium text-primary-custom">{item.name}</span>
-                              <span className="text-primary-custom font-semibold">{item.price}</span>
+                            <div key={itemIndex} className="flex flex-col gap-1">
+                              <div className="flex justify-between items-start">
+                                <span className={`text-primary-custom leading-relaxed ${
+                                  item.name.startsWith('•') 
+                                    ? 'text-sm pl-4 font-normal italic text-gray-600' 
+                                    : item.name.startsWith('(') 
+                                      ? 'text-sm font-normal italic text-gray-600 pl-4'
+                                      : 'font-medium'
+                                }`}>
+                                  {item.name}
+                                </span>
+                                {item.price && (
+                                  <span className={`text-primary-custom font-semibold ${
+                                    item.price === 'Included' || item.price === 'Available' 
+                                      ? 'text-sm text-green-600' 
+                                      : 'text-lg'
+                                  }`}>
+                                    {item.price}
+                                  </span>
+                                )}
+                              </div>
                             </div>
                           ))}
                         </div>
