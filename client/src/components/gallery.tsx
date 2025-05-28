@@ -35,13 +35,7 @@ export default function Gallery() {
             Take a visual journey through our restaurant and discover the authentic flavors of the Himalayas
           </p>
           
-          {/* Gallery Button */}
-          <Button
-            onClick={() => setIsGalleryOpen(true)}
-            className="bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white px-8 py-3 text-lg font-medium rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
-          >
-            View Our Gallery
-          </Button>
+
         </div>
 
         {/* Gallery Modal */}
