@@ -96,49 +96,79 @@ export default function MenuSystem() {
         ]
       },
       {
-        title: "Curry Sauces & Bases",
-        description: "Rich, aromatic sauces that define Indian cuisine",
+        title: "Curries",
+        description: "Dish from the cuisine of the Indian subcontinent which combines the use of varieties of spices, vegetables, herbs like ginger, garlic, green chillies, turmeric, mustard seed, cumin seeds, coriander etc. Each dish has the combination of ingredients that makes it unique.",
         items: [
-          { name: "Butter Chicken", price: "15,50 €", description: "Creamy tomato-based curry with tender chicken pieces" },
-          { name: "Chicken Tikka Masala", price: "14,50 €", description: "Grilled chicken in spiced tomato and cream sauce" },
-          { name: "Lamb Rogan Josh", price: "16,50 €", description: "Traditional Kashmiri curry with aromatic spices" },
-          { name: "Beef Madras", price: "15,50 €", description: "South Indian spicy curry with coconut and curry leaves" },
-          { name: "Chicken Vindaloo", price: "14,50 €", description: "Goan-style fiery curry with vinegar and red chilies" },
-          { name: "Palak Paneer", price: "12,50 €", description: "Cottage cheese in creamy spinach gravy" },
-          { name: "Dal Makhani", price: "11,50 €", description: "Slow-cooked black lentils in butter and cream" }
+          { name: "Chicken", price: "9,95 €", description: "Traditional chicken curry" },
+          { name: "Chicken Tikka", price: "10,95 €", description: "Grilled chicken pieces in curry sauce" },
+          { name: "Lamb", price: "11,95 €", description: "Tender lamb curry" },
+          { name: "Lamb Tikka", price: "12,95 €", description: "Grilled lamb pieces in curry sauce" },
+          { name: "King Prawn", price: "13,95 €", description: "King prawns in curry sauce" },
+          { name: "Mix Vegetables", price: "10,95 €", description: "Mixed vegetables curry" },
+          { name: "Soya Meat", price: "12,95 €", description: "Soya meat in curry sauce" },
+          { name: "Paneer", price: "12,95 €", description: "Cottage cheese curry" },
+          { name: "Special Himalayan", price: "15,95 €", description: "Chef's special curry" }
         ]
       },
       {
-        title: "Sizzlers & Tandoor Specials",
-        description: "Dramatic presentations with authentic tandoor flavors",
+        title: "Tandoori Specialties",
+        description: "Marinated and cooked in our traditional tandoor oven",
         items: [
-          { name: "Mixed Tandoori Platter", price: "22,50 €", description: "Chicken tikka, seekh kebab, tandoori chicken, and lamb chops" },
-          { name: "Tandoori Fish", price: "18,50 €", description: "Fresh fish marinated in spices and grilled in tandoor" },
-          { name: "Lamb Chops", price: "19,50 €", description: "Tender lamb chops marinated in yogurt and herbs" },
-          { name: "Chicken Sizzler", price: "16,50 €", description: "Grilled chicken with sautéed vegetables on hot plate" },
-          { name: "Prawn Koliwada", price: "17,50 €", description: "Spiced prawns served sizzling with onions and peppers" }
+          { name: "Chicken Tikka", price: "4,50 €", description: "Boneless chicken pieces marinated spicy yogurt cooked in a tandoor" },
+          { name: "Tandoor Chicken", price: "5,50 €", description: "Chicken leg piece marinated in a spicy yogurt cooked in tandoor" },
+          { name: "Pudina Tikka", price: "5,50 €", description: "Boneless chicken pieces marinated with mint, ginger & cooked in tandoor" },
+          { name: "Lamb Tikka", price: "6,50 €", description: "Boneless lamb pieces marinated in a spicy yogurt & grilled in tandoor" },
+          { name: "Barra Kebab", price: "5,50 €", description: "Succulent lamb chop marinated in a yogurt & spices, flame-grilled for a smoky bite" },
+          { name: "Sheek Kebab", price: "5,50 €", description: "Minced lamb marinated with spiced, ginger, coriander & cooked on skewers in a tandoor" },
+          { name: "Garlic King Prawn", price: "5,90 €", description: "Grilled king prawn cooked with garlic & limon" },
+          { name: "Special Himalayan", price: "15,59 €", description: "Includes: Onion Bhaji, veg pakora, barra kebab, chicken tikka, pudina tikka, chicken pakora & sheekh kebab" }
+        ]
+      },
+      {
+        title: "Sizzlers",
+        description: "Served on hot sizzling plates with onions and peppers",
+        items: [
+          { name: "Paneer Shashlik", price: "11,50 €", description: "Chunks of paneer marinated in spices, cooked with onions & bell peppers" },
+          { name: "Chicken Tikka Sizzler", price: "11,50 €", description: "Chicken marinated in spicy yogurt & cooked in tandoor. Served with lemon & fried spicy onions" },
+          { name: "Chicken Tikka Shashlik", price: "13,50 €", description: "Chicken marinated in spicy yogurt & cooked in tandoor. Served with peppers, tomato, limon & onions" },
+          { name: "Lamb Tikka Sizzler", price: "12,95 €", description: "Lamb marinated in spicy yogurt & cooked in tandoor. Served with lemon & fried spicy onions" },
+          { name: "Lamb Tikka Shashlik", price: "14,50 €", description: "Lamb marinated in spicy yogurt & cooked in tandoor. Served with peppers, tomato, limon & onions" },
+          { name: "Tandoori Chicken Sizzler", price: "11,50 €", description: "Chicken leg with bone marinated in spicy yogurt, cooked in tandoor & served with lemon & fried onions" },
+          { name: "King Prawn Sizzler", price: "13,95 €", description: "King prawns marinated in spices, cooked in tandoori oven & served with lemons & onions" },
+          { name: "Tandoori Mix Grill", price: "15,95 €", description: "Mix of lamb tikka, sheekh kebab, chicken tikka & king prawns" }
         ]
       },
       {
         title: "House Specials",
-        description: "Chef's signature dishes and regional specialties",
+        description: "Chef's signature dishes and unique specialties",
         items: [
-          { name: "Goan Fish Curry", price: "17,50 €", description: "Coconut-based curry with fresh fish and kokum" },
-          { name: "Hyderabadi Biryani", price: "16,50 €", description: "Aromatic basmati rice layered with spiced meat" },
-          { name: "Kerala Chicken Curry", price: "15,50 €", description: "Coconut milk curry with curry leaves and mustard seeds" },
-          { name: "Punjabi Chole", price: "12,50 €", description: "Spiced chickpeas in thick, tangy gravy" },
-          { name: "Rajasthani Laal Maas", price: "18,50 €", description: "Fiery red mutton curry from Rajasthan" }
+          { name: "Mango Chicken", price: "11,95 €", description: "Boneless chicken cooked with mango pulp in traditional curry sauce" },
+          { name: "Methi Gosht", price: "12,95 €", description: "Tender pieces of lamb cooked with fenugreek, leaves, herbs & spices" },
+          { name: "Chilli Chicken", price: "14,50 €", description: "Cooked with onions, tomatoes, cumin seeds" },
+          { name: "Butter Chicken", price: "14,50 €", description: "Chicken pieces in a creamy sauce with extra butter, almond & a touch of garlic & fenugreek" },
+          { name: "Chilli Paneer", price: "14,50 €", description: "Soft paneer cubes in a vibrant spicy sauce" },
+          { name: "Keema Mutter Masala", price: "14,50 €", description: "Minced meat & peas in a flavorful gravy" },
+          { name: "Hakka Noodles", price: "13,50 €", description: "Stir - fried noodles with crisp vegetables" },
+          { name: "Malai Kofta", price: "14,50 €", description: "Cottage cheese dumplings in a creamy tomato gravy" },
+          { name: "Butter Lamb", price: "15,50 €", description: "Slow - cooked lamb in a silky butter sauce" },
+          { name: "Chilli King Prawn", price: "15,50 €", description: "Jumbo prawns in a tangy chilli sauce" }
         ]
       },
       {
-        title: "Sides & Accompaniments",
-        description: "Perfect complements to your main course",
+        title: "Sides",
+        description: "Perfect accompaniments to complement your main course",
         items: [
-          { name: "Raita", price: "4,50 €", description: "Cooling yogurt with cucumber and mint" },
-          { name: "Papadum (4 pieces)", price: "3,50 €", description: "Crispy lentil wafers with chutneys" },
-          { name: "Mixed Pickle", price: "3,50 €", description: "Assorted Indian pickles" },
-          { name: "Mint Chutney", price: "3,00 €", description: "Fresh mint and coriander dip" },
-          { name: "Tamarind Chutney", price: "3,00 €", description: "Sweet and tangy tamarind sauce" }
+          { name: "Bombay Aloo", price: "7,90 €", description: "Classic potatoes curry served in a semi dry sauce & flavoured with various spices as cumin, turmeric & garam masala" },
+          { name: "Aubergine Bhaji", price: "7,90 €", description: "Aubergine cooked in a tandoor then peeled in a semi spicy curry base" },
+          { name: "Aloo Gobi", price: "8,50 €", description: "Potatoes & cauliflower curry served in a semi dry sauce" },
+          { name: "Saag Aloo", price: "7,90 €", description: "Spinach curry with potatoes, spices & touch of cream" },
+          { name: "Saag Bhaji", price: "7,90 €", description: "Spinach cooked with spices & a touch of cream for a deliciously mild & comforting dish" },
+          { name: "Palak Paneer", price: "9,95 €", description: "Homemade cheese cooked with spinach & seasoned with garlic, garam masala" },
+          { name: "Mutter Paneer", price: "9,95 €", description: "Soft paneer & green peas in a luscious tomato - based sauce" },
+          { name: "Tadka Daal", price: "7,90 €", description: "Yellow split peas cooked with chopped onions, cumin, ginger, garlic & coriander" },
+          { name: "Daal Makhni", price: "8,50 €", description: "Daal makhni is a classic north indian dish where the lentils are cooked in a very aromatic buttery, creamy tomato sauce" },
+          { name: "Chana Masala", price: "8,50 €", description: "Chickpeas cooked with tomatoes, garlic, onions & various spices such as turmeric & garam masala" },
+          { name: "Mushroom Bhaji", price: "9,95 €", description: "Sliced mushroom cooked with onions & spices" }
         ]
       },
       {
