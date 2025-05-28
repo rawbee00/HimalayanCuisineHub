@@ -84,14 +84,14 @@ export default function MenuSystem() {
         title: "Normal Starters",
         description: "Traditional Indian starters prepared with authentic spices and techniques",
         items: [
-          { name: "Onion Bhaji", price: "4,25 €", description: "Onions balls bound together with lightly spiced & fragrant chickpea flour batter." },
-          { name: "Vegetable Samosa", price: "4,50 €", description: "Triangular pastry filled with potatoes & peas, golden fried." },
-          { name: "Garlic Mushroom", price: "4,50 €", description: "Juicy mushroom sauteed in a rich garlic butter sauce with a hint of spice." },
-          { name: "Meat Samosa", price: "4,75 €", description: "Triangular pastry filled with potatoes, peas & meat, golden fried." },
-          { name: "Vegetable Pakora", price: "4,50 €", description: "Sliced vegetables wrapped in batter & deep fried." },
-          { name: "Chicken Pakora", price: "4,25 €", description: "Marinated chicken pieces in a batter, golden fried." },
-          { name: "Chicken Puri", price: "5,50 €", description: "Chicken cooked & served on deep fried round bread." },
-          { name: "King Prawn Puri", price: "5,95 €", description: "King prawn cooked with ginger - garlic & served on deep fried round bread." },
+          { name: "Onion Bhaji", price: "4,25 €", description: "Onions balls bound together with lightly spiced & fragrant chickpea flour batter.", allergens: "G" },
+          { name: "Vegetable Samosa", price: "4,50 €", description: "Triangular pastry filled with potatoes & peas, golden fried.", allergens: "G" },
+          { name: "Garlic Mushroom", price: "4,50 €", description: "Juicy mushroom sauteed in a rich garlic butter sauce with a hint of spice.", allergens: "L" },
+          { name: "Meat Samosa", price: "4,75 €", description: "Triangular pastry filled with potatoes, peas & meat, golden fried.", allergens: "G" },
+          { name: "Vegetable Pakora", price: "4,50 €", description: "Sliced vegetables wrapped in batter & deep fried.", allergens: "G" },
+          { name: "Chicken Pakora", price: "4,25 €", description: "Marinated chicken pieces in a batter, golden fried.", allergens: "G" },
+          { name: "Chicken Puri", price: "5,50 €", description: "Chicken cooked & served on deep fried round bread.", allergens: "G" },
+          { name: "King Prawn Puri", price: "5,95 €", description: "King prawn cooked with ginger - garlic & served on deep fried round bread.", allergens: "G, C" },
           { name: "Garlic Chicken", price: "5,95 €", description: "Chicken cooked with garlic & lemon." },
           { name: "Chicken Lollipop", price: "5,50 €", description: "Crispy, deep-fried chicken drumettes coated in a bold & zesty spicy mix." },
           { name: "Hot Chicken Wings", price: "5,50 €", description: "Spicy, juicy wings coated in a fiery marinade that packs a punch." }
@@ -173,13 +173,13 @@ export default function MenuSystem() {
           { name: "Mango Chicken", price: "11,95 €", description: "Boneless chicken cooked with mango pulp in traditional curry sauce." },
           { name: "Methi Gosht", price: "12,95 €", description: "Tender pieces of lamb cooked with fenugreek, leaves, herbs & spices." },
           { name: "Chilli Chicken", price: "14,50 €", description: "Cooked with onions, tomatoes, cumin seeds." },
-          { name: "Butter Chicken", price: "14,50 €", description: "Chicken pieces in a creamy sauce with extra butter, almond & a touch of garlic & fenugreek." },
-          { name: "Chilli Paneer", price: "14,50 €", description: "Soft paneer cubes in a vibrant spicy sauce." },
+          { name: "Butter Chicken", price: "14,50 €", description: "Chicken pieces in a creamy sauce with extra butter, almond & a touch of garlic & fenugreek.", allergens: "L, N" },
+          { name: "Chilli Paneer", price: "14,50 €", description: "Soft paneer cubes in a vibrant spicy sauce.", allergens: "L" },
           { name: "Keema Mutter Masala", price: "14,50 €", description: "Minced meat & peas in a flavorful gravy." },
-          { name: "Hakka Noodles", price: "13,50 €", description: "Stir-fried noodles with crisp vegetables." },
-          { name: "Malai Kofta", price: "14,50 €", description: "Cottage cheese dumplings in a creamy tomato gravy." },
-          { name: "Butter Lamb", price: "15,50 €", description: "Slow-cooked lamb in a silky butter sauce." },
-          { name: "Chilli King Prawn", price: "15,50 €", description: "Jumbo prawns in a tangy chilli sauce." }
+          { name: "Hakka Noodles", price: "13,50 €", description: "Stir-fried noodles with crisp vegetables.", allergens: "G" },
+          { name: "Malai Kofta", price: "14,50 €", description: "Cottage cheese dumplings in a creamy tomato gravy.", allergens: "L, G" },
+          { name: "Butter Lamb", price: "15,50 €", description: "Slow-cooked lamb in a silky butter sauce.", allergens: "L" },
+          { name: "Chilli King Prawn", price: "15,50 €", description: "Jumbo prawns in a tangy chilli sauce.", allergens: "C" }
         ]
       },
       {
@@ -236,19 +236,19 @@ export default function MenuSystem() {
         title: "Indian Bread",
         description: "Freshly baked naan bread from our tandoor oven",
         items: [
-          { name: "Plain Naan", price: "2,95 €", description: "Naan Bread slightly buttered on top." },
-          { name: "Garlic Naan", price: "3,25 €", description: "Naan bread topped with garlic & coriander." },
-          { name: "Coconut Naan", price: "3,75 €", description: "Naan bread topped with coconut." },
-          { name: "Keema Naan", price: "3,95 €", description: "Naan bread filled with spiced minced meat." },
-          { name: "Peshwari Naan", price: "3,95 €", description: "Naan bread filled with coconut, sultanas, almonds & sugar." },
-          { name: "Cheese Naan", price: "3,95 €", description: "Naan bread filled with cheese." },
-          { name: "Butter Naan", price: "3,50 €", description: "Naan bread with butter." },
-          { name: "Onion Naan", price: "3,75 €", description: "Naan bread topped with fresh onions & coriander." },
-          { name: "Kulcha Naan", price: "3,95 €", description: "Topped with green & red peppers & touch of green chilli." },
-          { name: "Chilli Naan", price: "3,50 €", description: "Naan bread topped with chilli." },
-          { name: "Garlic Chilli Naan", price: "3,95 €", description: "Naan bread topped with garlic & chilli." },
-          { name: "Garlic Cheese Naan", price: "4,20 €", description: "Naan bread filled with cheese & topped with garlic." },
-          { name: "Chilli Cheese Naan", price: "4,20 €", description: "Naan bread filled with cheese & topped with chilli." }
+          { name: "Plain Naan", price: "2,95 €", description: "Naan Bread slightly buttered on top.", allergens: "G, L" },
+          { name: "Garlic Naan", price: "3,25 €", description: "Naan bread topped with garlic & coriander.", allergens: "G, L" },
+          { name: "Coconut Naan", price: "3,75 €", description: "Naan bread topped with coconut.", allergens: "G, L" },
+          { name: "Keema Naan", price: "3,95 €", description: "Naan bread filled with spiced minced meat.", allergens: "G, L" },
+          { name: "Peshwari Naan", price: "3,95 €", description: "Naan bread filled with coconut, sultanas, almonds & sugar.", allergens: "G, L, N" },
+          { name: "Cheese Naan", price: "3,95 €", description: "Naan bread filled with cheese.", allergens: "G, L" },
+          { name: "Butter Naan", price: "3,50 €", description: "Naan bread with butter.", allergens: "G, L" },
+          { name: "Onion Naan", price: "3,75 €", description: "Naan bread topped with fresh onions & coriander.", allergens: "G, L" },
+          { name: "Kulcha Naan", price: "3,95 €", description: "Topped with green & red peppers & touch of green chilli.", allergens: "G, L" },
+          { name: "Chilli Naan", price: "3,50 €", description: "Naan bread topped with chilli.", allergens: "G, L" },
+          { name: "Garlic Chilli Naan", price: "3,95 €", description: "Naan bread topped with garlic & chilli.", allergens: "G, L" },
+          { name: "Garlic Cheese Naan", price: "4,20 €", description: "Naan bread filled with cheese & topped with garlic.", allergens: "G, L" },
+          { name: "Chilli Cheese Naan", price: "4,20 €", description: "Naan bread filled with cheese & topped with chilli.", allergens: "G, L" }
         ]
       },
       {
@@ -586,6 +586,11 @@ export default function MenuSystem() {
                                   {item.description}
                                 </p>
                               )}
+                              {'allergens' in item && item.allergens && (
+                                <p className="text-xs text-orange-600 font-semibold mt-1">
+                                  Allergens: {item.allergens}
+                                </p>
+                              )}
                             </div>
                           ))}
                         </div>
@@ -677,6 +682,32 @@ export default function MenuSystem() {
                     </Card>
                   ))}
                 </div>
+              </div>
+
+              {/* Allergen Legend */}
+              <div className="mt-12 bg-gray-100 rounded-xl p-6">
+                <h4 className="yadri-font text-xl font-bold text-primary-custom mb-4 text-center">
+                  Allergen Information / Información sobre Alérgenos
+                </h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div className="space-y-2">
+                    <p><span className="font-bold text-orange-600">G</span> - Gluten / Contiene Gluten</p>
+                    <p><span className="font-bold text-orange-600">L</span> - Lactose (Dairy) / Lactosa (Lácteos)</p>
+                    <p><span className="font-bold text-orange-600">N</span> - Nuts / Frutos Secos</p>
+                    <p><span className="font-bold text-orange-600">C</span> - Crustaceans / Crustáceos</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p><span className="font-bold text-orange-600">E</span> - Eggs / Huevos</p>
+                    <p><span className="font-bold text-orange-600">S</span> - Sesame / Sésamo</p>
+                    <p><span className="font-bold text-orange-600">SO</span> - Sulphites / Sulfitos</p>
+                    <p><span className="font-bold text-orange-600">M</span> - Mustard / Mostaza</p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600 mt-4 text-center italic">
+                  Please inform your server of any allergies or dietary requirements.
+                  <br />
+                  Por favor, informe a su camarero de cualquier alergia o requisito dietético.
+                </p>
               </div>
             )}
           </div>
