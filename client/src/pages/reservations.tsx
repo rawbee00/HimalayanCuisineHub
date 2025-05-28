@@ -19,6 +19,7 @@ export default function ReservationsPage() {
     guests: "",
     specialRequests: "",
     // Essence of Himalayan specific fields
+    essenceGuests: "",
     starter: "",
     soup: "",
     main: "",
@@ -62,7 +63,7 @@ export default function ReservationsPage() {
     // Reset form
     setFormData({
       name: "", email: "", phone: "", date: "", time: "", guests: "", specialRequests: "",
-      starter: "", soup: "", main: "", dessert: ""
+      essenceGuests: "", starter: "", soup: "", main: "", dessert: ""
     });
     setReservationType(null);
   };
@@ -280,6 +281,27 @@ export default function ReservationsPage() {
                 {reservationType === "essence" && (
                   <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-8 rounded-xl border border-orange-200">
                     <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-6 text-center">Select Your 4-Course Himalayan Journey</h4>
+                    
+                    {/* Number of Essence Menus */}
+                    <div className="mb-6 bg-white p-4 rounded-lg border border-orange-300">
+                      <Label htmlFor="essenceGuests" className="text-base font-medium text-primary-custom">How many Essence of Himalayan set menus? *</Label>
+                      <Select onValueChange={(value) => handleInputChange("essenceGuests", value)}>
+                        <SelectTrigger className="mt-2">
+                          <SelectValue placeholder="Select number of set menus (39,99€ each)" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {[1,2,3,4,5,6,7,8].map(num => (
+                            <SelectItem key={num} value={num.toString()}>
+                              {num} Set Menu{num > 1 ? 's' : ''} - {(num * 39.99).toFixed(2)}€ total
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <p className="text-sm text-gray-600 mt-2">
+                        <strong>Example:</strong> If you have 3 guests but only 2 want the Essence experience, select "2 Set Menus". 
+                        The third guest can order from our regular menu upon arrival.
+                      </p>
+                    </div>
                     
                     <div className="grid gap-6">
                       <div>
