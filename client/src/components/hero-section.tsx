@@ -23,6 +23,12 @@ export default function HeroSection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center slide-in">
           <Button 
+            onClick={() => {
+              const storySection = document.querySelector('.story-section');
+              if (storySection) {
+                storySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
             className="bg-white text-primary-custom px-8 py-3 font-semibold hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105"
           >
             View Our Story

@@ -27,7 +27,7 @@ export default function AboutSection() {
 
   return (
     <>
-      <section className="py-16 px-4 bg-white">
+      <section className="story-section py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="yadri-font text-4xl font-bold text-primary-custom text-center mb-8">
             Our Story
