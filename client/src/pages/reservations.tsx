@@ -20,10 +20,13 @@ export default function ReservationsPage() {
     specialRequests: "",
     // Essence of Himalayan specific fields
     essenceGuests: "",
-    starter: "",
-    soup: "",
-    main: "",
-    dessert: ""
+    menuSelections: [] as Array<{
+      guestNumber: number;
+      starter: string;
+      soup: string;
+      main: string;
+      dessert: string;
+    }>
   });
 
   const essenceMenuOptions = {
@@ -52,7 +55,28 @@ export default function ReservationsPage() {
   };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    if (field === "essenceGuests") {
+      const numGuests = parseInt(value);
+      const newSelections = Array.from({ length: numGuests }, (_, index) => ({
+        guestNumber: index + 1,
+        starter: "",
+        soup: "",
+        main: "",
+        dessert: ""
+      }));
+      setFormData(prev => ({ ...prev, [field]: value, menuSelections: newSelections }));
+    } else {
+      setFormData(prev => ({ ...prev, [field]: value }));
+    }
+  };
+
+  const handleMenuSelection = (guestIndex: number, course: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      menuSelections: prev.menuSelections.map((selection, index) =>
+        index === guestIndex ? { ...selection, [course]: value } : selection
+      )
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -63,7 +87,7 @@ export default function ReservationsPage() {
     // Reset form
     setFormData({
       name: "", email: "", phone: "", date: "", time: "", guests: "", specialRequests: "",
-      essenceGuests: "", starter: "", soup: "", main: "", dessert: ""
+      essenceGuests: "", menuSelections: []
     });
     setReservationType(null);
   };
@@ -300,63 +324,72 @@ export default function ReservationsPage() {
 
                     </div>
                     
-                    <div className="grid gap-6">
-                      <div>
-                        <Label htmlFor="starter" className="text-base font-medium text-primary-custom">1. Starter: Nepali Flavor *</Label>
-                        <Select onValueChange={(value) => handleInputChange("starter", value)}>
-                          <SelectTrigger className="mt-2">
-                            <SelectValue placeholder="Choose your appetizer to begin the journey" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {essenceMenuOptions.starters.map((item, index) => (
-                              <SelectItem key={index} value={item}>{item}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
+                    {/* Individual Menu Selections for Each Guest */}
+                    {formData.menuSelections.map((selection, guestIndex) => (
+                      <div key={guestIndex} className="bg-white p-6 rounded-lg border border-orange-300 mb-4">
+                        <h5 className="yadri-font text-lg font-bold text-primary-custom mb-4 text-center bg-orange-100 py-2 rounded">
+                          Guest {guestIndex + 1} - Menu Selection
+                        </h5>
+                        
+                        <div className="grid gap-4">
+                          <div>
+                            <Label className="text-base font-medium text-primary-custom">1. Starter: Nepali Flavor *</Label>
+                            <Select onValueChange={(value) => handleMenuSelection(guestIndex, "starter", value)}>
+                              <SelectTrigger className="mt-2">
+                                <SelectValue placeholder={`Choose appetizer for Guest ${guestIndex + 1}`} />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {essenceMenuOptions.starters.map((item, index) => (
+                                  <SelectItem key={index} value={item}>{item}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
 
-                      <div>
-                        <Label htmlFor="soup" className="text-base font-medium text-primary-custom">2. Soup: Sherpa's Bowl *</Label>
-                        <Select onValueChange={(value) => handleInputChange("soup", value)}>
-                          <SelectTrigger className="mt-2">
-                            <SelectValue placeholder="Choose your warming broth" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {essenceMenuOptions.soups.map((item, index) => (
-                              <SelectItem key={index} value={item}>{item}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
+                          <div>
+                            <Label className="text-base font-medium text-primary-custom">2. Soup: Sherpa's Bowl *</Label>
+                            <Select onValueChange={(value) => handleMenuSelection(guestIndex, "soup", value)}>
+                              <SelectTrigger className="mt-2">
+                                <SelectValue placeholder={`Choose warming broth for Guest ${guestIndex + 1}`} />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {essenceMenuOptions.soups.map((item, index) => (
+                                  <SelectItem key={index} value={item}>{item}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
 
-                      <div>
-                        <Label htmlFor="main" className="text-base font-medium text-primary-custom">3. Main Course: Thakali *</Label>
-                        <Select onValueChange={(value) => handleInputChange("main", value)}>
-                          <SelectTrigger className="mt-2">
-                            <SelectValue placeholder="Choose your main curry dish" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {essenceMenuOptions.mains.map((item, index) => (
-                              <SelectItem key={index} value={item}>{item}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
+                          <div>
+                            <Label className="text-base font-medium text-primary-custom">3. Main Course: Thakali *</Label>
+                            <Select onValueChange={(value) => handleMenuSelection(guestIndex, "main", value)}>
+                              <SelectTrigger className="mt-2">
+                                <SelectValue placeholder={`Choose main curry dish for Guest ${guestIndex + 1}`} />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {essenceMenuOptions.mains.map((item, index) => (
+                                  <SelectItem key={index} value={item}>{item}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
 
-                      <div>
-                        <Label htmlFor="dessert" className="text-base font-medium text-primary-custom">4. Dessert: Sweet Ending *</Label>
-                        <Select onValueChange={(value) => handleInputChange("dessert", value)}>
-                          <SelectTrigger className="mt-2">
-                            <SelectValue placeholder="Choose your traditional Nepali sweet" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {essenceMenuOptions.desserts.map((item, index) => (
-                              <SelectItem key={index} value={item}>{item}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                          <div>
+                            <Label className="text-base font-medium text-primary-custom">4. Dessert: Sweet Ending *</Label>
+                            <Select onValueChange={(value) => handleMenuSelection(guestIndex, "dessert", value)}>
+                              <SelectTrigger className="mt-2">
+                                <SelectValue placeholder={`Choose traditional Nepali sweet for Guest ${guestIndex + 1}`} />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {essenceMenuOptions.desserts.map((item, index) => (
+                                  <SelectItem key={index} value={item}>{item}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 )}
 
