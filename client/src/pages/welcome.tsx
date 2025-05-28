@@ -37,7 +37,12 @@ export default function Welcome({ onEnter }: WelcomeProps) {
       
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
         <div className="mb-8 animate-fade-in">
-          <h1 className="yadri-font text-6xl md:text-8xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down himalayan-text">
+          <h1 
+            onClick={isEntering ? undefined : handleEnter}
+            className={`yadri-font text-6xl md:text-8xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down himalayan-text transition-transform duration-300 select-none ${
+              isEntering ? 'opacity-75' : 'cursor-pointer hover:scale-105 hover:text-blue-200'
+            }`}
+          >
             <span className="h-letter">H</span>IMALAYAN
           </h1>
           <h2 className="yadri-font text-3xl md:text-5xl font-semibold mb-2 text-white drop-shadow-xl animate-slide-up delay-200">
@@ -62,14 +67,10 @@ export default function Welcome({ onEnter }: WelcomeProps) {
           </div>
         </div>
         
-        <div className="animate-bounce-in delay-700">
-          <Button
-            onClick={handleEnter}
-            className="bg-white text-primary-custom px-12 py-4 text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-110 shadow-2xl border-4 border-white"
-            disabled={isEntering}
-          >
-            {isEntering ? 'Entering...' : 'ENTER'}
-          </Button>
+        <div className="animate-fade-in delay-700">
+          <p className="text-lg text-gray-300 italic animate-pulse">
+            {isEntering ? 'Entering...' : 'Click HIMALAYAN to enter'}
+          </p>
         </div>
       </div>
     </div>
