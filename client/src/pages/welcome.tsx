@@ -10,6 +10,11 @@ export default function Welcome({ onEnter }: WelcomeProps) {
 
   const handleEnter = () => {
     setIsEntering(true);
+    // Add zoom-from-H effect
+    const himalyanText = document.querySelector('.himalayan-text');
+    if (himalyanText) {
+      himalyanText.classList.add('zoom-from-h');
+    }
     setTimeout(() => {
       onEnter();
     }, 500); // 0.5 second delay
@@ -32,8 +37,8 @@ export default function Welcome({ onEnter }: WelcomeProps) {
       
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
         <div className="mb-8 animate-fade-in">
-          <h1 className="yadri-font text-6xl md:text-8xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down">
-            HIMALAYAN
+          <h1 className="yadri-font text-6xl md:text-8xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down himalayan-text">
+            <span className="h-letter">H</span>IMALAYAN
           </h1>
           <h2 className="yadri-font text-3xl md:text-5xl font-semibold mb-2 text-white drop-shadow-xl animate-slide-up delay-200">
             Curry & Tandoor House

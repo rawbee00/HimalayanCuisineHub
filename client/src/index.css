@@ -313,6 +313,18 @@
   }
 }
 
+@keyframes zoom-from-h {
+  0% {
+    transform: scale(1);
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(20);
+    opacity: 0;
+    transform-origin: left center;
+  }
+}
+
 .animate-fade-in {
   animation: fade-in 1s ease-out forwards;
 }
@@ -347,4 +359,35 @@
 
 .delay-800 {
   animation-delay: 0.8s;
+}
+
+/* Zoom from H effect */
+.h-letter {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.zoom-from-h {
+  animation: zoom-from-h 0.5s ease-in-out forwards;
+}
+
+.zoom-from-h .h-letter {
+  transform-origin: center;
+  animation: h-letter-expand 0.5s ease-in-out forwards;
+}
+
+@keyframes h-letter-expand {
+  0% {
+    transform: scale(1);
+    color: white;
+  }
+  50% {
+    transform: scale(1.5);
+    color: #040844;
+  }
+  100% {
+    transform: scale(25);
+    opacity: 0;
+  }
 }
