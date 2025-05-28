@@ -31,7 +31,7 @@ export default function HeroSection() {
             onClick={() => {
               const menuSection = document.querySelector('.menu-section');
               if (menuSection) {
-                menuSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
             className="bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105"
