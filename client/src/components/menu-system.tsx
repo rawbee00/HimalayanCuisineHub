@@ -683,32 +683,6 @@ export default function MenuSystem() {
                   ))}
                 </div>
               </div>
-
-              {/* Allergen Legend */}
-              <div className="mt-12 bg-gray-100 rounded-xl p-6">
-                <h4 className="yadri-font text-xl font-bold text-primary-custom mb-4 text-center">
-                  Allergen Information / Información sobre Alérgenos
-                </h4>
-                <div className="grid md:grid-cols-2 gap-4 text-sm">
-                  <div className="space-y-2">
-                    <p><span className="font-bold text-orange-600">G</span> - Gluten / Contiene Gluten</p>
-                    <p><span className="font-bold text-orange-600">L</span> - Lactose (Dairy) / Lactosa (Lácteos)</p>
-                    <p><span className="font-bold text-orange-600">N</span> - Nuts / Frutos Secos</p>
-                    <p><span className="font-bold text-orange-600">C</span> - Crustaceans / Crustáceos</p>
-                  </div>
-                  <div className="space-y-2">
-                    <p><span className="font-bold text-orange-600">E</span> - Eggs / Huevos</p>
-                    <p><span className="font-bold text-orange-600">S</span> - Sesame / Sésamo</p>
-                    <p><span className="font-bold text-orange-600">SO</span> - Sulphites / Sulfitos</p>
-                    <p><span className="font-bold text-orange-600">M</span> - Mustard / Mostaza</p>
-                  </div>
-                </div>
-                <p className="text-xs text-gray-600 mt-4 text-center italic">
-                  Please inform your server of any allergies or dietary requirements.
-                  <br />
-                  Por favor, informe a su camarero de cualquier alergia o requisito dietético.
-                </p>
-              </div>
             )}
           </div>
 
