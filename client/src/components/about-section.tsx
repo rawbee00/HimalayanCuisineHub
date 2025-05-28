@@ -33,14 +33,8 @@ export default function AboutSection() {
             Our Story
           </h2>
           
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button
-              onClick={() => setIsStoryExpanded(!isStoryExpanded)}
-              className="bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white px-8 py-3 text-lg font-medium rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
-            >
-              {isStoryExpanded ? "Hide Our Story" : "View Our Story"}
-            </Button>
+          {/* Gallery Button */}
+          <div className="flex justify-center mb-12">
             <Button
               onClick={() => setIsGalleryOpen(true)}
               className="bg-gradient-to-r from-blue-600 to-primary-custom hover:from-primary-custom hover:to-blue-600 text-white px-8 py-3 text-lg font-medium rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
@@ -49,30 +43,28 @@ export default function AboutSection() {
             </Button>
           </div>
           
-          {/* Story Content */}
-          {isStoryExpanded && (
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6 animate-in slide-in-from-top duration-500">
-              <p className="text-lg">
-                Our story is a journey—one that begins high in the Himalayas, near the foot of Sagarmatha (Mount Everest), and winds its way to the tranquil shores of Costa del Silencio.
-              </p>
-              
-              <p>
-                Raised among the rich traditions of Nepali cuisine, we learned that food is more than ingredients—it's a connection to land, family, and heritage. From open-fire sekuwa to the comforting warmth of goat curry, every meal was a celebration of life's simplest joys.
-              </p>
-              
-              <p>
-                With time, our path led us across continents. Carrying our flavors, our stories, and our dreams, we arrived in Tenerife with one goal: to share the essence of Nepal with a new home.
-              </p>
-              
-              <p>
-                Himalayan Curry & Tandoori House is the result of that journey—a humble space where bold Himalayan spices meet the breeze of the Atlantic. Every dish is prepared with care, tradition, and the hope that you'll taste not just the food, but the journey behind it.
-              </p>
-              
-              <p className="text-xl font-medium text-primary-custom italic text-center mt-8 pt-6 border-t border-gray-200">
-                This is more than a restaurant. It's a story served on a plate.
-              </p>
-            </div>
-          )}
+          {/* Story Content - Always Visible */}
+          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
+            <p className="text-lg">
+              Our story is a journey—one that begins high in the Himalayas, near the foot of Sagarmatha (Mount Everest), and winds its way to the tranquil shores of Costa del Silencio.
+            </p>
+            
+            <p>
+              Raised among the rich traditions of Nepali cuisine, we learned that food is more than ingredients—it's a connection to land, family, and heritage. From open-fire sekuwa to the comforting warmth of goat curry, every meal was a celebration of life's simplest joys.
+            </p>
+            
+            <p>
+              With time, our path led us across continents. Carrying our flavors, our stories, and our dreams, we arrived in Tenerife with one goal: to share the essence of Nepal with a new home.
+            </p>
+            
+            <p>
+              Himalayan Curry & Tandoori House is the result of that journey—a humble space where bold Himalayan spices meet the breeze of the Atlantic. Every dish is prepared with care, tradition, and the hope that you'll taste not just the food, but the journey behind it.
+            </p>
+            
+            <p className="text-xl font-medium text-primary-custom italic text-center mt-8 pt-6 border-t border-gray-200">
+              This is more than a restaurant. It's a story served on a plate.
+            </p>
+          </div>
         </div>
       </section>
 
