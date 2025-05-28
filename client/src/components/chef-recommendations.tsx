@@ -130,7 +130,7 @@ export default function ChefRecommendations() {
               Can't decide? Let our chef surprise you!
             </h4>
             <p className="text-primary-custom leading-relaxed max-w-2xl mx-auto">
-              Ask your server about our daily chef's special or let us create a custom tasting menu 
+              Ask your server about our daily chef's special or let us create a custom menu 
               featuring the best of both Nepali and Indian cuisines
             </p>
           </div>
