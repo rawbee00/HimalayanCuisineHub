@@ -37,12 +37,7 @@ export default function Welcome({ onEnter }: WelcomeProps) {
       
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
         <div className="mb-8 animate-fade-in">
-          <h1 
-            onClick={isEntering ? undefined : handleEnter}
-            className={`yadri-font text-6xl md:text-8xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down himalayan-text transition-transform duration-300 select-none ${
-              isEntering ? 'opacity-75' : 'cursor-pointer hover:scale-105 hover:text-blue-200'
-            }`}
-          >
+          <h1 className="yadri-font text-6xl md:text-8xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down himalayan-text">
             <span className="h-letter">H</span>IMALAYAN
           </h1>
           <h2 className="yadri-font text-3xl md:text-5xl font-semibold mb-2 text-white drop-shadow-xl animate-slide-up delay-200">
@@ -68,9 +63,13 @@ export default function Welcome({ onEnter }: WelcomeProps) {
         </div>
         
         <div className="animate-fade-in delay-700">
-          <p className="text-lg text-gray-300 italic animate-pulse">
-            {isEntering ? 'Entering...' : 'Click HIMALAYAN to enter'}
-          </p>
+          <Button
+            onClick={isEntering ? undefined : handleEnter}
+            disabled={isEntering}
+            className="bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white font-bold text-xl px-16 py-6 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-blue-500/25 border-2 border-white border-opacity-30"
+          >
+            {isEntering ? 'Entering...' : 'Enter Restaurant'}
+          </Button>
         </div>
       </div>
     </div>
