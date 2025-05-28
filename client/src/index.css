@@ -252,6 +252,48 @@
   }
 }
 
+/* Zoom into H animation */
+.zoom-into-h {
+  animation: zoomIntoH 1s ease-in-out forwards;
+  transform-origin: center center;
+  position: relative;
+  z-index: 100;
+}
+
+@keyframes zoomIntoH {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+.zoom-container.zoom-container {
+  animation: containerZoom 1s ease-in-out forwards;
+}
+
+@keyframes containerZoom {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
 /* Welcome page animations */
 @keyframes fade-in {
   from {

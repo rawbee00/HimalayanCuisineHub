@@ -10,19 +10,24 @@ export default function Welcome({ onEnter }: WelcomeProps) {
 
   const handleEnter = () => {
     setIsEntering(true);
-    // Add zoom-from-H effect
-    const himalyanText = document.querySelector('.himalayan-text');
-    if (himalyanText) {
-      himalyanText.classList.add('zoom-from-h');
+    // Add zoom-into-H effect
+    const hLetter = document.querySelector('.h-letter');
+    const welcomeContainer = document.querySelector('.welcome-container');
+    
+    if (hLetter && welcomeContainer) {
+      // Start zoom into H animation
+      hLetter.classList.add('zoom-into-h');
+      welcomeContainer.classList.add('zoom-container');
     }
+    
     setTimeout(() => {
       onEnter();
-    }, 500); // 0.5 second delay
+    }, 1000); // 1 second delay for smooth animation
   };
 
   return (
     <div 
-      className={`fixed inset-0 bg-black text-white flex items-center justify-center z-50 transition-transform duration-500 ease-in-out ${
+      className={`welcome-container fixed inset-0 bg-black text-white flex items-center justify-center z-50 transition-all duration-1000 ease-in-out ${
         isEntering ? 'scale-150 opacity-0' : 'scale-100 opacity-100'
       }`}
       style={{
