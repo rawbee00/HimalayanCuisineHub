@@ -68,7 +68,7 @@ export default function Welcome({ onEnter }: WelcomeProps) {
             disabled={isEntering}
             className="bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white font-bold text-xl px-16 py-6 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-blue-500/25 border-2 border-white border-opacity-30"
           >
-            {isEntering ? 'Entering...' : 'Enter Restaurant'}
+            {isEntering ? 'Entering...' : 'Enter'}
           </Button>
         </div>
       </div>
