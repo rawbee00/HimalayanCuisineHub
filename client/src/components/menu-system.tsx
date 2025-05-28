@@ -577,93 +577,85 @@ export default function MenuSystem() {
         </div>
 
         <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8">
-          {/* Menu Tab Content */}
-          <div className={`tab-content ${activeMainTab === "menu" ? "active" : ""}`}>
-            {activeMainTab === "menu" && (
-              <div>
-                <div className="text-center mb-8">
-                  <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-4">Food Menu</h4>
-                  <p className="text-primary-custom">Choose from our signature cuisines</p>
-                </div>
-                
-                {/* Food Menu Sliding Buttons */}
-                <div className="flex justify-center gap-6 mb-8">
-                  <Button
-                    onClick={() => setActiveFoodTab("nepali")}
-                    className={`slide-button px-10 py-3 font-medium ${
-                      activeFoodTab === "nepali" ? "active" : ""
-                    }`}
-                  >
-                    Himalayan/Nepali
-                  </Button>
-                  <Button
-                    onClick={() => setActiveFoodTab("indian")}
-                    className={`slide-button px-10 py-3 font-medium ${
-                      activeFoodTab === "indian" ? "active" : ""
-                    }`}
-                  >
-                    Indian
-                  </Button>
-                </div>
+          {/* Food Menu Content */}
+          {activeMainTab === "menu" && (
+            <div>
+              <div className="text-center mb-8">
+                <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-4">Food Menu</h4>
+                <p className="text-primary-custom">Choose from our signature cuisines</p>
+              </div>
+              
+              {/* Food Menu Sliding Buttons */}
+              <div className="flex justify-center gap-6 mb-8">
+                <Button
+                  onClick={() => setActiveFoodTab("nepali")}
+                  className={`slide-button px-10 py-3 font-medium ${
+                    activeFoodTab === "nepali" ? "active" : ""
+                  }`}
+                >
+                  Himalayan/Nepali
+                </Button>
+                <Button
+                  onClick={() => setActiveFoodTab("indian")}
+                  className={`slide-button px-10 py-3 font-medium ${
+                    activeFoodTab === "indian" ? "active" : ""
+                  }`}
+                >
+                  Indian
+                </Button>
+              </div>
 
-                {/* Food Content */}
-                <div className="grid lg:grid-cols-2 gap-6 slide-in">
-                  {foodMenuData[activeFoodTab].map((section, index) => (
-                    <Card key={index} className="menu-card bg-white border border-gray-200">
-                      <CardContent className="p-6">
-                        <h5 className="yadri-font text-xl font-bold text-primary-custom mb-3 leading-relaxed">
-                          {section.title}
-                        </h5>
-                        <p className="text-primary-custom mb-5 leading-relaxed text-sm">{section.description}</p>
-                        <div className="space-y-4">
-                          {section.items.map((item, itemIndex) => (
-                            <div key={itemIndex} className="flex flex-col gap-2">
-                              <div className="flex justify-between items-start">
-                                <span className={`text-primary-custom leading-relaxed ${
-                                  item.name.startsWith('•') 
-                                    ? 'text-sm pl-4 font-normal italic text-gray-600' 
-                                    : item.name.startsWith('(') 
-                                      ? 'text-sm font-normal italic text-gray-600 pl-4'
-                                      : 'font-medium'
+              {/* Food Content */}
+              <div className="grid lg:grid-cols-2 gap-6 slide-in">
+                {foodMenuData[activeFoodTab].map((section, index) => (
+                  <Card key={index} className="menu-card bg-white border border-gray-200">
+                    <CardContent className="p-6">
+                      <h5 className="yadri-font text-xl font-bold text-primary-custom mb-3 leading-relaxed">
+                        {section.title}
+                      </h5>
+                      <p className="text-primary-custom mb-5 leading-relaxed text-sm">{section.description}</p>
+                      <div className="space-y-4">
+                        {section.items.map((item, itemIndex) => (
+                          <div key={itemIndex} className="flex flex-col gap-2">
+                            <div className="flex justify-between items-start">
+                              <span className={`text-primary-custom leading-relaxed ${
+                                item.name.startsWith('•') 
+                                  ? 'text-sm pl-4 font-normal italic text-gray-600' 
+                                  : item.name.startsWith('(') 
+                                    ? 'text-sm font-normal italic text-gray-600 pl-4'
+                                    : 'font-medium'
+                              }`}>
+                                {item.name}
+                              </span>
+                              {item.price && (
+                                <span className={`text-primary-custom font-semibold ${
+                                  item.price.startsWith('+') 
+                                    ? 'text-sm text-orange-600' 
+                                    : 'text-lg'
                                 }`}>
-                                  {item.name}
+                                  {item.price}
                                 </span>
-                                {item.price && (
-                                  <span className={`text-primary-custom font-semibold ${
-                                    item.price.startsWith('+') 
-                                      ? 'text-sm text-orange-600' 
-                                      : 'text-lg'
-                                  }`}>
-                                    {item.price}
-                                  </span>
-                                )}
-                              </div>
-                              {'description' in item && item.description && (
-                                <p className="text-gray-600 text-sm leading-relaxed">
-                                  {item.description}
-                                </p>
-                              )}
-                              {'allergens' in item && item.allergens && (
-                                <p className="text-xs text-orange-600 font-semibold mt-1">
-                                  Allergens: {item.allergens}
-                                </p>
                               )}
                             </div>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+                            {'description' in item && item.description && (
+                              <p className="text-gray-600 text-sm leading-relaxed">
+                                {item.description}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Drinks Tab Content */}
-          <div className={`tab-content ${activeMainTab === "drinks" ? "active" : ""}`}>
-            {activeMainTab === "drinks" && (
-              <div>
-                <div className="text-center mb-8">
+          {activeMainTab === "drinks" && (
+            <div>
+              <div className="text-center mb-8">
                   <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-4">Beverages Menu</h4>
                   <p className="text-primary-custom">Complement your meal with our curated drink selection</p>
                 </div>
