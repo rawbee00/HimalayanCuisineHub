@@ -27,16 +27,7 @@ export default function Gallery() {
   return (
     <section className="gallery-section bg-gray-50 py-16 md:py-20">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h3 className="yadri-font text-4xl md:text-5xl font-bold text-primary-custom mb-4">
-            Gallery
-          </h3>
-          <p className="text-lg text-primary-custom max-w-2xl mx-auto mb-8">
-            Take a visual journey through our restaurant and discover the authentic flavors of the Himalayas
-          </p>
-          
 
-        </div>
 
         {/* Gallery Modal */}
         {isGalleryOpen && (
