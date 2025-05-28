@@ -100,6 +100,35 @@ export default function MenuSystem() {
         ]
       },
       {
+        title: "Tandoori Starter",
+        description: "Marinated and cooked in our traditional tandoor oven",
+        items: [
+          { name: "Chicken Tikka", price: "4,50 €", description: "Boneless chicken pieces marinated spicy yogurt cooked in a tandoor" },
+          { name: "Tandoor Chicken", price: "5,50 €", description: "Chicken leg piece marinated in a spicy yogurt cooked in tandoor" },
+          { name: "Pudina Tikka", price: "5,50 €", description: "Boneless chicken pieces marinated with mint, ginger & cooked in tandoor" },
+          { name: "Lamb Tikka", price: "6,50 €", description: "Boneless lamb pieces marinated in a spicy yogurt & grilled in tandoor" },
+          { name: "Barra Kebab", price: "5,50 €", description: "Succulent lamb chop marinated in a yogurt & spices, flame-grilled for a smoky bite" },
+          { name: "Sheek Kebab", price: "5,50 €", description: "Minced lamb marinated with spiced, ginger, coriander & cooked on skewers in a tandoor" },
+          { name: "Garlic King Prawn", price: "5,90 €", description: "Grilled king prawn cooked with garlic & limon" },
+          { name: "Special Himalayan", price: "15,59 €", description: "Includes: Onion Bhaji, veg pakora, barra kebab, chicken tikka, pudina tikka, chicken pakora & sheekh kebab" }
+        ]
+      },
+      {
+        title: "Curries",
+        description: "Dish from the cuisine of the Indian subcontinent which combines the use of varieties of spices, vegetables, herbs like ginger, garlic, green chillies, turmeric, mustard seed, cumin seeds, coriander etc. Each dish has the combination of ingredients that makes it unique.",
+        items: [
+          { name: "Chicken", price: "9,95 €", description: "Traditional chicken curry" },
+          { name: "Chicken Tikka", price: "10,95 €", description: "Grilled chicken pieces in curry sauce" },
+          { name: "Lamb", price: "11,95 €", description: "Tender lamb curry" },
+          { name: "Lamb Tikka", price: "12,95 €", description: "Grilled lamb pieces in curry sauce" },
+          { name: "King Prawn", price: "13,95 €", description: "King prawns in curry sauce" },
+          { name: "Mix Vegetables", price: "10,95 €", description: "Mixed vegetables curry" },
+          { name: "Soya Meat", price: "12,95 €", description: "Soya meat in curry sauce" },
+          { name: "Paneer", price: "12,95 €", description: "Cottage cheese curry" },
+          { name: "Special Himalayan", price: "15,95 €", description: "Chef's special curry" }
+        ]
+      },
+      {
         title: "Curry Sauces",
         description: "Choose your protein and we'll prepare it in your favorite traditional sauce",
         items: [
@@ -119,35 +148,7 @@ export default function MenuSystem() {
           { name: "Jai Puri", price: "", description: "Semi dense curry prepared with fresh mushroom & onions with a touch of coconut, ginger & coriander" }
         ]
       },
-      {
-        title: "Curries",
-        description: "Dish from the cuisine of the Indian subcontinent which combines the use of varieties of spices, vegetables, herbs like ginger, garlic, green chillies, turmeric, mustard seed, cumin seeds, coriander etc. Each dish has the combination of ingredients that makes it unique.",
-        items: [
-          { name: "Chicken", price: "9,95 €", description: "Traditional chicken curry" },
-          { name: "Chicken Tikka", price: "10,95 €", description: "Grilled chicken pieces in curry sauce" },
-          { name: "Lamb", price: "11,95 €", description: "Tender lamb curry" },
-          { name: "Lamb Tikka", price: "12,95 €", description: "Grilled lamb pieces in curry sauce" },
-          { name: "King Prawn", price: "13,95 €", description: "King prawns in curry sauce" },
-          { name: "Mix Vegetables", price: "10,95 €", description: "Mixed vegetables curry" },
-          { name: "Soya Meat", price: "12,95 €", description: "Soya meat in curry sauce" },
-          { name: "Paneer", price: "12,95 €", description: "Cottage cheese curry" },
-          { name: "Special Himalayan", price: "15,95 €", description: "Chef's special curry" }
-        ]
-      },
-      {
-        title: "Tandoori Specialties",
-        description: "Marinated and cooked in our traditional tandoor oven",
-        items: [
-          { name: "Chicken Tikka", price: "4,50 €", description: "Boneless chicken pieces marinated spicy yogurt cooked in a tandoor" },
-          { name: "Tandoor Chicken", price: "5,50 €", description: "Chicken leg piece marinated in a spicy yogurt cooked in tandoor" },
-          { name: "Pudina Tikka", price: "5,50 €", description: "Boneless chicken pieces marinated with mint, ginger & cooked in tandoor" },
-          { name: "Lamb Tikka", price: "6,50 €", description: "Boneless lamb pieces marinated in a spicy yogurt & grilled in tandoor" },
-          { name: "Barra Kebab", price: "5,50 €", description: "Succulent lamb chop marinated in a yogurt & spices, flame-grilled for a smoky bite" },
-          { name: "Sheek Kebab", price: "5,50 €", description: "Minced lamb marinated with spiced, ginger, coriander & cooked on skewers in a tandoor" },
-          { name: "Garlic King Prawn", price: "5,90 €", description: "Grilled king prawn cooked with garlic & limon" },
-          { name: "Special Himalayan", price: "15,59 €", description: "Includes: Onion Bhaji, veg pakora, barra kebab, chicken tikka, pudina tikka, chicken pakora & sheekh kebab" }
-        ]
-      },
+
       {
         title: "Sizzlers",
         description: "Served on hot sizzling plates with onions and peppers",
