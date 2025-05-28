@@ -27,6 +27,17 @@ export default function HeroSection() {
           >
             View Our Story
           </Button>
+          <Button 
+            onClick={() => {
+              const menuSection = document.querySelector('.menu-section');
+              if (menuSection) {
+                menuSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
+            }}
+            className="bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105"
+          >
+            Our Menu
+          </Button>
           <Link href="/reservations">
             <Button 
               variant="outline"
