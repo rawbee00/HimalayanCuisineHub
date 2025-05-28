@@ -61,8 +61,8 @@ export default function ContactSection() {
               <Clock className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2" style={{ color: '#040844' }}>Opening Hours</h3>
-            <p className="text-gray-600">
-              Every day<br />
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Monday - Sunday<br />
               1:00 PM - 10:00 PM
             </p>
           </div>
