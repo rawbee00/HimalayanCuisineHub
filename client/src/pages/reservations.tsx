@@ -311,12 +311,12 @@ export default function ReservationsPage() {
                       <Label htmlFor="essenceGuests" className="text-base font-medium text-primary-custom">How many Essence of Himalayan set menus? *</Label>
                       <Select onValueChange={(value) => handleInputChange("essenceGuests", value)}>
                         <SelectTrigger className="mt-2">
-                          <SelectValue placeholder="Select number of set menus (39,99€ each)" />
+                          <SelectValue placeholder="Select number of set menus" />
                         </SelectTrigger>
                         <SelectContent>
                           {[1,2,3,4,5,6,7,8].map(num => (
                             <SelectItem key={num} value={num.toString()}>
-                              {num} Set Menu{num > 1 ? 's' : ''} - {(num * 39.99).toFixed(2)}€ total
+                              {num} Set Menu{num > 1 ? 's' : ''}
                             </SelectItem>
                           ))}
                         </SelectContent>
