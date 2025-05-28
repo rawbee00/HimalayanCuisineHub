@@ -7,56 +7,9 @@ export default function Gallery() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  // Restaurant gallery images - you can add your actual photos here
-  const galleryImages = [
-    {
-      id: 1,
-      src: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      alt: "Himalayan Restaurant Interior",
-      title: "Our Cozy Dining Area"
-    },
-    {
-      id: 2,
-      src: "https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      alt: "Traditional Nepali Momos",
-      title: "Authentic Nepali Mo:Mo"
-    },
-    {
-      id: 3,
-      src: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      alt: "Indian Curry Dishes",
-      title: "Rich Indian Curries"
-    },
-    {
-      id: 4,
-      src: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      alt: "Tandoor Oven",
-      title: "Traditional Tandoor Cooking"
-    },
-    {
-      id: 5,
-      src: "https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      alt: "Naan Bread",
-      title: "Fresh Tandoor Naan"
-    },
-    {
-      id: 6,
-      src: "https://images.unsplash.com/photo-1563379091339-03246963d25f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      alt: "Spice Collection",
-      title: "Himalayan Spices"
-    },
-    {
-      id: 7,
-      src: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      alt: "Biryani Dish",
-      title: "Aromatic Biryani"
-    },
-    {
-      id: 8,
-      src: "https://images.unsplash.com/photo-1559847844-d721426d6edc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      alt: "Restaurant Ambiance",
-      title: "Warm & Welcoming Atmosphere"
-    }
+  // Restaurant gallery images - ready for your authentic photos
+  const galleryImages: {id: number; src: string; alt: string; title: string}[] = [
+    // Add your restaurant photos here
   ];
 
   const nextImage = () => {
