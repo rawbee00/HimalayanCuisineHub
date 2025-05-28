@@ -556,7 +556,6 @@ export default function MenuSystem() {
         </div>
 
         <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8">
-
           {/* Menu Tab Content */}
           <div className={`tab-content ${activeMainTab === "menu" ? "active" : ""}`}>
             {activeMainTab === "menu" && (
