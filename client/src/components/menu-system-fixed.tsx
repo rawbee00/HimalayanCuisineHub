@@ -67,15 +67,32 @@ export default function MenuSystem() {
     ],
     indian: [
       {
-        title: "Starters",
-        description: "Traditional appetizers to awaken your palate",
+        title: "Appetizers",
+        description: "Traditional appetizers to start your meal",
         items: [
-          { name: "Tandoori Chicken", price: "12,50 €", description: "Half chicken marinated in yogurt and spices, cooked in tandoor" },
-          { name: "Chicken Tikka", price: "11,50 €", description: "Boneless chicken pieces marinated and grilled to perfection" },
-          { name: "Seekh Kebab", price: "10,50 €", description: "Spiced minced lamb skewers cooked in tandoor" },
-          { name: "Samosa (2 pieces)", price: "6,50 €", description: "Crispy pastries filled with spiced potatoes and peas" },
-          { name: "Onion Bhaji", price: "7,50 €", description: "Deep-fried onion fritters with chickpea flour" },
-          { name: "Paneer Tikka", price: "9,50 €", description: "Marinated cottage cheese cubes grilled with peppers" }
+          { name: "Papadum", price: "0,90 €", description: "Thin Indian crispy flatbread" },
+          { name: "Spicy Papadum", price: "1,00 €", description: "Thin Indian crispy spicy flatbread" },
+          { name: "Pickle Tray", price: "3,50 €", description: "Mango chutney, Mint sauce & Chopped Onions" },
+          { name: "Tamarind Sauce", price: "0,90 €", description: "Bittersweet sauce from the fruit of tamarind" },
+          { name: "Spicy Garlic Sauce", price: "0,90 €", description: "Sauce made with fresh garlic & spicy mayonnaise" },
+          { name: "Mango Chutney", price: "0,90 €", description: "Mango flavour sweet sauce" },
+          { name: "Mint Sauce", price: "0,90 €", description: "Sauce made with fresh mint & yogurt" },
+          { name: "Spicy Onions", price: "0,90 €", description: "Chopped onions with cucumber & capsicum" },
+          { name: "Mixed Salad", price: "5,50 €", description: "Fresh mixed vegetables" },
+          { name: "Plain Yoghurt", price: "2,90 €", description: "Creamy natural yogurt" }
+        ]
+      },
+      {
+        title: "Starters",
+        description: "Authentic Indian starters",
+        items: [
+          { name: "Onion Bhaji", price: "4,25 €", description: "Onions balls bound together with lightly spiced & fragrant chickpea flour batter" },
+          { name: "Vegetable Samosa", price: "4,50 €", description: "Triangular pastry filled with potatoes & peas, golden fried" },
+          { name: "Garlic Mushroom", price: "4,50 €", description: "Juicy mushroom sauteed in a rich garlic butter sauce with a hint of spice" },
+          { name: "Meat Samosa", price: "4,75 €", description: "Triangular pastry filled with potatoes, peas & meat, golden fried" },
+          { name: "Vegetable Pakora", price: "4,50 €", description: "Sliced vegetables wrapped in batter & deep fried" },
+          { name: "Chicken Pakora", price: "4,25 €", description: "Marinated chicken pieces in a batter, golden fried" },
+          { name: "Chicken Puri", price: "5,50 €", description: "Chicken cooked with spices, served with puri bread" }
         ]
       },
       {
