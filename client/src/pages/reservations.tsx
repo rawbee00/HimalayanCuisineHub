@@ -297,10 +297,7 @@ export default function ReservationsPage() {
                           ))}
                         </SelectContent>
                       </Select>
-                      <p className="text-sm text-gray-600 mt-2">
-                        <strong>Example:</strong> If you have 3 guests but only 2 want the Essence experience, select "2 Set Menus". 
-                        The third guest can order from our regular menu upon arrival.
-                      </p>
+
                     </div>
                     
                     <div className="grid gap-6">
