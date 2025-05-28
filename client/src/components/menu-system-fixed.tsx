@@ -264,15 +264,7 @@ export default function MenuSystem() {
   return (
     <section className="menu-section bg-white py-16 md:py-20 relative">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Hamburger Menu Button - Top Left of Heading */}
-        <div className="absolute top-4 left-4 z-50">
-          <Button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="bg-primary-custom hover:bg-primary-custom/90 text-white p-3 rounded-lg shadow-lg"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
-        </div>
+
 
         {/* Hamburger Menu Overlay */}
         {isMenuOpen && (
