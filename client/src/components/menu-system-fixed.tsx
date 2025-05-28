@@ -28,11 +28,11 @@ export default function MenuSystem() {
         description: "Choose your appetizer to begin the journey",
         items: [
           { name: "Mo:Mo (Choose your filling)", price: "" },
-          { name: "• Vegan: Textured soy, cabbage, Himalayan spices", price: "" },
-          { name: "• Chicken: Free-range chicken with garlic & ginger", price: "" },
-          { name: "• Pork: Traditional Kathmandu-style rich & gamey", price: "" },
-          { name: "Aloo Sadeko (potato salad with lemon & toasted mustard)", price: "" },
-          { name: "Gundruk Ko Achar (fermented leafy greens with kale)", price: "" },
+          { name: "• Vegan: Textured soy, cabbage, and Himalayan spices", price: "" },
+          { name: "• Chicken: Free-range chicken with garlic and ginger", price: "" },
+          { name: "• Pork: Traditional Kathmandu-style rich and gamey", price: "" },
+          { name: "Aloo Sadeko (potato salad with lemon and toasted mustard)", price: "" },
+          { name: "Gundruk Ko Achar (fermented leafy greens adapted with kale)", price: "" },
           { name: "Served with tomato achar (spiced Nepali sauce)", price: "" }
         ]
       },
@@ -40,28 +40,27 @@ export default function MenuSystem() {
         title: "2. Soup: Reimagined Thukpa / Sherpa's Bowl",
         description: "Choose your warming broth",
         items: [
-          { name: "Vegan: Shiitake & ginger broth with rice noodles", price: "" },
-          { name: "Standard: Chicken broth with vegetables & dhaniya", price: "" },
-          { name: "Kwati (mixed legumes with cumin & turmeric)", price: "" }
+          { name: "Vegan version: Shiitake and ginger broth with rice noodles", price: "" },
+          { name: "Standard option: Chicken broth with vegetables and dhaniya ko patta (coriander)", price: "" },
+          { name: "Kwati (mixed legumes with cumin and turmeric)", price: "" }
         ]
       },
       {
         title: "3. Main Course: Thakali",
         description: "Choose your main curry dish",
         items: [
-          { name: "Vegan: Soy in jimbu & tomato sauce", price: "" },
-          { name: "Chicken: Free-range with garam masala", price: "" },
-          { name: "Lamb: Slow-cooked with fennel & bay leaves", price: "" },
-          { name: "Served with Nepali black lentil dal & jasmine rice", price: "" }
+          { name: "Vegan version: Soy in jimbu and tomato sauce", price: "" },
+          { name: "Chicken curry (Bone-in curry with fenugreek seeds)", price: "" },
+          { name: "Kahsi ko masu / Goat Curry (Bone-in slow-cooked with cardamom and black pepper masala)", price: "" }
         ]
       },
       {
-        title: "4. Dessert: Sweet Ending",
-        description: "Traditional Nepali sweet to complete your meal",
+        title: "4. Dessert: Yomari & Dhau",
+        description: "Traditional Nepali sweets to complete your meal",
         items: [
-          { name: "Sikarni (cardamom-spiced hung yogurt with nuts)", price: "" },
-          { name: "Sel Roti with honey (traditional ring-shaped bread)", price: "" },
-          { name: "Kheer (rice pudding with almonds & raisins)", price: "" }
+          { name: "Dhau (coconut yogurt with cardamom)", price: "" },
+          { name: "Yomari (coconut and nut molasses dumpling)", price: "" },
+          { name: "Optional: Kheer (Nepali-style rice pudding)", price: "" }
         ]
       }
     ],
