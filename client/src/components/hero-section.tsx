@@ -28,7 +28,7 @@ export default function HeroSection() {
           </Button>
           <Button 
             variant="outline"
-            className="border-2 border-white text-white px-8 py-3 font-semibold hover:bg-white hover:text-primary-custom transition-all duration-300 transform hover:scale-105"
+            className="border-2 border-white px-8 py-3 font-semibold hover:bg-white hover:text-primary-custom transition-all duration-300 transform hover:scale-105 text-[#040844]"
           >
             Make Reservation
           </Button>
