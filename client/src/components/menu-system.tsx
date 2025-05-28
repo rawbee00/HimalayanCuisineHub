@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Menu, X } from "lucide-react";
 
 type MainTab = "menu" | "drinks" | "wine";
 type FoodTab = "nepali" | "indian";
@@ -10,6 +11,7 @@ export default function MenuSystem() {
   const [activeMainTab, setActiveMainTab] = useState<MainTab>("menu");
   const [activeFoodTab, setActiveFoodTab] = useState<FoodTab>("nepali");
   const [activeDrinkTab, setActiveDrinkTab] = useState<DrinkTab>("softDrinks");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const foodMenuData = {
     nepali: [
@@ -480,8 +482,70 @@ export default function MenuSystem() {
   };
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-white py-16 md:py-20 relative">
       <div className="max-w-6xl mx-auto px-4">
+        {/* Hamburger Menu Button - Top Right */}
+        <div className="fixed top-4 right-4 z-50">
+          <Button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="bg-primary-custom hover:bg-primary-custom/90 text-white p-3 rounded-lg shadow-lg"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </Button>
+        </div>
+
+        {/* Hamburger Menu Overlay */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 z-40 bg-black bg-opacity-50" onClick={() => setIsMenuOpen(false)}>
+            <div className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300">
+              <div className="p-6 pt-20">
+                <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-6">Menu Sections</h4>
+                <div className="space-y-4">
+                  <Button
+                    onClick={() => {
+                      setActiveMainTab("menu");
+                      setIsMenuOpen(false);
+                    }}
+                    className={`w-full text-left justify-start h-12 text-lg ${
+                      activeMainTab === "menu"
+                        ? "bg-gradient-to-r from-primary-custom to-blue-600 text-white"
+                        : "bg-gray-100 text-primary-custom hover:bg-gray-200"
+                    }`}
+                  >
+                    Food Menu
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      setActiveMainTab("drinks");
+                      setIsMenuOpen(false);
+                    }}
+                    className={`w-full text-left justify-start h-12 text-lg ${
+                      activeMainTab === "drinks"
+                        ? "bg-gradient-to-r from-primary-custom to-blue-600 text-white"
+                        : "bg-gray-100 text-primary-custom hover:bg-gray-200"
+                    }`}
+                  >
+                    Drinks
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      setActiveMainTab("wine");
+                      setIsMenuOpen(false);
+                    }}
+                    className={`w-full text-left justify-start h-12 text-lg ${
+                      activeMainTab === "wine"
+                        ? "bg-gradient-to-r from-primary-custom to-blue-600 text-white"
+                        : "bg-gray-100 text-primary-custom hover:bg-gray-200"
+                    }`}
+                  >
+                    Wine
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="text-center mb-12">
           <h3 className="yadri-font text-4xl md:text-5xl font-bold text-primary-custom mb-4">
             Our Menu
@@ -492,33 +556,6 @@ export default function MenuSystem() {
         </div>
 
         <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8">
-          {/* Main Menu Categories */}
-          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-8">
-            <Button
-              onClick={() => setActiveMainTab("menu")}
-              className={`slide-button px-12 py-4 font-semibold text-lg ${
-                activeMainTab === "menu" ? "active" : ""
-              }`}
-            >
-              Food Menu
-            </Button>
-            <Button
-              onClick={() => setActiveMainTab("drinks")}
-              className={`slide-button px-12 py-4 font-semibold text-lg ${
-                activeMainTab === "drinks" ? "active" : ""
-              }`}
-            >
-              Drinks
-            </Button>
-            <Button
-              onClick={() => setActiveMainTab("wine")}
-              className={`slide-button px-12 py-4 font-semibold text-lg ${
-                activeMainTab === "wine" ? "active" : ""
-              }`}
-            >
-              Wine
-            </Button>
-          </div>
 
           {/* Menu Tab Content */}
           <div className={`tab-content ${activeMainTab === "menu" ? "active" : ""}`}>
