@@ -4,6 +4,7 @@ import AboutSection from "@/components/about-section";
 import ChefRecommendations from "@/components/chef-recommendations";
 import MenuSystem from "@/components/menu-system-fixed";
 import Gallery from "@/components/gallery";
+import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <ChefRecommendations />
       <MenuSystem />
       <Gallery />
+      <ContactSection />
       <Footer />
     </div>
   );

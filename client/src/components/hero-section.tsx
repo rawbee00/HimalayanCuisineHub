@@ -44,6 +44,17 @@ export default function HeroSection() {
           >
             Our Menu
           </Button>
+          <Button 
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105"
+          >
+            Contact Us
+          </Button>
           <Link href="/reservations">
             <Button 
               variant="outline"
