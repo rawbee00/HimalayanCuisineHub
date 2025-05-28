@@ -336,6 +336,16 @@ export default function MenuSystem() {
           </div>
         )}
 
+        {/* Hamburger Menu Button - Above "Authentic Flavors" */}
+        <div className="flex justify-center mb-6">
+          <Button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="bg-primary-custom hover:bg-primary-custom/90 text-white p-3 rounded-lg shadow-lg"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </Button>
+        </div>
+
         <div className="text-center mb-12">
           <h3 className="yadri-font text-4xl md:text-5xl font-bold text-primary-custom mb-4">
             Our Menu
