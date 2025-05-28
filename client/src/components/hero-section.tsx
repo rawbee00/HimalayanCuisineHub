@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 const backgroundImage = "/attached_assets/5761A4A3-073E-4CB8-9054-2E7BB28A077D.PNG";
 
@@ -26,12 +27,14 @@ export default function HeroSection() {
           >
             View Our Story
           </Button>
-          <Button 
-            variant="outline"
-            className="border-2 border-white px-8 py-3 font-semibold hover:bg-white hover:text-primary-custom transition-all duration-300 transform hover:scale-105 text-[#040844]"
-          >
-            Make Reservation
-          </Button>
+          <Link href="/reservations">
+            <Button 
+              variant="outline"
+              className="border-2 border-white px-8 py-3 font-semibold hover:bg-white hover:text-primary-custom transition-all duration-300 transform hover:scale-105 text-[#040844]"
+            >
+              Make Reservation
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -7,11 +7,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 import Welcome from "@/pages/welcome";
+import ReservationsPage from "@/pages/reservations";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/reservations" component={ReservationsPage} />
       <Route component={NotFound} />
     </Switch>
   );
