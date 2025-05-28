@@ -577,6 +577,7 @@ export default function MenuSystem() {
         </div>
 
         <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8">
+          <div>
           {/* Food Menu Content */}
           {activeMainTab === "menu" && (
             <div>
@@ -777,7 +778,8 @@ export default function MenuSystem() {
                   ))}
                 </div>
               </div>
-            )}
+            </div>
+          )}
           </div>
 
         </div>
