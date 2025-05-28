@@ -482,7 +482,7 @@ export default function MenuSystem() {
   };
 
   return (
-    <section className="bg-white py-16 md:py-20 relative">
+    <section className="menu-section bg-white py-16 md:py-20 relative">
       <div className="max-w-6xl mx-auto px-4">
         {/* Hamburger Menu Button - Top Right */}
         <div className="fixed top-4 right-4 z-50">
@@ -505,6 +505,13 @@ export default function MenuSystem() {
                     onClick={() => {
                       setActiveMainTab("menu");
                       setIsMenuOpen(false);
+                      // Smooth scroll to menu section
+                      setTimeout(() => {
+                        const menuSection = document.querySelector('.menu-section');
+                        if (menuSection) {
+                          menuSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                      }, 100);
                     }}
                     className={`w-full text-left justify-start h-12 text-lg ${
                       activeMainTab === "menu"
@@ -518,6 +525,13 @@ export default function MenuSystem() {
                     onClick={() => {
                       setActiveMainTab("drinks");
                       setIsMenuOpen(false);
+                      // Smooth scroll to menu section
+                      setTimeout(() => {
+                        const menuSection = document.querySelector('.menu-section');
+                        if (menuSection) {
+                          menuSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                      }, 100);
                     }}
                     className={`w-full text-left justify-start h-12 text-lg ${
                       activeMainTab === "drinks"
@@ -531,6 +545,13 @@ export default function MenuSystem() {
                     onClick={() => {
                       setActiveMainTab("wine");
                       setIsMenuOpen(false);
+                      // Smooth scroll to menu section
+                      setTimeout(() => {
+                        const menuSection = document.querySelector('.menu-section');
+                        if (menuSection) {
+                          menuSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                      }, 100);
                     }}
                     className={`w-full text-left justify-start h-12 text-lg ${
                       activeMainTab === "wine"
