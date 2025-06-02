@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function AboutSection() {
-  const [isStoryExpanded, setIsStoryExpanded] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 

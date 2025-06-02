@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
 interface WelcomeProps {
@@ -6,9 +6,15 @@ interface WelcomeProps {
 }
 
 export default function Welcome({ onEnter }: WelcomeProps) {
+  console.log('Welcome.tsx: Rendering Welcome component');
   const [isEntering, setIsEntering] = useState(false);
 
+  useEffect(() => {
+    console.log('Welcome.tsx: isEntering state changed:', isEntering);
+  }, [isEntering]);
+
   const handleEnter = () => {
+    console.log('Welcome.tsx: handleEnter called');
     setIsEntering(true);
     // Add zoom-into-H effect
     const hLetter = document.querySelector('.h-letter');

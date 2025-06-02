@@ -35,7 +35,8 @@ export default function HeroSection() {
           </Button>
           <Button 
             onClick={() => {
-              const menuSection = document.querySelector('.menu-section');
+              // Scroll to the menu section
+              const menuSection = document.getElementById('menu');
               if (menuSection) {
                 menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
@@ -46,14 +47,14 @@ export default function HeroSection() {
           </Button>
           <Button 
             onClick={() => {
-              const contactSection = document.getElementById('contact');
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
+              const chefSection = document.getElementById('chef-recommendations');
+              if (chefSection) {
+                chefSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
-            className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105"
+            className="border-2 border-white text-white hover:bg-white/10 transition-colors duration-300 transform hover:scale-105"
           >
-            Contact Us
+            Chef's Specials
           </Button>
           <Link href="/reservations">
             <Button 

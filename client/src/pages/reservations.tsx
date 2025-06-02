@@ -1,62 +1,102 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Clock, Users, Calendar, ChefHat, ArrowLeft } from "lucide-react";
+import { ChefHat, ArrowLeft, Loader2 } from "lucide-react";
 import { Link } from "wouter";
 
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+  guests: string;
+  specialRequests: string;
+  essenceGuests: string;
+  menuSelections: Array<{
+    guestNumber: number;
+    starter: string;
+    soup: string;
+    main: string;
+    dessert: string;
+  }>;
+};
+
+type MenuOptions = {
+  starters: string[];
+  soups: string[];
+  mains: string[];
+  desserts: string[];
+};
+
+type ReservationType = "standard" | "essence" | null;
+
+const essenceMenuOptions: MenuOptions = {
+  starters: [
+    "Mo:Mo - Vegan (Textured soy, cabbage, Himalayan spices)",
+    "Mo:Mo - Chicken (Free-range chicken with garlic & ginger)",
+    "Mo:Mo - Pork (Traditional Kathmandu-style rich & gamey)",
+    "Aloo Sadeko (potato salad with lemon & toasted mustard)",
+    "Gundruk Ko Achar (fermented leafy greens with kale)"
+  ],
+  soups: [
+    "Vegan Thukpa (Shiitake & ginger broth with rice noodles)",
+    "Standard Thukpa (Chicken broth with vegetables & dhaniya)",
+    "Kwati (mixed legumes with cumin & turmeric)"
+  ],
+  mains: [
+    "Vegan Thakali (Soy in jimbu & tomato sauce)",
+    "Chicken Thakali (Free-range with garam masala)",
+    "Lamb Thakali (Slow-cooked with fennel & bay leaves)"
+  ],
+  desserts: [
+    "Sikarni (cardamom-spiced hung yogurt with nuts)",
+    "Sel Roti with honey (traditional ring-shaped bread)",
+    "Kheer (rice pudding with almonds & raisins)"
+  ]
+};
+
 export default function ReservationsPage() {
-  const [reservationType, setReservationType] = useState<"standard" | "essence" | null>(null);
-  const [formData, setFormData] = useState({
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);
+  const [reservationType, setReservationType] = useState<ReservationType>(null);
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
     date: "",
     time: "",
-    guests: "",
+    guests: "2",
     specialRequests: "",
-    // Essence of Himalayan specific fields
-    essenceGuests: "",
-    menuSelections: [] as Array<{
-      guestNumber: number;
-      starter: string;
-      soup: string;
-      main: string;
-      dessert: string;
-    }>
+    essenceGuests: "1",
+    menuSelections: []
   });
+  const [availableSets, setAvailableSets] = useState(20); // Maximum 20 sets per day
 
-  const essenceMenuOptions = {
-    starters: [
-      "Mo:Mo - Vegan (Textured soy, cabbage, Himalayan spices)",
-      "Mo:Mo - Chicken (Free-range chicken with garlic & ginger)",
-      "Mo:Mo - Pork (Traditional Kathmandu-style rich & gamey)",
-      "Aloo Sadeko (potato salad with lemon & toasted mustard)",
-      "Gundruk Ko Achar (fermented leafy greens with kale)"
-    ],
-    soups: [
-      "Vegan Thukpa (Shiitake & ginger broth with rice noodles)",
-      "Standard Thukpa (Chicken broth with vegetables & dhaniya)",
-      "Kwati (mixed legumes with cumin & turmeric)"
-    ],
-    mains: [
-      "Vegan Thakali (Soy in jimbu & tomato sauce)",
-      "Chicken Thakali (Free-range with garam masala)",
-      "Lamb Thakali (Slow-cooked with fennel & bay leaves)"
-    ],
-    desserts: [
-      "Sikarni (cardamom-spiced hung yogurt with nuts)",
-      "Sel Roti with honey (traditional ring-shaped bread)",
-      "Kheer (rice pudding with almonds & raisins)"
-    ]
+  const fetchAvailableSets = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/api/menu-sets');
+      const data = await response.json();
+      if (data.availableSets !== undefined) {
+        setAvailableSets(data.availableSets);
+      }
+    } catch (error) {
+      console.error('Error fetching available sets:', error);
+    }
   };
 
-  const handleInputChange = (field: string, value: string) => {
+  // Fetch available sets when component mounts
+  useEffect(() => {
+    fetchAvailableSets();
+  }, []);
+
+  const handleInputChange = (field: keyof FormData, value: string) => {
     if (field === "essenceGuests") {
-      const numGuests = parseInt(value);
+      const numGuests = parseInt(value) || 0;
       const newSelections = Array.from({ length: numGuests }, (_, index) => ({
         guestNumber: index + 1,
         starter: "",
@@ -64,13 +104,20 @@ export default function ReservationsPage() {
         main: "",
         dessert: ""
       }));
-      setFormData(prev => ({ ...prev, [field]: value, menuSelections: newSelections }));
+      setFormData(prev => ({
+        ...prev,
+        [field]: value,
+        menuSelections: newSelections
+      }));
     } else {
-      setFormData(prev => ({ ...prev, [field]: value }));
+      setFormData(prev => ({
+        ...prev,
+        [field]: value
+      }));
     }
   };
 
-  const handleMenuSelection = (guestIndex: number, course: string, value: string) => {
+  const handleMenuSelection = (guestIndex: number, course: keyof FormData['menuSelections'][0], value: string) => {
     setFormData(prev => ({
       ...prev,
       menuSelections: prev.menuSelections.map((selection, index) =>
@@ -79,17 +126,77 @@ export default function ReservationsPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the reservation data to your backend
-    console.log("Reservation submitted:", { type: reservationType, ...formData });
-    alert("Reservation request submitted! We'll contact you shortly to confirm your booking.");
-    // Reset form
-    setFormData({
-      name: "", email: "", phone: "", date: "", time: "", guests: "", specialRequests: "",
-      essenceGuests: "", menuSelections: []
-    });
-    setReservationType(null);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // First reserve the menu sets
+      if (reservationType === 'essence' && formData.essenceGuests) {
+        const response = await fetch('http://localhost:4000/api/menu-sets/reserve', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            numSets: parseInt(formData.essenceGuests)
+          })
+        });
+
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.message || 'Failed to reserve menu sets');
+        }
+
+        // Update local state
+        fetchAvailableSets();
+      }
+
+      // Then create the reservation
+      const response = await fetch('http://localhost:4000/api/reservations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          reservationType,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ 
+          success: true, 
+          message: 'Reservation submitted successfully! You will receive a confirmation email shortly.' 
+        });
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          date: '',
+          time: '',
+          guests: '2',
+          specialRequests: '',
+          essenceGuests: '1',
+          menuSelections: [],
+        });
+        setReservationType(null);
+      } else {
+        throw new Error(data.error || 'Failed to submit reservation');
+      }
+    } catch (error) {
+      console.error('Error submitting reservation:', error);
+      setSubmitStatus({ 
+        success: false, 
+        message: error instanceof Error ? error.message : 'Failed to submit reservation. Please try again.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -127,182 +234,163 @@ export default function ReservationsPage() {
         </div>
 
         {/* Reservation Type Selection */}
-        {!reservationType && (
+        {!reservationType ? (
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <Card 
               className="cursor-pointer border-2 hover:border-primary-custom transition-all duration-500 hover:shadow-xl transform hover:scale-105 group relative overflow-hidden"
               onClick={() => setReservationType("standard")}
             >
-              {/* Sliding Background Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary-custom to-blue-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-0 group-hover:opacity-10"></div>
-              
-              <CardContent className="p-8 text-center relative z-10">
-                <div className="flex justify-center mb-6">
-                  <div className="bg-blue-100 group-hover:bg-blue-200 p-4 rounded-full transition-all duration-300 transform group-hover:scale-110">
-                    <Users className="text-primary-custom group-hover:text-blue-700 transition-colors duration-300" size={40} />
-                  </div>
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-primary-custom mb-2">Standard Dining</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Enjoy our regular dining experience with our full à la carte menu.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-2 text-primary-custom">
+                  <ChefHat className="w-5 h-5" />
+                  <span>À la carte menu</span>
                 </div>
-                <h3 className="yadri-font text-2xl font-bold text-primary-custom mb-4 group-hover:text-blue-700 transition-colors duration-300">Standard Reservation</h3>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                  Reserve a table and explore our full menu when you arrive. Perfect for experiencing our diverse Indian and Nepali cuisine at your own pace.
-                </p>
-                <div className="space-y-3 text-gray-500 group-hover:text-gray-600 transition-colors duration-300">
-                  <div className="flex items-center justify-center gap-3 transform group-hover:translate-x-2 transition-transform duration-300">
-                    <Clock size={18} />
-                    <span>Order from full menu upon arrival</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-3 transform group-hover:translate-x-2 transition-transform duration-300 delay-75">
-                    <Calendar size={18} />
-                    <span>Same day reservations available</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-3 transform group-hover:translate-x-2 transition-transform duration-300 delay-150">
-                    <Users size={18} />
-                    <span>Flexible dining experience</span>
-                  </div>
+                <div className="mt-4">
+                  <Button className="w-full">Book Now</Button>
                 </div>
-                <Button className="mt-6 bg-primary-custom hover:bg-blue-600 text-white px-8 py-3 transform group-hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  Choose Standard
-                </Button>
               </CardContent>
             </Card>
 
             <Card 
-              className="cursor-pointer border-2 hover:border-orange-500 transition-all duration-500 hover:shadow-xl transform hover:scale-105 bg-gradient-to-br from-orange-50 to-yellow-50 group relative overflow-hidden"
+              className="cursor-pointer border-2 hover:border-primary-custom transition-all duration-500 hover:shadow-xl transform hover:scale-105 group relative overflow-hidden"
               onClick={() => setReservationType("essence")}
             >
-              {/* Sliding Background Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-0 group-hover:opacity-10"></div>
-              
-              <CardContent className="p-8 text-center relative z-10">
-                <div className="flex justify-center mb-6">
-                  <div className="bg-orange-100 group-hover:bg-orange-200 p-4 rounded-full transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12">
-                    <ChefHat className="text-primary-custom group-hover:text-orange-700 transition-colors duration-300" size={40} />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-custom to-blue-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-0 group-hover:opacity-10"></div>
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-primary-custom mb-2">Essence of Himalayan</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Experience our curated Himalayan menu featuring authentic Nepali dishes.
+                  <div className="mt-2 flex items-center gap-2">
+                    <span className="text-sm text-primary-custom">Only {availableSets} sets available today</span>
+                    <span className="text-sm text-gray-500">(Max 20 sets per day)</span>
                   </div>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-2 text-primary-custom">
+                  <ChefHat className="w-5 h-5" />
+                  <span>Multi-course Himalayan menu</span>
                 </div>
-                <h3 className="yadri-font text-2xl font-bold text-primary-custom mb-4 group-hover:text-orange-700 transition-colors duration-300">Essence of Himalayan</h3>
-                <div className="bg-orange-200 group-hover:bg-orange-300 text-orange-800 group-hover:text-orange-900 font-bold py-2 px-4 rounded-lg mb-4 transition-all duration-300 transform group-hover:scale-105">
-                  39,99€ per person
+                <div className="mt-4">
+                  <Button className="w-full">Book Now</Button>
                 </div>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                  Our signature 4-course Nepali dining experience. Pre-select your authentic dishes for this culinary journey from the Himalayas to your table.
-                </p>
-                <div className="space-y-3 text-gray-500 group-hover:text-gray-600 transition-colors duration-300">
-                  <div className="flex items-center justify-center gap-3 transform group-hover:-translate-x-2 transition-transform duration-300">
-                    <ChefHat size={18} />
-                    <span>4-course pre-selected menu</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-3 transform group-hover:-translate-x-2 transition-transform duration-300 delay-75">
-                    <Calendar size={18} />
-                    <span>Advance reservation required</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-3 transform group-hover:-translate-x-2 transition-transform duration-300 delay-150">
-                    <Clock size={18} />
-                    <span>Authentic Nepali experience</span>
-                  </div>
-                </div>
-                <Button className="mt-6 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-8 py-3 transform group-hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  Choose Essence Experience
-                </Button>
               </CardContent>
             </Card>
           </div>
-        )}
-
-        {/* Reservation Form */}
-        {reservationType && (
-          <Card className="bg-white shadow-xl">
-            <CardHeader className="text-center bg-gray-50">
-              <CardTitle className="yadri-font text-3xl font-bold text-primary-custom">
-                {reservationType === "standard" ? "Standard Reservation" : "Essence of Himalayan Experience"}
-              </CardTitle>
-              {reservationType === "essence" && (
-                <p className="text-orange-600 font-bold text-lg mt-2">39,99€ per person - Please select your 4-course menu below</p>
-              )}
-            </CardHeader>
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Basic Information */}
+        ) : (
+          <Card className="mb-12">
+            <CardHeader>
+              <div className="flex items-center gap-4">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  onClick={() => setReservationType(null)}
+                  className="rounded-full"
+                >
+                  <ArrowLeft className="h-5 w-5" />
+                </Button>
                 <div>
-                  <h4 className="text-xl font-bold text-primary-custom mb-4">Reservation Details</h4>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="name" className="text-base font-medium">Full Name *</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange("name", e.target.value)}
-                        className="mt-2"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="email" className="text-base font-medium">Email *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
-                        className="mt-2"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="phone" className="text-base font-medium">Phone Number *</Label>
-                      <Input
-                        id="phone"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange("phone", e.target.value)}
-                        className="mt-2"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="guests" className="text-base font-medium">Number of Guests *</Label>
-                      <Select onValueChange={(value) => handleInputChange("guests", value)}>
-                        <SelectTrigger className="mt-2">
-                          <SelectValue placeholder="Select number of guests" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {[1,2,3,4,5,6,7,8].map(num => (
-                            <SelectItem key={num} value={num.toString()}>{num} {num === 1 ? 'Guest' : 'Guests'}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label htmlFor="date" className="text-base font-medium">Preferred Date *</Label>
-                      <Input
-                        id="date"
-                        type="date"
-                        value={formData.date}
-                        onChange={(e) => handleInputChange("date", e.target.value)}
-                        className="mt-2"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="time" className="text-base font-medium">Preferred Time *</Label>
-                      <Select onValueChange={(value) => handleInputChange("time", value)}>
-                        <SelectTrigger className="mt-2">
-                          <SelectValue placeholder="Select preferred time" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="18:00">6:00 PM</SelectItem>
-                          <SelectItem value="18:30">6:30 PM</SelectItem>
-                          <SelectItem value="19:00">7:00 PM</SelectItem>
-                          <SelectItem value="19:30">7:30 PM</SelectItem>
-                          <SelectItem value="20:00">8:00 PM</SelectItem>
-                          <SelectItem value="20:30">8:30 PM</SelectItem>
-                          <SelectItem value="21:00">9:00 PM</SelectItem>
-                          <SelectItem value="21:30">9:30 PM</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
+                  <CardTitle className="text-2xl font-bold text-primary-custom">
+                    {reservationType === 'standard' ? 'Standard Dining' : 'Essence of Himalayan'}
+                  </CardTitle>
+                  <CardDescription>
+                    {reservationType === 'standard' 
+                      ? 'Reserve your table for our à la carte dining experience'
+                      : 'Reserve your spot for our authentic Himalayan menu experience'}
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Full Name *</Label>
+                    <Input
+                      id="name"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone Number *</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      placeholder="+1 (555) 123-4567"
+                      required
+                    />
+                  </div>
+
+
+                  <div className="space-y-2">
+                    <Label htmlFor="date">Date *</Label>
+                    <Input
+                      id="date"
+                      type="date"
+                      value={formData.date}
+                      onChange={(e) => handleInputChange('date', e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="time">Time *</Label>
+                    <Input
+                      id="time"
+                      type="time"
+                      value={formData.time}
+                      onChange={(e) => handleInputChange('time', e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="guests">Number of Guests *</Label>
+                    <Select
+                      value={formData.guests}
+                      onValueChange={(value) => handleInputChange('guests', value)}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select guests" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                          <SelectItem key={num} value={num.toString()}>
+                            {num} {num === 1 ? 'person' : 'people'}
+                          </SelectItem>
+                        ))}
+                        <SelectItem value="9+">9+ (Contact us)</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
 
-                {/* Essence of Himalayan Menu Selection */}
-                {reservationType === "essence" && (
+                {reservationType === 'essence' && (
                   <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-8 rounded-xl border border-orange-200">
                     <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-6 text-center">Select Your 4-Course Himalayan Journey</h4>
                     
@@ -321,7 +409,6 @@ export default function ReservationsPage() {
                           ))}
                         </SelectContent>
                       </Select>
-
                     </div>
                     
                     {/* Individual Menu Selections for Each Guest */}
@@ -334,13 +421,18 @@ export default function ReservationsPage() {
                         <div className="grid gap-4">
                           <div>
                             <Label className="text-base font-medium text-primary-custom">1. Starter: Nepali Flavor *</Label>
-                            <Select onValueChange={(value) => handleMenuSelection(guestIndex, "starter", value)}>
-                              <SelectTrigger className="mt-2">
-                                <SelectValue placeholder={`Choose appetizer for Guest ${guestIndex + 1}`} />
+                            <Select
+                              value={selection.starter}
+                              onValueChange={(value) => handleMenuSelection(guestIndex, 'starter', value)}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Choose appetizer" />
                               </SelectTrigger>
                               <SelectContent>
-                                {essenceMenuOptions.starters.map((item, index) => (
-                                  <SelectItem key={index} value={item}>{item}</SelectItem>
+                                {essenceMenuOptions.starters.map((item, i) => (
+                                  <SelectItem key={i} value={item}>
+                                    {item}
+                                  </SelectItem>
                                 ))}
                               </SelectContent>
                             </Select>
@@ -348,13 +440,18 @@ export default function ReservationsPage() {
 
                           <div>
                             <Label className="text-base font-medium text-primary-custom">2. Soup: Sherpa's Bowl *</Label>
-                            <Select onValueChange={(value) => handleMenuSelection(guestIndex, "soup", value)}>
-                              <SelectTrigger className="mt-2">
-                                <SelectValue placeholder={`Choose warming broth for Guest ${guestIndex + 1}`} />
+                            <Select
+                              value={selection.soup}
+                              onValueChange={(value) => handleMenuSelection(guestIndex, 'soup', value)}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Choose soup" />
                               </SelectTrigger>
                               <SelectContent>
-                                {essenceMenuOptions.soups.map((item, index) => (
-                                  <SelectItem key={index} value={item}>{item}</SelectItem>
+                                {essenceMenuOptions.soups.map((item, i) => (
+                                  <SelectItem key={i} value={item}>
+                                    {item}
+                                  </SelectItem>
                                 ))}
                               </SelectContent>
                             </Select>
@@ -362,13 +459,18 @@ export default function ReservationsPage() {
 
                           <div>
                             <Label className="text-base font-medium text-primary-custom">3. Main Course: Thakali *</Label>
-                            <Select onValueChange={(value) => handleMenuSelection(guestIndex, "main", value)}>
-                              <SelectTrigger className="mt-2">
-                                <SelectValue placeholder={`Choose main curry dish for Guest ${guestIndex + 1}`} />
+                            <Select
+                              value={selection.main}
+                              onValueChange={(value) => handleMenuSelection(guestIndex, 'main', value)}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Choose main course" />
                               </SelectTrigger>
                               <SelectContent>
-                                {essenceMenuOptions.mains.map((item, index) => (
-                                  <SelectItem key={index} value={item}>{item}</SelectItem>
+                                {essenceMenuOptions.mains.map((item, i) => (
+                                  <SelectItem key={i} value={item}>
+                                    {item}
+                                  </SelectItem>
                                 ))}
                               </SelectContent>
                             </Select>
@@ -376,13 +478,18 @@ export default function ReservationsPage() {
 
                           <div>
                             <Label className="text-base font-medium text-primary-custom">4. Dessert: Sweet Ending *</Label>
-                            <Select onValueChange={(value) => handleMenuSelection(guestIndex, "dessert", value)}>
-                              <SelectTrigger className="mt-2">
-                                <SelectValue placeholder={`Choose traditional Nepali sweet for Guest ${guestIndex + 1}`} />
+                            <Select
+                              value={selection.dessert}
+                              onValueChange={(value) => handleMenuSelection(guestIndex, 'dessert', value)}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Choose dessert" />
                               </SelectTrigger>
                               <SelectContent>
-                                {essenceMenuOptions.desserts.map((item, index) => (
-                                  <SelectItem key={index} value={item}>{item}</SelectItem>
+                                {essenceMenuOptions.desserts.map((item, i) => (
+                                  <SelectItem key={i} value={item}>
+                                    {item}
+                                  </SelectItem>
                                 ))}
                               </SelectContent>
                             </Select>
@@ -393,39 +500,56 @@ export default function ReservationsPage() {
                   </div>
                 )}
 
-                {/* Special Requests */}
-                <div>
-                  <Label htmlFor="specialRequests" className="text-base font-medium">Special Requests or Dietary Requirements</Label>
+                <div className="space-y-2">
+                  <Label htmlFor="specialRequests">Special Requests</Label>
                   <Textarea
                     id="specialRequests"
                     value={formData.specialRequests}
-                    onChange={(e) => handleInputChange("specialRequests", e.target.value)}
-                    placeholder="Please let us know about any allergies, dietary preferences, special occasions, or other requests..."
-                    rows={4}
-                    className="mt-2"
+                    onChange={(e) => handleInputChange('specialRequests', e.target.value)}
+                    placeholder="Any allergies, dietary restrictions, or special occasions?"
+                    rows={3}
                   />
+                  <p className="text-sm text-gray-500">
+                    We'll do our best to accommodate your requests.
+                  </p>
                 </div>
 
-                {/* Submit Buttons */}
-                <div className="flex gap-4 justify-center pt-6">
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button
                     type="button"
                     variant="outline"
                     onClick={() => setReservationType(null)}
-                    className="px-8 py-3 text-base"
+                    className="w-full sm:w-auto"
                   >
-                    Back to Options
+                    Back
                   </Button>
-                  <Button
-                    type="submit"
-                    className="bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white px-8 py-3 text-base font-medium"
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white"
                   >
-                    Submit Reservation Request
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      'Submit Reservation'
+                    )}
                   </Button>
                 </div>
               </form>
             </CardContent>
           </Card>
+        )}
+
+        {/* Status Message */}
+        {submitStatus && (
+          <div className={`fixed bottom-6 right-6 p-4 rounded-lg shadow-lg ${
+            submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+          }`}>
+            <p className="font-medium">{submitStatus.message}</p>
+          </div>
         )}
       </main>
     </div>
