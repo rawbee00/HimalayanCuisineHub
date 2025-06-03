@@ -67,7 +67,7 @@ export default function Welcome({ onEnter }: WelcomeProps) {
               Namaste and welcome to Himalayan Curry & Tandoor House!
             </h3>
             <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6">
-              We're so glad you're here. Our kitchen is filled with the rich, comforting flavors of Nepal—just like home—along with some of our favorite Indian dishes. Every bite is made with love, tradition, and a little extra spice. Come in, relax, and enjoy!
+              We're so glad you're here! Our kitchen is filled with the rich, comforting flavors of Nepal—just like home—along with some of our favorite Indian dishes. Every bite is made with love, tradition, and a little extra spice. Come in, relax, and enjoy! (v1.1)
             </p>
             <p className="text-base md:text-lg text-gray-300 leading-relaxed italic">
               Discover the bold, fresh flavors of Nepal—a hidden gem of the Himalayas—making its debut here, paired with the familiar comfort of Indian cuisine.
