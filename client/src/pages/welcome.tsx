@@ -33,20 +33,22 @@ export default function Welcome({ onEnter }: WelcomeProps) {
 
   return (
     <div 
-      className={`welcome-container fixed inset-0 bg-black text-white flex items-center justify-center z-50 transition-all duration-1000 ease-in-out ${
+      className={`welcome-container fixed inset-0 bg-black text-white flex flex-col items-center justify-between py-8 z-50 transition-all duration-1000 ease-in-out overflow-y-auto ${
         isEntering ? 'scale-150 opacity-0' : 'scale-100 opacity-100'
       }`}
       style={{
         backgroundImage: `url(/attached_assets/5761A4A3-073E-4CB8-9054-2E7BB28A077D.PNG)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
+        height: '100%'
       }}
     >
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 w-full">
         <div className="mb-8 animate-fade-in">
           <h1 className="yadri-font text-6xl md:text-8xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down himalayan-text">
             <span className="h-letter">H</span>IMALAYAN
@@ -73,11 +75,11 @@ export default function Welcome({ onEnter }: WelcomeProps) {
           </div>
         </div>
         
-        <div className="animate-fade-in delay-700">
+        <div className="animate-fade-in delay-700 mt-4 mb-8 w-full px-4">
           <Button
             onClick={isEntering ? undefined : handleEnter}
             disabled={isEntering}
-            className="bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white font-bold text-xl px-16 py-6 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-blue-500/25 border-2 border-white border-opacity-30"
+            className="w-full max-w-md mx-auto bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white font-bold text-xl px-6 py-6 sm:px-16 sm:py-6 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-blue-500/25 border-2 border-white border-opacity-30"
           >
             {isEntering ? 'Entering...' : 'Enter'}
           </Button>
