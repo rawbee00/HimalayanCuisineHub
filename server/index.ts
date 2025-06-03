@@ -1,10 +1,17 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
+import cors from 'cors';
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Configure CORS to allow specific origin and credentials
+app.use(cors({
+  origin: 'http://localhost:3001', // Your frontend's origin
+  credentials: true, // Allow cookies and authorization headers
+}));
 
 app.use((req, res, next) => {
   const start = Date.now();

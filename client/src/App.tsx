@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -12,6 +12,9 @@ import ReservationsPage from "@/pages/reservations";
 console.log('App.tsx: App component is rendering');
 
 function Router() {
+  const [location] = useLocation(); // Get current location
+  console.log('Current wouter location:', location); // Log it
+
   return (
     <Switch>
       <Route path="/" component={Home} />

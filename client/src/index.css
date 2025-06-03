@@ -11,6 +11,7 @@
   --card-foreground: 223 84% 16%;
   --border: 214 32% 91%;
   --input: 214 32% 91%;
+  --input-foreground: 222 47% 11%;
   --primary: 222 84% 55%;
   --primary-foreground: 210 40% 98%;
   --secondary: 210 40% 96%;
@@ -34,6 +35,7 @@
   --card-foreground: 210 40% 98%;
   --border: 216 34% 17%;
   --input: 216 34% 17%;
+  --input-foreground: 210 40% 98%;
   --primary: 217 91% 60%;
   --primary-foreground: 222 47% 11%;
   --secondary: 216 34% 17%;
@@ -43,6 +45,272 @@
   --destructive: 0 63% 31%;
   --destructive-foreground: 210 40% 98%;
   --ring: 217 91% 60%;
+}
+
+/* Fix for form inputs */
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: hsl(var(--input-foreground)) !important;
+  background-color: hsl(var(--input)) !important;
+  background-clip: padding-box;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius) !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Fix for dark mode inputs */
+.dark input:not([type="checkbox"]):not([type="radio"]),
+.dark select,
+.dark textarea {
+  background-color: hsl(var(--input)) !important;
+  color: hsl(var(--input-foreground)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+/* Fix for input placeholders */
+input::placeholder,
+textarea::placeholder {
+  color: hsl(var(--muted-foreground) / 0.7) !important;
+  opacity: 1;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: hsl(var(--muted-foreground) / 0.7) !important;
+}
+
+/* Style for select elements */
+/* Style for select elements */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem !important;
+  background-color: hsl(var(--input)) !important;
+  color: hsl(var(--input-foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 0.5rem;
+  min-height: 2.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+select:hover {
+  background-color: hsl(var(--input) / 0.9) !important;
+}
+
+.dark select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* Menu selection dropdowns */
+.menu-select select {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.menu-select label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--foreground));
+}
+
+/* Date and time inputs */
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"] {
+  min-height: 2.5rem;
+  padding-right: 0.75rem;
+  background-color: hsl(var(--input)) !important;
+  color: hsl(var(--input-foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 0.5rem;
+}
+
+input[type="date"]:hover,
+input[type="time"]:hover,
+input[type="datetime-local"]:hover,
+input[type="month"]:hover,
+input[type="week"]:hover {
+  background-color: hsl(var(--input) / 0.9) !important;
+}
+
+/* Fix for WebKit date/time inputs */
+input[type="date"]::-webkit-datetime-edit,
+input[type="time"]::-webkit-datetime-edit,
+input[type="datetime-local"]::-webkit-datetime-edit,
+input[type="month"]::-webkit-datetime-edit,
+input[type="week"]::-webkit-datetime-edit {
+  color: hsl(var(--input-foreground)) !important;
+  background-color: transparent !important;
+  padding: 0.25rem 0;
+}
+
+/* Placeholder text color */
+input[type="date"]::placeholder,
+input[type="time"]::placeholder,
+input[type="datetime-local"]::placeholder,
+input[type="month"]::placeholder,
+input[type="week"]::placeholder {
+  color: hsl(var(--muted-foreground) / 0.7) !important;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+input[type="time"]::-webkit-datetime-edit-fields-wrapper,
+input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper,
+input[type="month"]::-webkit-datetime-edit-fields-wrapper,
+input[type="week"]::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+/* Styles for the reservation form time select dropdown (black background) */
+.reservation-time-popover {
+  background-color: #000000 !important; /* Black */
+  color: #ffffff !important; /* White text */
+  border: 1px solid #333333 !important; /* Dark grey border */
+}
+
+.reservation-time-popover [role="option"] {
+  color: #ffffff !important;
+}
+
+.reservation-time-popover [role="option"]:hover,
+.reservation-time-popover [role="option"][data-highlighted] {
+  background-color: #333333 !important; /* Dark grey for hover/focus */
+  color: #ffffff !important;
+}
+
+.reservation-time-popover [role="option"][data-state="checked"] {
+  background-color: #555555 !important; /* Medium grey for selected item */
+  color: #ffffff !important;
+}
+
+.reservation-time-popover [role="option"][data-state="checked"] svg {
+  color: #ffffff !important;
+}
+
+/* Styles for the reservation form date picker popover (black background) */
+.reservation-date-popover {
+  background-color: #000000 !important; /* Black */
+  color: #ffffff !important; /* White text for general text inside popover */
+  border: 1px solid #333333 !important; /* Dark grey border */
+}
+
+/* Calendar specific styles for dark theme */
+.reservation-date-popover .rdp-caption_label,
+.reservation-date-popover .rdp-head_cell {
+  color: #ffffff !important; /* White text for month/year label and day names */
+}
+
+.reservation-date-popover .rdp-button {
+  color: #dddddd !important; /* Light grey for day numbers */
+}
+
+.reservation-date-popover .rdp-button:hover:not([aria-disabled="true"]) {
+  background-color: #333333 !important; /* Dark grey hover for day numbers */
+  color: #ffffff !important;
+}
+
+.reservation-date-popover .rdp-day_selected,
+.reservation-date-popover .rdp-day_selected:hover {
+  background-color: #555555 !important; /* Medium grey for selected day */
+  color: #ffffff !important;
+}
+
+.reservation-date-popover .rdp-button[aria-disabled="true"] {
+  color: #777777 !important; /* Dimmed color for disabled days */
+  opacity: 0.5;
+}
+
+.reservation-date-popover .rdp-nav_button {
+  color: #ffffff !important; /* White for nav buttons */
+  background-color: transparent !important;
+  border-radius: 0.25rem;
+}
+
+.reservation-date-popover .rdp-nav_button:hover {
+  background-color: #333333 !important; /* Dark grey hover for nav buttons */
+}
+
+/* Styles for the Essence of Himalayan menu select dropdowns (black background) */
+.reservation-essence-popover {
+  background-color: #000000 !important; /* Black */
+  color: #ffffff !important; /* White text */
+  border: 1px solid #333333 !important; /* Dark grey border */
+}
+
+.reservation-essence-popover [role="option"] {
+  color: #ffffff !important;
+}
+
+.reservation-essence-popover [role="option"]:hover,
+.reservation-essence-popover [role="option"][data-highlighted] {
+  background-color: #333333 !important; /* Dark grey for hover/focus */
+  color: #ffffff !important;
+}
+
+.reservation-essence-popover [role="option"][data-state="checked"] {
+  background-color: #555555 !important; /* Medium grey for selected item */
+  color: #ffffff !important;
+}
+
+.reservation-essence-popover [role="option"][data-state="checked"] svg {
+  color: #ffffff !important;
+}
+
+/* Calendar icon color for date picker */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="week"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  color: hsl(var(--input-foreground));
+  opacity: 0.7;
+  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator,
+.dark input[type="time"]::-webkit-calendar-picker-indicator,
+.dark input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+.dark input[type="month"]::-webkit-calendar-picker-indicator,
+.dark input[type="week"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.8;
+}
+
+/* Focus states */
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Placeholder text color */
+::placeholder {
+  color: hsl(var(--muted-foreground) / 0.7) !important;
+  opacity: 1;
 }
 
 * {

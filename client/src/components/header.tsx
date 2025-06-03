@@ -6,8 +6,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
-  const handleLogoClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleLogoClick = () => {
     setIsMenuOpen(false); // Close menu if open
     window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
   };
@@ -15,23 +14,23 @@ export default function Header() {
   return (
     <>
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-6 relative">
-          <div className="flex items-center gap-6">
+        <div className="max-w-6xl mx-auto px-4 py-3 md:py-6 relative">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
             <Link href="/" className="flex items-center" onClick={handleLogoClick}>
               <img 
                 src="/assets/logo.png" 
                 alt="Himalayan Logo" 
-                className="w-80 h-80 object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-40 h-40 md:w-64 md:h-64 lg:w-80 lg:h-80 object-contain cursor-pointer hover:opacity-90 transition-opacity"
               />
             </Link>
             <div className="text-center">
-              <h1 className="yadri-font text-5xl md:text-7xl font-bold text-primary-custom mb-2 tracking-wide">
+              <h1 className="yadri-font text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-custom mb-1 md:mb-2 tracking-wide">
                 Himalayan
               </h1>
-              <h2 className="yadri-font text-2xl md:text-3xl font-semibold text-primary-custom mb-3">
+              <h2 className="yadri-font text-xl sm:text-2xl md:text-3xl font-semibold text-primary-custom mb-2 md:mb-3">
                 Curry & Tandoor House
               </h2>
-              <p className="text-lg md:text-xl text-primary-custom font-medium tracking-wider">
+              <p className="text-base sm:text-lg md:text-xl text-primary-custom font-medium tracking-wider">
                 Nepali - Indian Cuisine
               </p>
             </div>

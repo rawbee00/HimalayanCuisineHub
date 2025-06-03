@@ -583,15 +583,20 @@ const wineMenuData = [
         bottleLabel: "Pitcher (1L)",
         description: "Refreshing white wine sangria with fresh fruits" 
       },
-    ]
-  }
-];
 
 export function MenuSystem() {
   const menuRef = useRef<HTMLDivElement>(null);
-  const [activeMainTab, setActiveMainTab] = useState<MainTab>('menu');
-  const [activeFoodTab, setActiveFoodTab] = useState<FoodTab>('nepali');
+
+  // State for active tabs
+  const [activeTab, setActiveTab] = useState<MainTab>('menu');
+  const [foodTab, setFoodTab] = useState<FoodTab>('nepali');
   const [activeDrinkTab, setActiveDrinkTab] = useState<DrinkTab>('softDrinks');
+
+  // Alias for backward compatibility
+  const setActiveMainTab = setActiveTab;
+  const setActiveFoodTab = setFoodTab;
+  const activeMainTab = activeTab;
+  const activeFoodTab = foodTab;
 
   // Listen for tab change events from other components (like the hero section)
   useEffect(() => {
@@ -740,63 +745,64 @@ export function MenuSystem() {
     }
   }, [menuRef]);
 
-  // URL-based tab switching has been removed to allow manual tab selection
+  // Tab switching functions
+  const handleMainTabChange = (tab: MainTab) => {
+    setActiveTab(tab);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleFoodTabChange = (tab: FoodTab) => {
+    setFoodTab(tab);
+  };
 
   return (
-    <div ref={menuRef} id="menu-system" className="menu-system">
+    <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
       {/* Main Tabs */}
-      <div className="flex justify-center mb-8 space-x-4 max-w-2xl mx-auto">
-        <button
-          onClick={() => setActiveMainTab('menu')}
-          className={`flex-1 py-2 px-4 rounded-md text-base font-semibold font-yatra ${
-            activeMainTab === 'menu'
-              ? 'bg-primary-custom text-white'
-              : 'bg-white text-primary-custom border border-primary-custom'
-          }`}
-        >
-          Food
-        </button>
-        <button
-          onClick={() => setActiveMainTab('drinks')}
-          className={`flex-1 py-2 px-4 rounded-md text-base font-semibold font-yatra ${
-            activeMainTab === 'drinks'
-              ? 'bg-primary-custom text-white'
-              : 'bg-white text-primary-custom border border-primary-custom'
-          }`}
-        >
-          Drinks
-        </button>
-        <button
-          onClick={() => setActiveMainTab('wine')}
-          className={`flex-1 py-2 px-4 rounded-md text-base font-semibold font-yatra ${
-            activeMainTab === 'wine'
-              ? 'bg-primary-custom text-white'
-              : 'bg-white text-primary-custom border border-primary-custom'
-          }`}
-        >
-          Wine
-        </button>
+      <div className="flex justify-center mb-4 sm:mb-8 overflow-x-auto pb-2">
+        <div className="inline-flex rounded-md shadow-sm flex-nowrap" role="group">
+          {Object.entries({
+            menu: 'Food Menu',
+            drinks: 'Drinks',
+            wine: 'Wine List'
+          }).map(([key, label]) => (
+            <button
+              key={key}
+              onClick={() => setActiveMainTab(key as MainTab)}
+              className={`px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium rounded-md whitespace-nowrap ${
+                activeMainTab === key
+                  ? 'bg-primary-custom text-white'
+                  : 'bg-white text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Food Menu */}
       {activeMainTab === 'menu' && (
-        <div className="space-y-8">
-          {/* Food Tabs */}
-          <div className="flex justify-center mb-6">
-            <Button
-              variant={activeFoodTab === 'nepali' ? 'default' : 'outline'}
-              onClick={() => setActiveFoodTab('nepali')}
-              className="flex-1 text-base font-yatra"
-            >
-              Nepali
-            </Button>
-            <Button
-              variant={activeFoodTab === 'indian' ? 'default' : 'outline'}
-              onClick={() => setActiveFoodTab('indian')}
-              className="flex-1 text-base font-yatra"
-            >
-              Indian
-            </Button>
+        <div className="mb-6 sm:mb-8">
+          {/* Food Type Tabs */}
+          <div className="flex justify-center mb-4 sm:mb-8 overflow-x-auto pb-2">
+            <div className="inline-flex rounded-md shadow-sm flex-nowrap" role="group">
+              {Object.entries({
+                nepali: 'Nepali',
+                indian: 'Indian'
+              }).map(([key, label]) => (
+                <button
+                  key={key}
+                  onClick={() => setActiveFoodTab(key as FoodTab)}
+                  className={`px-3 sm:px-6 py-2 text-xs sm:text-sm font-medium rounded-md whitespace-nowrap ${
+                    activeFoodTab === key
+                      ? 'bg-primary-custom text-white'
+                      : 'bg-white text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Food Sections */}
