@@ -1,16 +1,24 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleLogoClick = () => {
-    setIsMenuOpen(false); // Close menu if open
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Handle scroll effect for header
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -25,144 +33,172 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isMenuOpen]);
 
+  const scrollToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const headerOffset = 100;
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <>
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-3 md:py-6 relative">
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
-            <div className="w-full md:w-auto flex justify-between items-center">
-              <Link href="/" className="flex items-center" onClick={handleLogoClick}>
-                <img 
-                  src="/assets/logo.png" 
-                  alt="Himalayan Logo" 
-                  className="w-24 h-24 md:w-40 md:h-40 lg:w-64 lg:h-64 object-contain cursor-pointer hover:opacity-90 transition-opacity"
-                />
-              </Link>
+      <header 
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          isScrolled ? 'bg-white/95 shadow-md backdrop-blur-sm' : 'bg-white/90'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-3 md:py-4">
+            {/* Logo */}
+            <Link 
+              href="/" 
+              className="flex items-center space-x-2 group"
+              onClick={handleLogoClick}
+            >
+              <img 
+                src="/assets/logo.png" 
+                alt="Himalayan Cuisine Logo" 
+                width={48}
+                height={48}
+                loading="lazy"
+                className="h-12 w-auto transition-transform group-hover:scale-105"
+              />
+              <div className="hidden md:block">
+                <h1 className="text-xl font-yatra text-primary-custom leading-tight">Himalayan</h1>
+                <p className="text-sm text-gray-600">Curry & Tandoor House</p>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
               <button 
-                className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label="Toggle menu"
+                onClick={() => scrollToSection('menu')}
+                className="text-gray-700 hover:text-primary-custom transition-colors text-sm font-medium"
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                Menu
               </button>
-            </div>
-            <div className="text-center mt-2 md:mt-0">
-              <h1 className="yadri-font text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary-custom mb-0 md:mb-1 tracking-wide">
-                Himalayan
-              </h1>
-              <h2 className="yadri-font text-lg sm:text-xl md:text-3xl font-semibold text-primary-custom mb-1 md:mb-2">
-                Curry & Tandoor House
-              </h2>
-              <p className="text-sm sm:text-base md:text-xl text-primary-custom font-medium tracking-wider">
-                Nepali - Indian Cuisine
-              </p>
-            </div>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="text-gray-700 hover:text-primary-custom transition-colors text-sm font-medium"
+              >
+                About
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="text-gray-700 hover:text-primary-custom transition-colors text-sm font-medium"
+              >
+                Contact
+              </button>
+              <a 
+                href="tel:01234567890"
+                className="flex items-center px-4 py-2 bg-primary-custom text-white rounded-full text-sm font-medium hover:bg-primary-600 transition-colors"
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                Book a Table
+              </a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-3 -mr-2 touch-manipulation"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              style={{
+                WebkitTapHighlightColor: 'transparent',
+                touchAction: 'manipulation'
+              }}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-gray-700" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-700" />
+              )}
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <div 
-        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+        id="mobile-menu"
+        className={`fixed inset-0 z-40 bg-white transition-all duration-300 ease-in-out transform ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        onClick={() => setIsMenuOpen(false)}
+        style={{
+          willChange: 'transform',
+          overscrollBehavior: 'contain',
+          WebkitOverflowScrolling: 'touch'
+        }}
       >
-        <div 
-          className={`fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform duration-300 mobile-menu ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="p-4 pt-20 h-full overflow-y-auto">
-            <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-6 px-4">Menu Sections</h4>
-            <div className="space-y-3 px-2">
-              <Button
-                variant="ghost"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setTimeout(() => {
-                    const menuSection = document.getElementById('menu-system');
-                    if (menuSection) {
-                      const headerOffset = 100;
-                      const elementPosition = menuSection.getBoundingClientRect().top;
-                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                      
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                      });
-                      
-                      menuSection.setAttribute('data-active-tab', 'menu');
-                      // Force a reflow
-                      void menuSection.offsetHeight;
-                      menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }, 100);
-                }}
-                className="w-full justify-start px-6 py-4 text-lg text-gray-700 hover:text-primary-custom hover:bg-gray-50 rounded-lg transition-all duration-200"
-              >
-                Food
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setTimeout(() => {
-                    const menuSection = document.getElementById('menu-system');
-                    if (menuSection) {
-                      const headerOffset = 100;
-                      const elementPosition = menuSection.getBoundingClientRect().top;
-                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                      
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                      });
-                      
-                      menuSection.setAttribute('data-active-tab', 'drinks');
-                      menuSection.setAttribute('data-drinks-tab', 'softDrinks');
-                      // Force a reflow
-                      void menuSection.offsetHeight;
-                      menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }, 100);
-                }}
-                className="w-full justify-start px-6 py-4 text-lg text-gray-700 hover:text-primary-custom hover:bg-gray-50 rounded-lg transition-all duration-200"
-              >
-                Drinks
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setTimeout(() => {
-                    const menuSection = document.getElementById('menu-system');
-                    if (menuSection) {
-                      const headerOffset = 100;
-                      const elementPosition = menuSection.getBoundingClientRect().top;
-                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                      
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                      });
-                      
-                      menuSection.setAttribute('data-active-tab', 'wine');
-                      // Force a reflow
-                      void menuSection.offsetHeight;
-                      menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }, 100);
-                }}
-                className="w-full justify-start px-6 py-4 text-lg text-gray-700 hover:text-primary-custom hover:bg-gray-50 rounded-lg transition-all duration-200"
-              >
-                Wine List
-              </Button>
-            </div>
+        <div className="h-full flex flex-col pt-20 pb-8 px-6 space-y-6 overflow-y-auto">
+          <button 
+            onClick={() => scrollToSection('menu')}
+            className="text-2xl py-4 px-4 text-left rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-colors font-medium touch-manipulation"
+            style={{
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation'
+            }}
+          >
+            Menu
+          </button>
+          <button 
+            onClick={() => scrollToSection('about')}
+            className="text-2xl py-4 px-4 text-left rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-colors font-medium touch-manipulation"
+            style={{
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation'
+            }}
+          >
+            About
+          </button>
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="text-2xl py-4 px-4 text-left rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-colors font-medium touch-manipulation"
+            style={{
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation'
+            }}
+          >
+            Contact
+          </button>
+          
+          <div className="mt-auto pt-6 border-t border-gray-100">
+            <a 
+              href="tel:01234567890"
+              className="flex items-center space-x-4 mb-4 text-gray-700 hover:text-primary-custom"
+            >
+              <Phone className="w-6 h-6 text-gray-500" />
+              <span>01234 567890</span>
+            </a>
+            <a 
+              href="mailto:info@himalayancuisine.com"
+              className="flex items-center space-x-4 text-gray-700 hover:text-primary-custom"
+            >
+              <Mail className="w-6 h-6 text-gray-500" />
+              <span>info@himalayancuisine.com</span>
+            </a>
           </div>
         </div>
       </div>
+      
+      {/* Overlay when mobile menu is open */}
+      {isMenuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black/50 z-30"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
     </>
   );
 }
