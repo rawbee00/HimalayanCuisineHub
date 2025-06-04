@@ -33,7 +33,7 @@ export default function Welcome({ onEnter }: WelcomeProps) {
 
   return (
     <div 
-      className={`welcome-container fixed inset-0 bg-black text-white flex flex-col items-center justify-between py-4 z-50 transition-all duration-1000 ease-in-out overflow-y-auto ${
+      className={`welcome-container fixed inset-0 bg-black text-white flex flex-col items-center z-50 transition-all duration-1000 ease-in-out overflow-y-auto ${
         isEntering ? 'scale-150 opacity-0' : 'scale-100 opacity-100'
       }`}
       style={{
@@ -42,7 +42,7 @@ export default function Welcome({ onEnter }: WelcomeProps) {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         minHeight: '100vh',
-        height: '100%',
+        height: '100vh',
         width: '100%',
         position: 'fixed',
         top: 0,
@@ -51,7 +51,9 @@ export default function Welcome({ onEnter }: WelcomeProps) {
         bottom: 0,
         WebkitOverflowScrolling: 'touch',
         overflowY: 'auto',
-        padding: 'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)'
+        padding: 'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)',
+        display: 'flex',
+        flexDirection: 'column'
       }}
     >
       {/* Dark overlay for better text readability */}
@@ -64,18 +66,18 @@ export default function Welcome({ onEnter }: WelcomeProps) {
         zIndex: 1
       }}></div>
       
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 w-full flex flex-col h-full" style={{
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 w-full" style={{
         position: 'relative',
         zIndex: 2,
-        padding: 'env(safe-area-inset-top, 1rem) 1rem env(safe-area-inset-bottom, 1rem)',
+        padding: '0 1rem',
         minHeight: '100%',
         boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        gap: '1rem',
-        flex: '1 1 auto',
-        overflowY: 'auto'
+        height: '100vh',
+        paddingTop: 'env(safe-area-inset-top, 1rem)',
+        paddingBottom: 'env(safe-area-inset-bottom, 1rem)'
       }}>
         {/* Debug info - will be visible on the page */}
         <div style={{
@@ -89,20 +91,20 @@ export default function Welcome({ onEnter }: WelcomeProps) {
           fontSize: '12px',
           zIndex: 1000
         }}>v2.1 - {new Date().toLocaleTimeString()}</div>
-        <div className="animate-fade-in px-4 w-full mt-4 sm:mt-8">
-          <h1 className="yadri-font text-4xl xs:text-5xl sm:text-6xl md:text-8xl font-bold mb-2 text-white drop-shadow-2xl animate-slide-down himalayan-text">
+        <div className="animate-fade-in px-4 w-full mt-8 sm:mt-12">
+          <h1 className="yadri-font text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-2 text-white drop-shadow-2xl animate-slide-down himalayan-text">
             <span className="h-letter">H</span>IMALAYAN
           </h1>
-          <h2 className="yadri-font text-xl xs:text-2xl sm:text-3xl md:text-5xl font-semibold mb-1 text-white drop-shadow-xl animate-slide-up delay-200">
+          <h2 className="yadri-font text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-1 text-white drop-shadow-xl animate-slide-up delay-200">
             Curry & Tandoor House
           </h2>
-          <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-gray-200 animate-fade-in delay-400">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 animate-fade-in delay-400">
             Nepali - Indian Cuisine
           </p>
         </div>
         
-        <div className="animate-fade-in delay-500 px-4 w-full flex-1 overflow-y-auto py-4">
-          <div className="bg-black bg-opacity-50 rounded-2xl p-4 sm:p-6 md:p-8 max-w-4xl mx-auto backdrop-blur-sm border border-white border-opacity-20">
+        <div className="animate-fade-in delay-500 px-4 w-full flex-1 overflow-y-auto py-2">
+          <div className="bg-black bg-opacity-50 rounded-2xl p-4 sm:p-6 md:p-8 max-w-4xl mx-auto backdrop-blur-sm border border-white border-opacity-20 overflow-y-auto">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6 yadri-font">
               Namaste and welcome to Himalayan Curry & Tandoor House!
             </h3>
@@ -115,15 +117,17 @@ export default function Welcome({ onEnter }: WelcomeProps) {
           </div>
         </div>
         
-        <div style={{
-          position: 'fixed',
-          bottom: '20px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '100%',
+        <div className="w-full px-4 py-4" style={{
+          paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 1rem))',
+          zIndex: 10,
           maxWidth: '400px',
-          padding: '0 20px',
-          zIndex: 10
+          margin: '0 auto',
+          marginTop: 'auto',
+          width: '100%',
+          position: 'sticky',
+          bottom: 0,
+          backgroundColor: 'rgba(0,0,0,0.7)',
+          backdropFilter: 'blur(10px)'
         }}>
           <Button
             onClick={isEntering ? undefined : handleEnter}
