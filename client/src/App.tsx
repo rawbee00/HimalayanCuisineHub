@@ -6,7 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
-import Welcome from "@/pages/welcome";
+// import Welcome from "@/pages/welcome";
+import Welcome from "@/pages/test-welcome";
 import ReservationsPage from "@/pages/reservations";
 
 console.log('App.tsx: App component is rendering');
@@ -31,6 +32,7 @@ function App() {
     console.log('App.tsx: Welcome state changed:', showWelcome);
   }, [showWelcome]);
 
+  // This function is passed to the Welcome component
   const handleEnterSite = () => {
     console.log('App.tsx: handleEnterSite called');
     setShowWelcome(false);
