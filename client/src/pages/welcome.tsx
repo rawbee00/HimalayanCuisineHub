@@ -33,7 +33,7 @@ export default function Welcome({ onEnter }: WelcomeProps) {
 
   return (
     <div 
-      className={`welcome-container fixed inset-0 bg-black text-white flex flex-col items-center justify-between py-8 z-50 transition-all duration-1000 ease-in-out overflow-y-auto ${
+      className={`welcome-container fixed inset-0 bg-black text-white flex flex-col items-center justify-between py-4 sm:py-8 z-50 transition-all duration-1000 ease-in-out overflow-y-auto ${
         isEntering ? 'scale-150 opacity-0' : 'scale-100 opacity-100'
       }`}
       style={{
@@ -42,46 +42,107 @@ export default function Welcome({ onEnter }: WelcomeProps) {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         minHeight: '100vh',
-        height: '100%'
+        height: '100vh',
+        width: '100%',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        WebkitOverflowScrolling: 'touch',
+        overflowY: 'auto'
       }}
     >
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div className="fixed inset-0 bg-black bg-opacity-60" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 1
+      }}></div>
       
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 w-full">
-        <div className="mb-8 animate-fade-in">
-          <h1 className="yadri-font text-6xl md:text-8xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down himalayan-text">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 w-full" style={{
+        position: 'relative',
+        zIndex: 2,
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        minHeight: '100vh',
+        padding: '2rem 0'
+      }}>
+        {/* Debug info - will be visible on the page */}
+        <div style={{
+          position: 'fixed',
+          top: '10px',
+          right: '10px',
+          background: 'rgba(0,0,0,0.7)',
+          color: 'white',
+          padding: '5px 10px',
+          borderRadius: '4px',
+          fontSize: '12px',
+          zIndex: 1000
+        }}>v2.1 - {new Date().toLocaleTimeString()}</div>
+        <div className="mb-4 sm:mb-8 animate-fade-in px-4 w-full">
+          <h1 className="yadri-font text-5xl sm:text-6xl md:text-8xl font-bold mb-2 sm:mb-4 text-white drop-shadow-2xl animate-slide-down himalayan-text">
             <span className="h-letter">H</span>IMALAYAN
           </h1>
-          <h2 className="yadri-font text-3xl md:text-5xl font-semibold mb-2 text-white drop-shadow-xl animate-slide-up delay-200">
+          <h2 className="yadri-font text-2xl sm:text-3xl md:text-5xl font-semibold mb-1 sm:mb-2 text-white drop-shadow-xl animate-slide-up delay-200">
             Curry & Tandoor House
           </h2>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in delay-400">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-4 sm:mb-8 animate-fade-in delay-400">
             Nepali - Indian Cuisine
           </p>
         </div>
         
-        <div className="mb-8 animate-fade-in delay-500">
-          <div className="bg-black bg-opacity-50 rounded-2xl p-8 max-w-4xl mx-auto backdrop-blur-sm border border-white border-opacity-20">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 yadri-font">
+        <div className="mb-4 sm:mb-8 animate-fade-in delay-500 px-4 w-full flex-1 overflow-y-auto">
+          <div className="bg-black bg-opacity-50 rounded-2xl p-4 sm:p-6 md:p-8 max-w-4xl mx-auto backdrop-blur-sm border border-white border-opacity-20 h-full">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6 yadri-font">
               Namaste and welcome to Himalayan Curry & Tandoor House!
             </h3>
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6">
-              We're so glad you're here! Our kitchen is filled with the rich, comforting flavors of Nepal—just like home—along with some of our favorite Indian dishes. Every bite is made with love, tradition, and a little extra spice. Come in, relax, and enjoy! (v1.1)
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed mb-4 sm:mb-6">
+              We're so glad you're here! Our kitchen is filled with the rich, comforting flavors of Nepal—just like home—along with some of our favorite Indian dishes. Every bite is made with love, tradition, and a little extra spice. Come in, relax, and enjoy! (v2.0 - Mobile Optimized)
             </p>
-            <p className="text-base md:text-lg text-gray-300 leading-relaxed italic">
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed italic">
               Discover the bold, fresh flavors of Nepal—a hidden gem of the Himalayas—making its debut here, paired with the familiar comfort of Indian cuisine.
             </p>
           </div>
         </div>
         
-        <div className="animate-fade-in delay-700 mt-4 mb-8 w-full px-4">
+        <div style={{
+          position: 'fixed',
+          bottom: '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '100%',
+          maxWidth: '400px',
+          padding: '0 20px',
+          zIndex: 10
+        }}>
           <Button
             onClick={isEntering ? undefined : handleEnter}
             disabled={isEntering}
-            className="w-full max-w-md mx-auto bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white font-bold text-xl px-6 py-6 sm:px-16 sm:py-6 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-blue-500/25 border-2 border-white border-opacity-30"
+            style={{
+              width: '100%',
+              background: 'linear-gradient(to right, #2563eb, #1d4ed8)',
+              color: 'white',
+              fontWeight: 'bold',
+              fontSize: '1.25rem',
+              padding: '1.25rem',
+              borderRadius: '9999px',
+              border: '2px solid rgba(255,255,255,0.3)',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+              transition: 'all 0.3s ease',
+              display: 'block',
+              margin: '0 auto',
+              maxWidth: '400px',
+              position: 'relative',
+              zIndex: 10
+            }}
           >
-            {isEntering ? 'Entering...' : 'Enter'}
+            {isEntering ? 'Entering...' : 'Enter Site'}
           </Button>
         </div>
       </div>

@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 
 type MainTab = "menu" | "drinks" | "wine";
 type FoodTab = "nepali" | "indian";
@@ -582,7 +580,10 @@ const wineMenuData = [
         bottlePrice: "14.00",
         bottleLabel: "Pitcher (1L)",
         description: "Refreshing white wine sangria with fresh fruits" 
-      },
+      }
+    ]
+  }
+]
 
 export function MenuSystem() {
   const menuRef = useRef<HTMLDivElement>(null);
@@ -590,198 +591,178 @@ export function MenuSystem() {
   // State for active tabs
   const [activeTab, setActiveTab] = useState<MainTab>('menu');
   const [foodTab, setFoodTab] = useState<FoodTab>('nepali');
-  const [activeDrinkTab, setActiveDrinkTab] = useState<DrinkTab>('softDrinks');
+  const [drinkTab, setDrinkTab] = useState<DrinkTab>('softDrinks');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Alias for backward compatibility
-  const setActiveMainTab = setActiveTab;
-  const setActiveFoodTab = setFoodTab;
-  const activeMainTab = activeTab;
-  const activeFoodTab = foodTab;
-
-  // Listen for tab change events from other components (like the hero section)
+  // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleTabChange = (event: CustomEvent) => {
-      const tab = event.detail as MainTab;
-      if (['menu', 'drinks', 'wine'].includes(tab)) {
-        setActiveMainTab(tab);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
       }
     };
 
-    // Add event listener
-    window.addEventListener('setActiveTab', handleTabChange as EventListener);
-
-    // Clean up
-    return () => {
-      window.removeEventListener('setActiveTab', handleTabChange as EventListener);
-    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-
   // Helper function to render menu items
-  const renderMenuItems = (items: readonly IMenuItem[] = []) => {
-    const isWineList = activeMainTab === 'drinks' && activeDrinkTab === 'wine' as unknown as DrinkTab;
-    
-    return (
-      <>
-        {isWineList && items.some(item => item.glassPrice || item.bottlePrice) && (
-          <div className="flex justify-end mb-2">
-            <div className="flex gap-8 pr-4">
-              {items.some(item => item.glassPrice) && (
-                <span className="text-lg font-semibold text-gray-700 font-yatra">Glass</span>
-              )}
-              {items.some(item => item.bottlePrice) && (
-                <span className="text-lg font-semibold text-gray-700 font-yatra">Bottle</span>
-              )}
-            </div>
+  const renderMenuItems = (items: IMenuItem[] = []) => {
+    return items.map((item, index) => (
+      <div key={index} className="py-2 border-b border-gray-100 last:border-0">
+        <div className="flex justify-between items-start gap-4">
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold text-gray-900">
+              {item.name}
+            </h3>
+            {item.description && (
+              <p className="text-sm text-gray-600 mt-1">
+                {item.description}
+              </p>
+            )}
           </div>
-        )}
-        {items.map((item, index) => {
-          const hasMultiplePrices = item.glassPrice && item.bottlePrice;
-          
-          return (
-            <motion.div
-              key={index}
-              className="py-1.5 border-b border-gray-100 last:border-0"
-            >
-              <div className="flex justify-between items-start gap-4">
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 font-yatra">
-                    {item.name}
-                  </h3>
-                  
-                  {/* Description */}
-                  {item.description && (
-                    <p className="text-sm text-gray-600 mt-0.5 font-yatra whitespace-pre-line">
-                      {item.description}
-                    </p>
-                  )}
-                  
-                  {/* Tags */}
-                  {item.tags && item.tags.length > 0 && (
-                    <div className="mt-1 flex flex-wrap gap-1">
-                      {item.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                
-                {/* Price display */}
-                <div className="flex-shrink-0">
-                  {hasMultiplePrices ? (
-                    <div className="flex items-baseline gap-4">
-                      {item.glassPrice && (
-                        <div className="text-right">
-                          <div className="text-lg font-semibold text-primary-custom whitespace-nowrap">
-                            {item.glassPrice.startsWith('€') ? item.glassPrice : `€${item.glassPrice}`}
-                          </div>
-                        </div>
-                      )}
-                      {item.bottlePrice && (
-                        <div className="text-right">
-                          <div className="text-lg font-semibold text-primary-custom whitespace-nowrap">
-                            {item.bottlePrice.startsWith('€') ? item.bottlePrice : `€${item.bottlePrice}`}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ) : (item.glassPrice || item.bottlePrice) ? (
-                    <span className="text-xl font-bold text-primary-custom whitespace-nowrap">
-                      {(item.glassPrice || item.bottlePrice)?.startsWith('€') 
-                        ? (item.glassPrice || item.bottlePrice) 
-                        : `€${item.glassPrice || item.bottlePrice}`}
-                    </span>
-                  ) : item.price ? (
-                    <span className="text-xl font-bold text-primary-custom whitespace-nowrap">
-                      {item.price.startsWith('€') ? item.price : `€${item.price}`}
-                    </span>
-                  ) : null}
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </>
-    );
-  };
-
-  const renderMenuSections = (sections: readonly IMenuSection[] = []) => {
-    return sections.map((section, index) => (
-      <motion.div
-        key={index}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="space-y-4"
-      >
-        <div className="font-bold text-xl md:text-2xl text-primary-custom mb-4 border-b-2 border-primary-custom/20 pb-2 font-yatra">
-          {section.title}
+          {item.price && (
+            <span className="text-lg font-semibold text-primary-custom whitespace-nowrap">
+              £{item.price}
+            </span>
+          )}
         </div>
-        {section.description && (
-          <p className="text-gray-600 mb-4">{section.description}</p>
-        )}
-        {renderMenuItems(section.items)}
-      </motion.div>
+      </div>
     ));
   };
 
-  // Handle menu navigation from header
+  // Helper function to render menu sections
+  const renderMenuSections = (sections: IMenuSection[] = []) => {
+    return sections.map((section, index) => (
+      <div key={index} className="space-y-4 mb-8">
+        <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+          {section.title}
+        </h2>
+        {section.description && (
+          <p className="text-gray-600">{section.description}</p>
+        )}
+        {renderMenuItems(section.items as IMenuItem[])}
+      </div>
+    ));
+  };
+
+  // Handle tab changes from URL hash
   useEffect(() => {
-    const menuElement = menuRef.current;
-    if (menuElement) {
-      const activeTab = menuElement.getAttribute('data-active-tab');
-      const drinksTab = menuElement.getAttribute('data-drinks-tab');
-      
-      if (activeTab) {
-        setActiveMainTab(activeTab as MainTab);
-        if (activeTab === 'drinks' && drinksTab) {
-          setActiveDrinkTab(drinksTab as DrinkTab);
-        }
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (['menu', 'drinks', 'wine'].includes(hash)) {
+        setActiveTab(hash as MainTab);
       }
-    }
-  }, [menuRef]);
+    };
 
-  // Tab switching functions
-  const handleMainTabChange = (tab: MainTab) => {
-    setActiveTab(tab);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange();
 
-  const handleFoodTabChange = (tab: FoodTab) => {
-    setFoodTab(tab);
-  };
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   return (
-    <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
-      {/* Main Tabs */}
-      <div className="flex justify-center mb-4 sm:mb-8 overflow-x-auto pb-2">
-        <div className="inline-flex rounded-md shadow-sm flex-nowrap" role="group">
-          {Object.entries({
-            menu: 'Food Menu',
-            drinks: 'Drinks',
-            wine: 'Wine List'
-          }).map(([key, label]) => (
+    <div id="menu-system" ref={menuRef} className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Mobile Menu Toggle */}
+      <div className="md:hidden mb-6">
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="w-full flex items-center justify-between px-4 py-3 bg-primary-custom text-white rounded-lg"
+        >
+          <span className="text-lg font-medium">
+            {activeTab === 'menu' && 'Food Menu'}
+            {activeTab === 'drinks' && 'Drinks'}
+            {activeTab === 'wine' && 'Wine List'}
+          </span>
+          <svg
+            className={`w-5 h-5 transform transition-transform ${isMobileMenuOpen ? 'rotate-180' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="mt-2 bg-white rounded-lg shadow-lg overflow-hidden">
             <button
-              key={key}
-              onClick={() => setActiveMainTab(key as MainTab)}
-              className={`px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium rounded-md whitespace-nowrap ${
-                activeMainTab === key
-                  ? 'bg-primary-custom text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
+              onClick={() => {
+                setActiveTab('menu');
+                setIsMobileMenuOpen(false);
+              }}
+              className={`w-full text-left px-6 py-3 text-lg font-medium ${
+                activeTab === 'menu' ? 'bg-gray-100 text-primary-custom' : 'text-gray-700 hover:bg-gray-50'
               }`}
             >
-              {label}
+              Food Menu
             </button>
-          ))}
-        </div>
+            <button
+              onClick={() => {
+                setActiveTab('drinks');
+                setIsMobileMenuOpen(false);
+              }}
+              className={`w-full text-left px-6 py-3 text-lg font-medium ${
+                activeTab === 'drinks' ? 'bg-gray-100 text-primary-custom' : 'text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              Drinks
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab('wine');
+                setIsMobileMenuOpen(false);
+              }}
+              className={`w-full text-left px-6 py-3 text-lg font-medium ${
+                activeTab === 'wine' ? 'bg-gray-100 text-primary-custom' : 'text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              Wine List
+            </button>
+          </div>
+        )}
+      </div>
+      
+      {/* Desktop Tabs */}
+      <div className="hidden md:flex flex-wrap justify-center gap-2 mb-8">
+        <button
+          onClick={() => setActiveTab('menu')}
+          className={`px-6 py-3 text-lg font-medium rounded-lg transition-colors ${
+            activeTab === 'menu'
+              ? 'bg-primary-custom text-white'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          }`}
+        >
+          Food Menu
+        </button>
+        <button
+          onClick={() => setActiveTab('drinks')}
+          className={`px-6 py-3 text-lg font-medium rounded-lg transition-colors ${
+            activeTab === 'drinks'
+              ? 'bg-primary-custom text-white'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          }`}
+        >
+          Drinks
+        </button>
+        <button
+          onClick={() => setActiveTab('wine')}
+          className={`px-6 py-3 text-lg font-medium rounded-lg transition-colors ${
+            activeTab === 'wine'
+              ? 'bg-primary-custom text-white'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          }`}
+        >
+          Wine List
+        </button>
       </div>
 
       {/* Food Menu */}
-      {activeMainTab === 'menu' && (
+      {activeTab === 'menu' && (
         <div className="mb-6 sm:mb-8">
           {/* Food Type Tabs */}
           <div className="flex justify-center mb-4 sm:mb-8 overflow-x-auto pb-2">
@@ -792,9 +773,9 @@ export function MenuSystem() {
               }).map(([key, label]) => (
                 <button
                   key={key}
-                  onClick={() => setActiveFoodTab(key as FoodTab)}
+                  onClick={() => setFoodTab(key as FoodTab)}
                   className={`px-3 sm:px-6 py-2 text-xs sm:text-sm font-medium rounded-md whitespace-nowrap ${
-                    activeFoodTab === key
+                    foodTab === key
                       ? 'bg-primary-custom text-white'
                       : 'bg-white text-gray-700 hover:bg-gray-50'
                   }`}
@@ -806,76 +787,115 @@ export function MenuSystem() {
           </div>
 
           {/* Food Sections */}
-          {renderMenuSections(foodMenuData[activeFoodTab])}
+          {foodTab === 'nepali' && renderMenuSections(foodMenuData.nepali as IMenuSection[])}
+          {foodTab === 'indian' && renderMenuSections(foodMenuData.indian as IMenuSection[])}
         </div>
       )}
 
       {/* Drinks Menu */}
-      {activeMainTab === 'drinks' && (
-        <div className="space-y-8">
-          {/* Drink Tabs */}
-          <div className="flex justify-center mb-6 flex-wrap gap-2">
-            <Button
-              variant={activeDrinkTab === 'softDrinks' ? 'default' : 'outline'}
-              onClick={() => setActiveDrinkTab('softDrinks')}
-              className="flex-1 min-w-[120px] font-yatra"
-            >
-              Soft Drinks
-            </Button>
-            <Button
-              variant={activeDrinkTab === 'coffeeTea' ? 'default' : 'outline'}
-              onClick={() => setActiveDrinkTab('coffeeTea')}
-              className="flex-1 min-w-[120px] font-yatra"
-            >
-              Coffee & Tea
-            </Button>
-            <Button
-              variant={activeDrinkTab === 'beer' ? 'default' : 'outline'}
-              onClick={() => setActiveDrinkTab('beer')}
-              className="flex-1 min-w-[120px] font-yatra"
-            >
-              Beer
-            </Button>
-            <Button
-              variant={activeDrinkTab === 'spirits' ? 'default' : 'outline'}
-              onClick={() => setActiveDrinkTab('spirits')}
-              className="flex-1 min-w-[120px] font-yatra"
-            >
-              Spirits
-            </Button>
-            <Button
-              variant={activeDrinkTab === 'whiskey' ? 'default' : 'outline'}
-              onClick={() => setActiveDrinkTab('whiskey')}
-              className="flex-1 min-w-[120px] font-yatra"
-            >
-              Whiskey
-            </Button>
-            <Button
-              variant={activeDrinkTab === 'brandy' ? 'default' : 'outline'}
-              onClick={() => setActiveDrinkTab('brandy')}
-              className="flex-1 min-w-[120px] font-yatra"
-            >
-              Brandy
-            </Button>
-            <Button
-              variant={activeDrinkTab === 'cocktails' ? 'default' : 'outline'}
-              onClick={() => setActiveDrinkTab('cocktails')}
-              className="flex-1 min-w-[120px] font-yatra"
-            >
-              Cocktails
-            </Button>
+      {activeTab === 'drinks' && (
+        <div className="space-y-12">
+          {/* Drink Type Tabs */}
+          <div className="overflow-x-auto pb-2 -mx-4 px-4">
+            <div className="flex space-x-2 min-w-max">
+              <button
+                onClick={() => setDrinkTab('softDrinks')}
+                className={`px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${
+                  drinkTab === 'softDrinks'
+                    ? 'bg-primary-custom text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                Soft Drinks
+              </button>
+              <button
+                onClick={() => setDrinkTab('coffeeTea')}
+                className={`px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${
+                  drinkTab === 'coffeeTea'
+                    ? 'bg-primary-custom text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                Coffee & Tea
+              </button>
+              <button
+                onClick={() => setDrinkTab('beer')}
+                className={`px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${
+                  drinkTab === 'beer'
+                    ? 'bg-primary-custom text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                Beer
+              </button>
+              <button
+                onClick={() => setDrinkTab('spirits')}
+                className={`px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${
+                  drinkTab === 'spirits'
+                    ? 'bg-primary-custom text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                Spirits
+              </button>
+              <button
+                onClick={() => setDrinkTab('whiskey')}
+                className={`px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${
+                  drinkTab === 'whiskey'
+                    ? 'bg-primary-custom text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                Whiskey
+              </button>
+              <button
+                onClick={() => setDrinkTab('brandy')}
+                className={`px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${
+                  drinkTab === 'brandy'
+                    ? 'bg-primary-custom text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                Brandy
+              </button>
+              <button
+                onClick={() => setDrinkTab('cocktails')}
+                className={`px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${
+                  drinkTab === 'cocktails'
+                    ? 'bg-primary-custom text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                Cocktails
+              </button>
+            </div>
           </div>
 
           {/* Drink Sections */}
-          {renderMenuSections(drinkMenuData[activeDrinkTab])}
+          {drinkTab === 'softDrinks' && renderMenuSections(drinkMenuData.softDrinks as IMenuSection[])}
+          {drinkTab === 'coffeeTea' && renderMenuSections(drinkMenuData.coffeeTea as IMenuSection[])}
+          {drinkTab === 'beer' && renderMenuSections(drinkMenuData.beer as IMenuSection[])}
+          {drinkTab === 'spirits' && renderMenuSections(drinkMenuData.spirits as IMenuSection[])}
+          {drinkTab === 'whiskey' && renderMenuSections(drinkMenuData.whiskey as IMenuSection[])}
+          {drinkTab === 'brandy' && renderMenuSections(drinkMenuData.brandy as IMenuSection[])}
+          {drinkTab === 'cocktails' && renderMenuSections(drinkMenuData.cocktails as IMenuSection[])}
         </div>
       )}
 
       {/* Wine Menu */}
-      {activeMainTab === 'wine' && (
-        <div className="space-y-8">
-          {/* Wine Sections */}
-          {renderMenuSections(wineMenuData)}
+      {activeTab === 'wine' && (
+        <div className="space-y-12">
+          {wineMenuData.map((section, sectionIndex) => (
+            <div key={sectionIndex} className="space-y-4 mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+                {section.title}
+              </h2>
+              {section.description && (
+                <p className="text-gray-600">{section.description}</p>
+              )}
+              {renderMenuItems(section.items as IMenuItem[])}
+            </div>
+          ))}
         </div>
       )}
     </div>
