@@ -467,9 +467,6 @@ export function ReservationForm({ onSuccess }: { onSuccess?: () => void }) {
                 'Book Table'
               )}
             </Button>
-            <p className="mt-2 text-sm text-muted-foreground text-center">
-              We're currently not accepting online reservations. Please call us directly to book your table.
-            </p>
           </div>
         </form>
       </CardContent>

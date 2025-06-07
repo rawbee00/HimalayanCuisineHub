@@ -72,6 +72,7 @@ const essenceMenuOptions = {
 
 // Custom hook for creating a reservation
 const useCreateReservationLocal = () => {
+  // We don't need queryClient here as it's handled in the API layer
   const { mutate, isPending, isError, error } = useCreateReservation();
   
   return {
@@ -105,15 +106,19 @@ export function ReservationForm({ onSuccess }: { onSuccess?: () => void }) {
   ];
 
   const onSubmit: SubmitHandler<ReservationFormData> = (formData) => {
+    // Validate Essence of Himalayan limit
     if (formData.type === 'essence' && formData.guests > 30) {
+      // This should be caught by the form validation, but just in case
       alert('Maximum 30 plates allowed for Essence of Himalayan experience');
       return;
     }
 
+    // Format the date to ISO string before sending to the API
     const formattedData = {
       ...formData,
       date: formData.date instanceof Date ? formData.date.toISOString().split('T')[0] : 
            typeof formData.date === 'string' ? formData.date : '',
+      // Ensure menuSelections is properly typed
       menuSelections: formData.menuSelections?.map(selection => ({
         ...selection,
         guestNumber: Number(selection.guestNumber) || 1
@@ -127,6 +132,7 @@ export function ReservationForm({ onSuccess }: { onSuccess?: () => void }) {
     });
   };
 
+  // Update menu selections when number of guests changes
   const updateMenuSelections = (numGuests: number) => {
     const newSelections = Array.from({ length: numGuests }, (_, i) => {
       const existing = menuSelections?.[i] || {};
@@ -178,7 +184,17 @@ export function ReservationForm({ onSuccess }: { onSuccess?: () => void }) {
               )}
             </div>
 
-            {/* Phone */}
+            {/* Email Error */}
+            {isError && error && (
+              <div className="col-span-2">
+                <p className="text-sm text-red-500">
+                  {error instanceof Error ? error.message : 'Failed to submit reservation'}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Phone */}
             <div className="space-y-2">
               <Label htmlFor="phone">Phone Number *</Label>
               <Input
@@ -205,9 +221,8 @@ export function ReservationForm({ onSuccess }: { onSuccess?: () => void }) {
                       <Button
                         variant="outline"
                         className={cn(
-                          'w-full justify-start text-left font-normal',
-                          !field.value && 'text-muted-foreground',
-                          errors.date && 'border-red-500'
+                          "w-full justify-start text-left font-normal",
+                          !field.value && "text-muted-foreground"
                         )}
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
@@ -218,17 +233,15 @@ export function ReservationForm({ onSuccess }: { onSuccess?: () => void }) {
                         )}
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
+                    <PopoverContent className="w-auto p-0 reservation-date-popover" align="start">
                       <Calendar
                         mode="single"
-                        selected={field.value as Date | undefined}
+                        selected={field.value}
                         onSelect={field.onChange}
+                        disabled={(date) =>
+                          date < new Date() || date < new Date("1900-01-01")
+                        }
                         initialFocus
-                        disabled={(date) => {
-                          const today = new Date();
-                          today.setHours(0, 0, 0, 0);
-                          return date < today;
-                        }}
                       />
                     </PopoverContent>
                   </Popover>
@@ -241,39 +254,38 @@ export function ReservationForm({ onSuccess }: { onSuccess?: () => void }) {
 
             {/* Time */}
             <div className="space-y-2">
-              <Label>Time *</Label>
-              <select
-                {...register('time')}
-                className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
-                    errors.time ? 'border-red-500' : ''
-                  }`}
+              <Label htmlFor="time">Time *</Label>
+              <Select
+                onValueChange={(value) => setValue('time', value)}
+                defaultValue={watch('time')}
               >
-                <option value="">Select a time</option>
-                {availableTimes.map((time) => (
-                  <option key={time} value={time}>
-                    {time}
-                  </option>
-                ))}
-              </select>
+                <SelectTrigger className={errors.time ? 'border-red-500' : ''}>
+                  <SelectValue placeholder="Select a time" />
+                </SelectTrigger>
+                <SelectContent className="reservation-time-popover">
+                  {availableTimes.map((time) => (
+                    <SelectItem key={time} value={time}>
+                      {time}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               {errors.time && (
                 <p className="text-sm text-red-500">{errors.time.message}</p>
               )}
-            </div>
 
-            {/* Guests */}
+            {/* Number of Guests */}
             <div className="space-y-2">
               <Label htmlFor="guests">Number of Guests *</Label>
               <Input
                 id="guests"
                 type="number"
                 min="1"
-                max={reservationType === 'essence' ? '30' : '20'}
+                max="20"
                 {...register('guests', { valueAsNumber: true })}
                 onChange={(e) => {
-                  const numGuests = parseInt(e.target.value);
-                  if (!isNaN(numGuests)) {
-                    updateMenuSelections(numGuests);
-                  }
+                  const numGuests = parseInt(e.target.value) || 1;
+                  updateMenuSelections(numGuests);
                 }}
                 className={errors.guests ? 'border-red-500' : ''}
               />
@@ -318,159 +330,157 @@ export function ReservationForm({ onSuccess }: { onSuccess?: () => void }) {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Menu Selections for Essence of Himalayan */}
-          {reservationType === 'essence' && (
-            <div className="space-y-6">
-              <h3 className="text-lg font-medium">Menu Selections</h3>
-              {Array.from({ length: guests }).map((_, index) => (
-                <div key={index} className="border rounded-lg p-4 space-y-4">
-                  <h4 className="font-medium">Guest {index + 1}</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label>Starter</Label>
-                      <Select
-                        onValueChange={(value) => {
-                          const newSelections = [...menuSelections];
-                          newSelections[index] = {
-                            ...newSelections[index],
-                            guestNumber: index + 1,
-                            starter: value,
-                          };
-                          setValue('menuSelections', newSelections);
-                        }}
-                        value={menuSelections[index]?.starter || ''}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a starter" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {essenceMenuOptions.starters.map((starter) => (
-                            <SelectItem key={starter} value={starter}>
-                              {starter}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Soup</Label>
-                      <Select
-                        onValueChange={(value) => {
-                          const newSelections = [...menuSelections];
-                          newSelections[index] = {
-                            ...newSelections[index],
-                            guestNumber: index + 1,
-                            soup: value,
-                          };
-                          setValue('menuSelections', newSelections);
-                        }}
-                        value={menuSelections[index]?.soup || ''}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a soup" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {essenceMenuOptions.soups.map((soup) => (
-                            <SelectItem key={soup} value={soup}>
-                              {soup}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Main Course</Label>
-                      <Select
-                        onValueChange={(value) => {
-                          const newSelections = [...menuSelections];
-                          newSelections[index] = {
-                            ...newSelections[index],
-                            guestNumber: index + 1,
-                            main: value,
-                          };
-                          setValue('menuSelections', newSelections);
-                        }}
-                        value={menuSelections[index]?.main || ''}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a main course" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {essenceMenuOptions.mains.map((main) => (
-                            <SelectItem key={main} value={main}>
-                              {main}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Dessert</Label>
-                      <Select
-                        onValueChange={(value) => {
-                          const newSelections = [...menuSelections];
-                          newSelections[index] = {
-                            ...newSelections[index],
-                            guestNumber: index + 1,
-                            dessert: value,
-                          };
-                          setValue('menuSelections', newSelections);
-                        }}
-                        value={menuSelections[index]?.dessert || ''}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a dessert" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {essenceMenuOptions.desserts.map((dessert) => (
-                            <SelectItem key={dessert} value={dessert}>
-                              {dessert}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+        {/* Menu Selections for Essence of Himalayan */}
+        {reservationType === 'essence' && (
+          <div className="space-y-6">
+            <h3 className="text-lg font-medium">Menu Selections</h3>
+            {Array.from({ length: guests }).map((_, index) => (
+              <div key={index} className="border rounded-lg p-4 space-y-4">
+                <h4 className="font-medium">Guest {index + 1}</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>Starter</Label>
+                    <Select
+                      onValueChange={(value) => {
+                        const newSelections = [...menuSelections];
+                        newSelections[index] = {
+                          ...newSelections[index],
+                          guestNumber: index + 1,
+                          starter: value,
+                        };
+                        setValue('menuSelections', newSelections);
+                      }}
+                      value={menuSelections[index]?.starter || ''}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a starter" />
+                      </SelectTrigger>
+                      <SelectContent className="reservation-essence-popover">
+                        {essenceMenuOptions.starters.map((starter) => (
+                          <SelectItem key={starter} value={starter}>
+                            {starter}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Soup</Label>
+                    <Select
+                      onValueChange={(value) => {
+                        const newSelections = [...menuSelections];
+                        newSelections[index] = {
+                          ...newSelections[index],
+                          guestNumber: index + 1,
+                          soup: value,
+                        };
+                        setValue('menuSelections', newSelections);
+                      }}
+                      value={menuSelections[index]?.soup || ''}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a soup" />
+                      </SelectTrigger>
+                      <SelectContent className="reservation-essence-popover">
+                        {essenceMenuOptions.soups.map((soup) => (
+                          <SelectItem key={soup} value={soup}>
+                            {soup}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Main Course</Label>
+                    <Select
+                      onValueChange={(value) => {
+                        const newSelections = [...menuSelections];
+                        newSelections[index] = {
+                          ...newSelections[index],
+                          guestNumber: index + 1,
+                          main: value,
+                        };
+                        setValue('menuSelections', newSelections);
+                      }}
+                      value={menuSelections[index]?.main || ''}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a main course" />
+                      </SelectTrigger>
+                      <SelectContent className="reservation-essence-popover">
+                        {essenceMenuOptions.mains.map((main) => (
+                          <SelectItem key={main} value={main}>
+                            {main}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Dessert</Label>
+                    <Select
+                      onValueChange={(value) => {
+                        const newSelections = [...menuSelections];
+                        newSelections[index] = {
+                          ...newSelections[index],
+                          guestNumber: index + 1,
+                          dessert: value,
+                        };
+                        setValue('menuSelections', newSelections);
+                      }}
+                      value={menuSelections[index]?.dessert || ''}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a dessert" />
+                      </SelectTrigger>
+                      <SelectContent className="reservation-essence-popover">
+                        {essenceMenuOptions.desserts.map((dessert) => (
+                          <SelectItem key={dessert} value={dessert}>
+                            {dessert}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
-
-          {/* Special Requests */}
-          <div className="space-y-2">
-            <Label htmlFor="specialRequests">Special Requests</Label>
-            <Textarea
-              id="specialRequests"
-              placeholder="Any special requests or dietary restrictions?"
-              {...register('specialRequests')}
-              className="min-h-[100px]"
-            />
+              </div>
+            ))}
           </div>
+        )}
 
-          {/* Error Message */}
-          {isError && (
-            <div className="p-4 bg-red-50 text-red-700 rounded-md">
-              {error instanceof Error ? error.message : 'Failed to create reservation. Please try again.'}
-            </div>
-          )}
+        {/* Special Requests */}
+        <div className="space-y-2">
+          <Label htmlFor="specialRequests">Special Requests</Label>
+          <Textarea
+            id="specialRequests"
+            placeholder="Any special requests or dietary restrictions?"
+            {...register('specialRequests')}
+            className="min-h-[100px]"
+          />
+        </div>
 
-          {/* Submit Button */}
-          <div className="flex justify-end">
-            <Button type="submit" disabled={isPending}>
-              {isPending ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Processing...
-                </>
-              ) : (
-                'Book Table'
-              )}
-            </Button>
-            <p className="mt-2 text-sm text-muted-foreground text-center">
-              We're currently not accepting online reservations. Please call us directly to book your table.
-            </p>
+        {/* Error Message */}
+        {isError && (
+          <div className="p-4 bg-red-50 text-red-700 rounded-md">
+            {error instanceof Error ? error.message : 'Failed to create reservation. Please try again.'}
           </div>
+        )}
+
+        {/* Submit Button */}
+        <div className="flex justify-end">
+          <Button type="submit" disabled={isPending}>
+            {isPending ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Processing...
+              </>
+            ) : (
+              'Book Table'
+            )}
+          </Button>
+        </div>
         </form>
       </CardContent>
     </Card>

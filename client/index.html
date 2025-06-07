@@ -10,13 +10,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover, user-scalable=yes" />
-    <meta name="theme-color" content="#F59E0B">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <!-- Standard mobile web app meta tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- iOS specific meta tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Himalayan Cuisine Hub - Authentic Nepali and Indian Cuisine">
+    <meta name="keywords" content="Nepali food, Indian food, Himalayan cuisine, momo, curry, naan">
+    <meta name="author" content="Himalayan Cuisine Hub">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Vite will automatically inject preload links during build -->
+    <link rel="stylesheet" href="/src/styles/mobile.css">
     <title>Himalayan Curry & Tandoor House - Authentic Nepali Indian Cuisine</title>
-    <meta name="description" content="Experience authentic Nepali and Indian cuisine at Himalayan Curry & Tandoor House. Traditional dishes crafted with time-honored recipes and finest spices from the mountain regions." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,6 +37,7 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Built files will be auto injected by Vite -->
     <script type="module" src="/src/main.tsx"></script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>

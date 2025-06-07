@@ -29,19 +29,18 @@ export default function HeroSection() {
                 storySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
-            className="bg-white text-primary-custom px-8 py-3 font-semibold hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105"
+            className="bg-white text-[#040844] px-8 py-3 text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105 rounded-full"
           >
             View Our Story
           </Button>
           <Button 
             onClick={() => {
-              // Scroll to the menu section
               const menuSection = document.getElementById('menu');
               if (menuSection) {
                 menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
-            className="bg-gradient-to-r from-primary-custom to-blue-600 hover:from-blue-600 hover:to-primary-custom text-white px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105"
+            className="bg-white text-[#040844] hover:bg-gray-100 px-8 py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 rounded-full"
           >
             Our Menu
           </Button>
@@ -52,14 +51,13 @@ export default function HeroSection() {
                 chefSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
-            className="border-2 border-white text-white hover:bg-white/10 transition-colors duration-300 transform hover:scale-105"
+            className="border-2 border-white text-white hover:bg-white/10 transition-colors duration-300 transform hover:scale-105 rounded-full px-8 py-3 text-lg font-semibold"
           >
             Chef's Specials
           </Button>
           <Link href="/reservations">
             <Button 
-              variant="outline"
-              className="border-2 border-white px-8 py-3 font-semibold hover:bg-white hover:text-primary-custom transition-all duration-300 transform hover:scale-105 text-[#040844]"
+              className="bg-primary-custom hover:bg-[#03062d] text-white px-8 py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 rounded-full"
             >
               Make Reservation
             </Button>

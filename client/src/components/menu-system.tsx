@@ -1,161 +1,214 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from 'react';
 
-type MainTab = "menu" | "drinks" | "wine";
-type FoodTab = "nepali" | "indian";
-type DrinkTab = "softDrinks" | "coffeeTea" | "beer" | "spirits" | "whiskey" | "brandy" | "cocktails";
-
-interface IMenuItem {
+interface MenuItem {
   name: string;
-  price?: string;
-  glassPrice?: string;
-  bottlePrice?: string;
-  bottleLabel?: string; // Custom label for bottle (e.g., 'Pitcher (1L)')
-  description?: string;
-  tags?: string[];
-  isSpicy?: boolean;
+  price: string;
+  description: string;
   isVeg?: boolean;
-  isPopular?: boolean;
+  isSpicy?: boolean;
 }
 
-interface IMenuSection {
+interface MenuSection {
   title: string;
-  description?: string;
-  items: IMenuItem[];
+  items: MenuItem[];
 }
 
-// Menu data
-const foodMenuData: Record<FoodTab, readonly IMenuSection[]> = {
-  nepali: [
+const MenuSystem = () => {
+  const [activeTab, setActiveTab] = useState<'food' | 'drinks'>('food');
+
+  const menuSections: MenuSection[] = [
     {
-      title: "STARTER: NEPALI FLAVOR",
+      title: 'STARTERS',
       items: [
         { 
-          name: "Mo: Mo (Choose your filling)", 
-          description: "Vegan: Textured soy, cabbage, and Himalayan spices | " +
-                     "Chicken: Free-range chicken with garlic and ginger | " +
-                     "Pork: Traditional Kathmandu-style rich and gamey"
+          name: 'Vegetable Samosa', 
+          price: '$4.50', 
+          description: 'Crispy pastry filled with spiced potatoes and peas',
+          isVeg: true 
         },
-        { name: "Aloo Sadeko", description: "Potato salad with lemon and toasted mustard" },
         { 
-          name: "Gundruk Ko Achar", 
-          description: "Fermented leafy greens adapted with kale. Served with tomato achar (spiced Nepali sauce)" 
-        }
+          name: 'Chicken Tikka', 
+          price: '$5.50', 
+          description: 'Tender chicken pieces marinated in yogurt and spices' 
+        },
+        { 
+          name: 'Momo', 
+          price: '$5.95', 
+          description: 'Traditional Nepali dumplings with choice of filling' 
+        },
       ]
     },
     {
-      title: "SOUP: REIMAGINED THUKPA / SHERPA'S BOWL",
+      title: 'MAIN COURSES',
       items: [
         { 
-          name: "Vegan Version", 
-          description: "Shiitake and ginger broth with rice noodles" 
+          name: 'Butter Chicken', 
+          price: '$12.95', 
+          description: 'Tandoori chicken in a rich buttery tomato sauce' 
         },
         { 
-          name: "Standard Option", 
-          description: "Chicken broth with vegetables and dhaniya ko patta (coriander)" 
+          name: 'Lamb Rogan Josh', 
+          price: '$13.95', 
+          description: 'Tender lamb in a flavorful curry sauce' 
         },
-        { name: "Kwati", description: "Mixed legumes with cumin and turmeric" }
+        { 
+          name: 'Paneer Tikka Masala', 
+          price: '$11.95', 
+          description: 'Grilled cottage cheese in a creamy tomato sauce', 
+          isVeg: true 
+        },
       ]
     },
     {
-      title: "MAIN COURSE: THAKALI",
+      title: 'DESSERTS',
       items: [
         { 
-          name: "Vegan Version", 
-          description: "Soy in jimbu and tomato sauce" 
+          name: 'Gulab Jamun', 
+          price: '$4.50', 
+          description: 'Sweet milk dumplings in rose-flavored syrup', 
+          isVeg: true 
         },
         { 
-          name: "Chicken Curry", 
-          description: "Bone-in curry with fenugreek seeds" 
+          name: 'Kheer', 
+          price: '$4.95', 
+          description: 'Creamy rice pudding with cardamom and nuts', 
+          isVeg: true 
         },
-        { 
-          name: "Kahsi ko Masu / Goat Curry", 
-          description: "Bone-in slow-cooked with cardamom and black pepper masala" 
-        }
-      ]
-    },
-    {
-      title: "DESSERT: YOMARI & DHAU",
-      items: [
-        { name: "Dhau", description: "Coconut yogurt with cardamom" },
-        { name: "Yomari", description: "Coconut and nut molasses dumpling" },
-        { name: "Optional: Kheer", description: "Nepali-style rice pudding" }
-      ]
-    },
-    {
-      title: "SET MENU",
-      items: [
-        { name: "Set Menu", price: "39.99" }
       ]
     }
-  ],
-  indian: [
+  ];
+
+  const drinkSections: MenuSection[] = [
     {
-      title: "APPATIZER",
+      title: 'REFRESHMENTS',
       items: [
-        { name: "Papadum", price: "0.90", description: "Thin Indian crispy flatbread" },
-        { name: "Spicy Papadum", price: "1.00", description: "Thin Indian crispy spicy flatbread" },
-        { name: "PICKLE TRAY", price: "3.50", description: "Mango chutney, Mint sauce & Chopped Onions" },
-        { name: "Tamarind Sauce", price: "0.90", description: "Bittersweet sauce from the fruit of tamarind" },
-        { name: "Spicy Garlic Sacue", price: "0.90", description: "Sacue made with fresh garlic & spicy mayonnaise" },
-        { name: "Mango Chutney", price: "0.90", description: "Mango flavour sweert sauce" },
-        { name: "Mint Sauce", price: "0.90", description: "Sacue mande with fresh mint & yogur" },
-        { name: "Spicy Onions", price: "0.90", description: "Chopped onions with cucumber & capsicum" },
-        { name: "Mixed Salad", price: "5.50" },
-        { name: "Plain Yoghurt", price: "2.90" }
+        { 
+          name: 'Mango Lassi', 
+          price: '$3.95', 
+          description: 'Refreshing yogurt drink with mango',
+          isVeg: true 
+        },
+        { 
+          name: 'Masala Chai', 
+          price: '$2.95', 
+          description: 'Spiced Indian tea with milk',
+          isVeg: true 
+        },
       ]
     },
     {
-      title: "STARTER",
+      title: 'ALCOHOLIC BEVERAGES',
       items: [
-        { name: "Onion Bhaji", price: "4.25", description: "Onions balls bound together with lightly spiced & fragrant chickpea flour batter" },
-        { name: "Vegetable Samosa", price: "4.50", description: "Triangular pastry filled with potatoes & peas, golden fried" },
-        { name: "Garlic Mushroom", price: "4.50", description: "Juicy mushroom sauteed in a rich garlic butter sauce with a hint of spice" },
-        { name: "Meat Samosa", price: "4.75", description: "Triangular pastry filled with potatoes, peas & meat, golden fried" },
-        { name: "Vegetable Pakora", price: "4.50", description: "Sliced vegetables wrapped in batter & deep fried" },
-        { name: "Chicken Pakora", price: "4.25", description: "Marinated chicken pieces in a batter, golden fried" },
-        { name: "Chicken Puri", price: "5.50", description: "Chicken cooked & served on deep fried round bread" },
-        { name: "King Prawn Puri", price: "5.95", description: "King prawn cooked with ginger - garlic & served on deep fried round bread" },
-        { name: "Garlic Chicken", price: "5.95", description: "Chicken cooked with garlic & limon" },
-        { name: "Chicken Lollipop", price: "5.50", description: "Crispy, deep-fried chicken drumettes coated in a bold & zesty spicy mix" },
-        { name: "Hot Chicken Wings", price: "5.50", description: "Spicy, juicy wings coated in a fiery marinade that packs a punch" },
-        { name: "Chicken Tikka", price: "4.50", description: "Boneless chicken pieces marinated spicy yogurt cooked in a tandoor" },
-        { name: "Tandoor Chicken", price: "5.50", description: "Chicken leg piece marinated in a spicy yogurt cooked in tandoor" },
-        { name: "Pudina Tikka", price: "5.50", description: "Boneless chicken pieces marinated with mint,ginger & cooked in tandoor" },
-        { name: "Lamb Tikka", price: "6.50", description: "Boneless lamb pieces marinated in a spicy yogurt & grilled in tandoor" },
-        { name: "Barra Kebab", price: "5.50", description: "Succulent lamb chop marinated in a yogurt & spices,flame-grilled for a smoky bite" },
-        { name: "Sheek Kebab", price: "5.50", description: "Minced lamb marinated with spiced,ginger, coriander & cooked on skewers in a tandoor" },
-        { name: "Garlic King Prawn", price: "5.90", description: "Grilled king prawn cooked with garlic & limon" },
-        { name: "Special Himalayan", price: "15.59", description: "Inclueds : Onion Bhaji, veg pakora, barra kebab, chicken tikka, pudina tikka, chicken pakora & sheekh kebab" }
+        { 
+          name: 'Nepali Chiya', 
+          price: '$3.50', 
+          description: 'Spiced milk tea with cardamom and ginger',
+          isVeg: true 
+        },
+        { 
+          name: 'Everest Beer', 
+          price: '$5.50', 
+          description: 'Premium Nepali lager',
+          isVeg: true 
+        },
       ]
-    },
-    {
-      title: "CURRIES",
-      description: "Dish from the cuisine of the Indian subcontinent which combines the use of a varieties of spices, vegetables, herbs like ginger, garlic, green chillies, turmeric, mustard seed, cumin seeds, coriander etc. Each dish has the combination of ingredients that makes it unique.",
-      items: [
-        { name: "Chicken", price: "9.95" },
-        { name: "Chicken Tikka", price: "10.95" },
-        { name: "Lamb ", price: "11.95" },
-        { name: "Lamb Tikka", price: "12.95" },
-        { name: "King Prawn", price: "13.95" },
-        { name: "Mix Vegetables", price: "10.95" },
-        { name: "Soya Meat", price: "12.95" },
-        { name: "Paneer", price: "12.95" },
-        { name: "Special Himalayn", price: "15.95" }
-      ]
-    },
-    {
-      title: "CURRY SAUCE",
-      items: [
-        { name: "Masala", description: "Masala curry is one of the most popular dish with a mild flavourbut ric in a cream & almond" },
-        { name: "Koram", description: "Mild curry consisting of cream grated coconut" },
-        { name: "Balti", description: "Balti sacue is based on green peppers, garlic & onions with turmeric & garam masala among other spices" },
-        { name: "Bhuna", description: "Made with chopped onions, rosted red and green peppers, coriander seeds, ginger garlic coriander & fenugreek leaves" },
-        { name: "Curry", description: "Classic curry with a fresh tmatoes & red onions in smooth sauce decorated with coriander" },
-        { name: "Dhansak", description: "Combines elements of Persian & Gujarati cuisine. Dhansak is made with lentils, ginger, garlic, coconut, pineapple & fresh coriander" },
-        { name: "Dopiaza", description: "Dopiaza curry sauce is based on onions family (Brown onions, chives & spring onions)" },
-        { name: "Jalfrezi", description: "Involves bell peppers, ginger, garlic, cumin, coriander & spices in a thick sauce with a touch of cream" },
-        { name: "Karahi", description: "Prepared in special cast iron skillet, this curry is turned brown with chopped tomato, onions, coriander, ginger & garlic" },
-        { name: "Pathia", description: "Pathia is an ancient parsi cuisine from persia. It´s bettersweet flavoured with a touch of coconut" },
+    }
+  ];
+
+  const renderMenuItems = (items: MenuItem[]) => {
+    return items.map((item, index) => (
+      <div key={index} className="mb-4 p-4 border-b border-gray-100 hover:bg-amber-50 transition-colors">
+        <div className="flex justify-between items-start">
+          <div className="flex-1">
+            <div className="flex items-center gap-2">
+              <h3 className="font-medium text-gray-900">{item.name}</h3>
+              {item.isVeg && (
+                <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded">
+                  VEG
+                </span>
+              )}
+              {item.isSpicy && (
+                <span className="text-xs bg-red-100 text-red-800 px-2 py-0.5 rounded">
+                  SPICY
+                </span>
+              )}
+            </div>
+            {item.description && (
+              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+            )}
+          </div>
+          <span className="font-medium text-amber-800 whitespace-nowrap ml-4">
+            {item.price}
+          </span>
+        </div>
+      </div>
+    ));
+  };
+
+  const renderSections = (sections: MenuSection[]) => {
+    return sections.map((section, index) => (
+      <section key={index} className="mb-8">
+        <h2 className="text-2xl font-bold text-amber-900 mb-6 pb-2 border-b border-amber-200">
+          {section.title}
+        </h2>
+        <div className="divide-y divide-amber-100">
+          {renderMenuItems(section.items)}
+        </div>
+      </section>
+    ));
+  };
+
+  return (
+    <div className="bg-amber-50 min-h-screen py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-amber-900 mb-2">Our Menu</h1>
+          <p className="text-amber-700">Discover our authentic Himalayan flavors</p>
+        </div>
+        
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          {/* Tab Navigation */}
+          <div className="border-b border-gray-200">
+            <nav className="flex -mb-px">
+              <button
+                className={`flex-1 py-4 px-1 text-center border-b-2 font-medium text-sm ${
+                  activeTab === 'food' 
+                    ? 'border-amber-500 text-amber-600' 
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('food')}
+              >
+                Food Menu
+              </button>
+              <button
+                className={`flex-1 py-4 px-1 text-center border-b-2 font-medium text-sm ${
+                  activeTab === 'drinks' 
+                    ? 'border-amber-500 text-amber-600' 
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+                onClick={() => setActiveTab('drinks')}
+              >
+                Drinks
+              </button>
+            </nav>
+          </div>
+
+          {/* Tab Content */}
+          <div className="p-6 md:p-8">
+            {activeTab === 'food' ? renderSections(menuSections) : renderSections(drinkSections)}
+          </div>
+        </div>
+        
+        <div className="mt-8 text-center text-sm text-amber-700">
+          <p>Ask your server about our daily specials and seasonal offerings!</p>
+          <p className="mt-2">* Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness.</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MenuSystem;
         { name: "Rogan Josh", description: "A kashmiri aromatic dish cooked with tomatoes, ginger, garlic & coriander" },
         { name: "Saag", description: "Saag curry is a traditional Punjabi thick spinach curry cooked with spices & touch of cream" },
         { name: "Manchuria", description: "Fresh mint in semidry sauce with tomatoes, lemon juice & garam masala" },
@@ -193,73 +246,70 @@ const foodMenuData: Record<FoodTab, readonly IMenuSection[]> = {
     {
       title: "SIDES",
       items: [
-        { name: "Bombay Aloo", price: "7.90", description: "Classic potatoes curry served in a semi dry sauce & flavoured with various spices as cumin, turmeric & garmal masala" },
-        { name: "Mutter Paneer", price: "9.95", description: "Soft paneer & green peas in a luscious tomato - based sauce" },
-        { name: "Tadka Daal", price: "7.90", description: "Yellow split peas cooked with chopped onions, cumin, ginger, garlic & coriander" },
-        { name: "Daal Makhni", price: "8.50", description: "Daal  makhni is a classi north indain dish where the lentils are cooked in a very aromatic buttery, creamy tomato sauce" },
-        { name: "Aubrgine Bhaji", price: "7.90", description: "Aubrgine cooked in a tandoor then peeled in a semi spicy curry base" },
-        { name: "Aloo Gobi", price: "8.50", description: "Potatoes & cauliflower curry served in a semi dry sauce" },
-        { name: "Saag Aloo", price: "7.90", description: "Spinach curry with potatoes, spices & touch of cream" },
-        { name: "Saag Bhaji", price: "7.90", description: "Spinach cooked with spices & a touch of cream for a deliciously mild & comforting dish" },
-        { name: "Chana Masala", price: "8.50", description: "Chickpeas cooked with tomatoes, garlic, onions,& various spices such as turmeric & garam masala" },
-        { name: "Mushroom Bhaji", price: "9.95", description: "Sliced mushroo, cooked with onions & spices" }
+        { name: "Bombay Aloo", price: "7,90€", description: "Classic potatoes curry served in a semi dry sauce & flavoured with various spices as cumin, turmeric & garmal masala" },
+        { name: "Mutter Paneer", price: "9,95€", description: "Soft paneer & green peas in a luscious tomato - based sauce" },
+        { name: "Tadka Daal", price: "7,90€", description: "Yellow split peas cooked with chopped onions, cumin, ginger, garlic & coriander" },
+        { name: "Daal Makhni", price: "8,50€", description: "Daal makhni is a classic north Indian dish where the lentils are cooked in a very aromatic buttery, creamy tomato sauce" },
+        { name: "Aubrgine Bhaji", price: "7,90€", description: "Aubrgine cooked in a tandoor then peeled in a semi spicy curry base" },
+        { name: "Aloo Gobi", price: "8,50€", description: "Potatoes & cauliflower curry served in a semi dry sauce" },
+        { name: "Saag Aloo", price: "7,90€", description: "Spinach curry with potatoes, spices & touch of cream" },
+        { name: "Saag Bhaji", price: "7,90€", description: "Spinach cooked with spices & a touch of cream for a deliciously mild & comforting dish" },
+        { name: "Chana Masala", price: "8,50€", description: "Chickpeas cooked with tomatoes, garlic, onions, & various spices such as turmeric & garam masala" },
+        { name: "Mushroom Bhaji", price: "9,95€", description: "Sliced mushroom, cooked with onions & spices" }
       ]
     },
     {
       title: "BIRYANI",
       items: [
-        { name: "Vegetable Biryani", price: "12.95", description: "Fragrant basmati rice cooked with mixed vegetables & aromatic spices" },
-        { name: "Chicken Biryani", price: "13.95", description: "Tender chicken pieces cooked with basmati rice & a blend of spices" },
-        { name: "Lamb Biryani", price: "14.95", description: "Succulent lamb pieces cooked with basmati rice & aromatic spices" },
-        { name: "King Prawn Biryani", price: "15.95", description: "Jumbo prawns cooked with basmati rice & a special blend of spices" },
-        { name: "Special Biryani", price: "16.95", description: "A mix of chicken, lamb & prawns cooked with basmati rice & aromatic spices" }
+        { name: "Vegetable Biryani", price: "12,95€", description: "Fragrant basmati rice cooked with mixed vegetables & aromatic spices" },
+        { name: "Chicken Biryani", price: "13,95€", description: "Tender chicken pieces cooked with basmati rice & a blend of spices" },
+        { name: "Lamb Biryani", price: "14,95€", description: "Succulent lamb pieces cooked with basmati rice & aromatic spices" },
+        { name: "King Prawn Biryani", price: "15,95€", description: "Jumbo prawns cooked with basmati rice & a special blend of spices" },
+        { name: "Special Biryani", price: "16,95€", description: "A mix of chicken, lamb & prawns cooked with basmati rice & aromatic spices" }
       ]
     },
     {
       title: "RICE",
       items: [
-        { name: "Steamed Rice", price: "3.50" },
-        { name: "Jeera Rice", price: "4.50", description: "Basmati rice tempered with cumin seeds" },
-        { name: "Peas Pulao", price: "4.95", description: "Basmati rice cooked with green peas & whole spices" },
-        { name: "Vegetable Pulao", price: "5.50", description: "Basmati rice cooked with mixed vegetables & whole spices" },
-        { name: "Kashmiri Pulao", price: "5.95", description: "Fragrant basmati rice cooked with dry fruits & nuts" }
+        { name: "Plain Boiled Rice", price: "3,50€", description: "Traditional white basmati rice" },
+        { name: "Pilau Rice", price: "3,80€", description: "Indian basmati rice with three colors, flavored with onions, cinnamon, cloves & herbs" },
+        { name: "Keema Rice", price: "4,95€", description: "Basmati rice cooked with mincemeat & spices" },
+        { name: "Coconut Rice", price: "4,50€", description: "Sweet basmati coconut rice served in its special color" },
+        { name: "Mix Vegetable Rice", price: "4,50€", description: "Stir-fried mixed vegetable in basmati rice" },
+        { name: "Mushroom Rice", price: "4,50€", description: "Stir-fried mushroom in basmati rice" },
+        { name: "Garlic Rice", price: "4,50€", description: "Basmati rice with garlic & spices" },
+        { name: "Zeera Rice", price: "4,50€", description: "Basmati rice cooked with cumin & garnished with coriander" },
+        { name: "Egg Fried Rice", price: "4,50€", description: "Egg fried basmati rice" },
+        { name: "Onion Rice", price: "4,50€", description: "Basmati rice cooked with onions" },
+        { name: "Special Fried Rice", price: "5,50€", description: "Basmati rice with eggs & peas" }
       ]
     },
     {
-      title: "INDIAN BREAD",
+      title: "NAAN BREAD",
       items: [
-        { name: "Plain Naan", price: "2.95", description: "Naan Bread slightly buttered on top" },
-        { name: "Onion Naan", price: "3.75", description: "Naan bread topped with fresh onions & coriander" },
-        { name: "Garlic Naan", price: "3.50", description: "Naan bread topped with garlic & coriander" },
-        { name: "Cheese Naan", price: "3.95", description: "Naan bread filled with cheese" },
-        { name: "Peshwari Naan", price: "3.95", description: "Naan bread filled with coconut & sultanas" },
-        { name: "Keema Naan", price: "3.95", description: "Naan bread filled with spiced minced lamb" },
-        { name: "Chilli Naan", price: "3.50", description: "Naan bread topped with chilli" },
-        { name: "Garlic Chilli Naan", price: "3.95", description: "Naan bread topped with garlic & chilli" },
-        { name: "Coconut Naan", price: "3.75", description: "Naan bread topped with coconut" },
-        { name: "Tandoori Roti", price: "2.95", description: "Whole wheat bread cooked in tandoor" },
-        { name: "Butter Roti", price: "3.25", description: "Whole wheat bread cooked in tandoor & brushed with butter" },
-        { name: "Laccha Paratha", price: "3.50", description: "Flaky layered bread" },
-        { name: "Plain Paratha", price: "3.25", description: "Whole wheat flatbread" },
-        { name: "Aloo Paratha", price: "3.95", description: "Whole wheat flatbread stuffed with spiced potatoes" },
-        { name: "Puri", price: "3.50", description: "Deep fried puffed bread" },
-        { name: "Bhatura", price: "3.50", description: "Leavened deep fried bread" }
+        { name: "Plain Naan", price: "2,95€", description: "Naan Bread slightly buttered on top" },
+        { name: "Garlic Naan", price: "3,25€", description: "Naan bread topped with garlic & coriander" },
+        { name: "Coconut Naan", price: "3,75€", description: "Naan bread topped with coconut" },
+        { name: "Keema Naan", price: "3,95€", description: "Naan bread filled with spiced minced meat" },
+        { name: "Peshwari Naan", price: "3,95€", description: "Naan bread filled with coconut, sultanas, almonds & sugar" },
+        { name: "Cheese Naan", price: "3,95€", description: "Naan bread filled with cheese" },
+        { name: "Butter Naan", price: "3,50€" },
+        { name: "Onion Naan", price: "3,75€", description: "Naan bread topped with fresh onions & coriander" },
+        { name: "Kulcha Naan", price: "3,95€", description: "Topped with green & red peppers & touch of green chilli" },
+        { name: "Chilli Naan", price: "3,50€", description: "Naan bread topped with chilli" },
+        { name: "Garlic Chilli Naan", price: "3,95€", description: "Naan bread topped with garlic & chilli" },
+        { name: "Garlic Cheese Naan", price: "4,20€", description: "Naan bread filled with cheese & topped with garlic" },
+        { name: "Chilli Cheese Naan", price: "4,20€", description: "Naan bread filled with cheese & topped with chilli" }
       ]
     },
     {
-      title: "CHAPATIS",
+      title: "CHAPATIS & PARATHAS",
       items: [
-        { name: "Plain Chapati", price: "2.50" },
-        { name: "Butter Chapati", price: "2.95", description: "Thin Indian bread with butter" },
-        { name: "Garlic Chapati", price: "3.25" },
-        { name: "Chilli Chapati", price: "3.25" },
-        { name: "Garlic Chilli Chapati", price: "3.50" },
-        { name: "Cheese Chapati", price: "3.50" },
-        { name: "Aloo Paratha", price: "3.95", description: "Stuffed with spiced potatoes" },
-        { name: "Gobi Paratha", price: "3.95", description: "Stuffed with spiced cauliflower" },
-        { name: "Mooli Paratha", price: "3.95", description: "Stuffed with spiced radish" },
-        { name: "Mix Paratha", price: "4.25", description: "Stuffed with mixed vegetables" },
-        { name: "Tandoori Roti", price: "2.95", description: "Thin Indian bread cooked in tandoor" }
+        { name: "Chapati", price: "2,50€", description: "Thin Indian bread" },
+        { name: "Butter Chapati", price: "2,95€", description: "Thin Indian bread with butter" },
+        { name: "Tandoori Roti", price: "2,95€", description: "Thin Indian bread cooked in tandoor" },
+        { name: "Plain Paratha", price: "3,25€", description: "Indian bread made with layers of butter" },
+        { name: "Aloo Paratha", price: "3,50€", description: "Filled with mashed potatoes & peas with spices & butter" }
       ]
     }
   ]
@@ -574,25 +624,17 @@ const wineMenuData = [
         bottleLabel: "Pitcher (1L)",
         description: "Refreshing red wine sangria with fresh fruits" 
       },
-      { 
-        name: "White Sangria", 
-        glassPrice: "8.00",
-        bottlePrice: "14.00",
-        bottleLabel: "Pitcher (1L)",
-        description: "Refreshing white wine sangria with fresh fruits" 
-      }
     ]
   }
-]
+];
 
-export function MenuSystem() {
-  const menuRef = useRef<HTMLDivElement>(null);
-
+const MenuSystem = () => {
   // State for active tabs
   const [activeTab, setActiveTab] = useState<MainTab>('menu');
   const [foodTab, setFoodTab] = useState<FoodTab>('nepali');
   const [drinkTab, setDrinkTab] = useState<DrinkTab>('softDrinks');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -603,30 +645,49 @@ export function MenuSystem() {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   // Helper function to render menu items
   const renderMenuItems = (items: IMenuItem[] = []) => {
     return items.map((item, index) => (
-      <div key={index} className="py-2 border-b border-gray-100 last:border-0">
-        <div className="flex justify-between items-start gap-4">
-          <div className="flex-1">
-            <h3 className="text-lg font-semibold text-gray-900">
-              {item.name}
-            </h3>
-            {item.description && (
-              <p className="text-sm text-gray-600 mt-1">
-                {item.description}
-              </p>
-            )}
-          </div>
-          {item.price && (
-            <span className="text-lg font-semibold text-primary-custom whitespace-nowrap">
-              £{item.price}
+      <div key={index} className={styles.menuItem}>
+        <div className={styles.itemHeader}>
+          <h3 className={styles.itemName}>
+            {item.name}
+            {item.isSpicy && <span className={styles.spicyBadge}>🔥</span>}
+            {item.isVeg && <span className={styles.vegBadge}>🌱</span>}
+            {item.isPopular && <span className={styles.popularBadge}>Popular</span>}
+          </h3>
+          {item.glassPrice && item.bottlePrice ? (
+            <div className={styles.priceContainer}>
+              <span className={styles.itemPrice}>
+                {item.glassPrice.includes('€') ? item.glassPrice : `${item.glassPrice}€`}
+              </span>
+              <span className={styles.itemPrice}>
+                {item.bottlePrice.includes('€') 
+                  ? item.bottlePrice 
+                  : `${item.bottlePrice}€`}
+              </span>
+            </div>
+          ) : item.price ? (
+            <span className={styles.itemPrice}>
+              {item.price.includes('€') ? item.price : `${item.price}€`}
             </span>
-          )}
+          ) : null}
         </div>
+        {item.description && (
+          <p className={styles.itemDescription}>{item.description}</p>
+        )}
+        {item.tags && item.tags.length > 0 && (
+          <div className={styles.tagsContainer}>
+            {item.tags.map((tag, i) => (
+              <span key={i} className={styles.tag}>{tag}</span>
+            ))}
+          </div>
+        )}
       </div>
     ));
   };
@@ -634,15 +695,23 @@ export function MenuSystem() {
   // Helper function to render menu sections
   const renderMenuSections = (sections: IMenuSection[] = []) => {
     return sections.map((section, index) => (
-      <div key={index} className="space-y-4 mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+      <section key={index} className={styles.menuSection}>
+        <h2 className={styles.sectionTitle}>
           {section.title}
         </h2>
         {section.description && (
-          <p className="text-gray-600">{section.description}</p>
+          <p className={styles.sectionDescription}>{section.description}</p>
         )}
-        {renderMenuItems(section.items as IMenuItem[])}
-      </div>
+        {section.title.includes('Wine') && (
+          <div className={styles.wineHeader}>
+            <span className={styles.winePriceLabel}>Glass</span>
+            <span className={styles.winePriceLabel}>Bottle</span>
+          </div>
+        )}
+        <div className={styles.menuGrid}>
+          {renderMenuItems(section.items as IMenuItem[], section.title.includes('Wine'))}
+        </div>
+      </section>
     ));
   };
 
@@ -719,53 +788,35 @@ export function MenuSystem() {
               }}
               className={`w-full text-left px-6 py-3 text-lg font-medium ${
                 activeTab === 'wine' ? 'bg-gray-100 text-primary-custom' : 'text-gray-700 hover:bg-gray-50'
-              }`}
-            >
-              Wine List
-            </button>
-          </div>
         )}
       </div>
-      
-      {/* Desktop Tabs */}
-      <div className="hidden md:flex flex-wrap justify-center gap-2 mb-8">
-        <button
-          onClick={() => setActiveTab('menu')}
-          className={`px-6 py-3 text-lg font-medium rounded-lg transition-colors ${
-            activeTab === 'menu'
-              ? 'bg-primary-custom text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-          }`}
-        >
-          Food Menu
-        </button>
-        <button
-          onClick={() => setActiveTab('drinks')}
-          className={`px-6 py-3 text-lg font-medium rounded-lg transition-colors ${
-            activeTab === 'drinks'
-              ? 'bg-primary-custom text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-          }`}
-        >
-          Drinks
-        </button>
-        <button
-          onClick={() => setActiveTab('wine')}
-          className={`px-6 py-3 text-lg font-medium rounded-lg transition-colors ${
-            activeTab === 'wine'
-              ? 'bg-primary-custom text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-          }`}
-        >
-          Wine List
-        </button>
-      </div>
+    </div>
+  </div>
+));
+};
 
-      {/* Food Menu */}
-      {activeTab === 'menu' && (
-        <div className="mb-6 sm:mb-8">
-          {/* Food Type Tabs */}
-          <div className="flex justify-center mb-4 sm:mb-8 overflow-x-auto pb-2">
+// Helper function to render menu sections
+const renderMenuSections = (sections: IMenuSection[] = []) => {
+return sections.map((section, index) => (
+  <section key={index} className={styles.menuSection}>
+    <h2 className={styles.sectionTitle}>
+      {section.title}
+    </h2>
+    {section.description && (
+      <p className={styles.sectionDescription}>{section.description}</p>
+    )}
+    {section.title.includes('Wine') && (
+      <div className={styles.wineHeader}>
+        <span className={styles.winePriceLabel}>Glass</span>
+        <span className={styles.winePriceLabel}>Bottle</span>
+      </div>
+    )}
+    <div className={styles.menuGrid}>
+      {renderMenuItems(section.items as IMenuItem[], section.title.includes('Wine'))}
+    </div>
+  </section>
+));
+};
             <div className="inline-flex rounded-md shadow-sm flex-nowrap" role="group">
               {Object.entries({
                 nepali: 'Nepali',
@@ -887,7 +938,7 @@ export function MenuSystem() {
         <div className="space-y-12">
           {wineMenuData.map((section, sectionIndex) => (
             <div key={sectionIndex} className="space-y-4 mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+              <h2 className="text-2xl font-bold border-b border-gray-200 pb-2" style={{ color: '#040844' }}>
                 {section.title}
               </h2>
               {section.description && (

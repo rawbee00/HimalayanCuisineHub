@@ -1,0 +1,76 @@
+/* Mobile-first responsive styles */
+
+/* Base mobile styles */
+@media screen and (max-width: 767px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Prevent horizontal scrolling */
+  * {
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  /* Responsive images */
+  img {
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Improve touch targets */
+  button, 
+  [role="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Form elements */
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  html {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+/* Tablet and larger */
+@media screen and (min-width: 768px) {
+  /* Add tablet-specific styles here */
+}
+
+/* Desktop and larger */
+@media screen and (min-width: 1024px) {
+  /* Add desktop-specific styles here */
+}
+
+/* Large desktops */
+@media screen and (min-width: 1280px) {
+  /* Add large desktop styles here */
+}

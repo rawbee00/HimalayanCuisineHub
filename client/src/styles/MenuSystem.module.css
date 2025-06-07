@@ -1,0 +1,465 @@
+/* Menu System Styling */
+.menuContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* Tab Navigation */
+.tabNav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 0.25rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tabButton {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  margin: 0 0.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #718096;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 6px 6px 0 0;
+}
+
+.tabButton:hover {
+  color: #2c5282;
+  background-color: #ebf8ff;
+}
+
+.tabButton.active {
+  color: #2b6cb0;
+  font-weight: 700;
+}
+
+.tabButton.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 4px;
+  background: linear-gradient(90deg, #4299e1, #2b6cb0);
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 2px 4px rgba(66, 153, 225, 0.2);
+}
+
+/* Menu Sections */
+.menuSection {
+  margin-bottom: 3.5rem;
+  animation: fadeIn 0.4s ease-out;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Ensure consistent spacing between all menu sections */
+.menuSection:not(:last-child) {
+  margin-bottom: 3.5rem;
+}
+
+/* Remove extra margin from the last section */
+.menuSection:last-child {
+  margin-bottom: 0;
+}
+
+.menuSection:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f7;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #4299e1, #2b6cb0);
+  border-radius: 2px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sectionTitle:hover::after {
+  width: 160px;
+}
+
+.sectionDescription {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin: 0 0 2rem 0;
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+/* Menu Items */
+.menuItem {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #edf2f7;
+  transition: all 0.25s ease;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.menuItem:hover {
+  background-color: #f8fafc;
+  transform: translateX(4px);
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.itemName {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  flex: 1;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  position: relative;
+  padding-right: 0.5rem;
+}
+
+.itemName::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #e2e8f0, transparent);
+  margin: 0 1rem;
+  align-self: center;
+}
+
+.itemPrice {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #2b6cb0, #4299e1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  padding-left: 0.5rem;
+  min-width: 80px;
+  text-align: right;
+}
+
+.itemDescription {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin: 0.75rem 0 0 0;
+  padding-right: 1rem;
+  font-weight: 400;
+}
+
+/* Wine Section Specific */
+.wineHeader {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #f7fafc;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.winePrices {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+
+.winePrice {
+  min-width: 80px;
+  text-align: right;
+  font-weight: 600;
+  color: #2b6cb0;
+  background: linear-gradient(135deg, #2b6cb0, #4299e1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.winePriceLabel {
+  min-width: 80px;
+  text-align: right;
+  color: #718096;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .menuContainer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .menuSection {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+  
+  .itemName {
+    font-size: 1.1rem;
+  }
+  
+  .itemPrice {
+    font-size: 1.1rem;
+  }
+  
+  .itemDescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tabNav {
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tabButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    margin: 0.1rem;
+    flex: 1 0 auto;
+    text-align: center;
+    min-width: 100px;
+  }
+  
+  .menuSection {
+    padding: 1.25rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .sectionTitle::after {
+    height: 3px;
+  }
+  
+  .itemHeader {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .itemName {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  
+  .itemName::after {
+    display: none;
+  }
+  
+  .itemPrice {
+    text-align: left;
+    padding-left: 0;
+    margin-top: 0.25rem;
+  }
+  
+  .wineHeader {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  
+  .winePriceLabel {
+    display: none;
+  }
+  
+  .winePrices {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Category Tabs */
+.categoryTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.5rem 0 2.5rem;
+  justify-content: center;
+}
+
+.categoryTab {
+  padding: 0.65rem 1.5rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.categoryTab:hover {
+  background: #edf2f7;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.categoryTab.active {
+  background: linear-gradient(135deg, #4299e1, #2b6cb0);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 2px 6px rgba(66, 153, 225, 0.3);
+  font-weight: 600;
+}
+
+/* Menu Grid Layout */
+.menuGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+/* Special Tags */
+.menuItem [role="img"] {
+  margin-left: 0.25em;
+  font-size: 1em;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Focus States */
+button:focus {
+  outline: 2px solid #63b3ed;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Print Styles */
+@media print {
+  .menuContainer {
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  .tabNav, .categoryTabs {
+    display: none;
+  }
+  
+  .menuSection {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    padding: 0 0 2rem 0;
+  }
+  
+  .menuItem {
+    padding: 0.75rem 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* Category Tabs */
+.categoryTabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.categoryTab {
+  padding: 0.5rem 1.25rem;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryTab:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+.categoryTab.active {
+  background-color: #1e40af;
+  color: white;
+}
+
+/* Menu Grid */
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 640px) {
+  .menuGrid {
+    grid-template-columns: 1fr;
+  }
+}

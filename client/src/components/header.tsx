@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { cn } from "@/lib/utils";
+
+const navigation = [
+  { name: 'Contact', href: '/#contact' },
+];
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleLogoClick = () => {
-    setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -20,21 +22,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (isMenuOpen && !target.closest('.mobile-menu')) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isMenuOpen]);
-
   const scrollToSection = (sectionId: string) => {
-    setIsMenuOpen(false);
     const section = document.getElementById(sectionId);
     if (section) {
       const headerOffset = 100;
@@ -48,6 +36,8 @@ export default function Header() {
     }
   };
 
+  const [location] = useLocation();
+
   return (
     <>
       <header 
@@ -60,145 +50,113 @@ export default function Header() {
             {/* Logo */}
             <Link 
               href="/" 
-              className="flex items-center space-x-2 group"
+              className="flex items-center group"
               onClick={handleLogoClick}
             >
-              <img 
-                src="/assets/logo.png" 
-                alt="Himalayan Cuisine Logo" 
-                width={48}
-                height={48}
-                loading="lazy"
-                className="h-12 w-auto transition-transform group-hover:scale-105"
-              />
-              <div className="hidden md:block">
-                <h1 className="text-xl font-yatra text-primary-custom leading-tight">Himalayan</h1>
-                <p className="text-sm text-gray-600">Curry & Tandoor House</p>
+              <div className="flex flex-col sm:flex-row items-center">
+                <img 
+                  src="/assets/logo.png" 
+                  alt="Himalayan Cuisine Logo" 
+                  width={500}
+                  height={500}
+                  loading="lazy"
+                  className="h-32 sm:h-44 md:h-56 w-auto transition-transform group-hover:scale-105"
+                />
+                <div className="ml-0 sm:ml-3 md:ml-5 mt-2 sm:mt-0 text-center sm:text-left">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-yatra text-primary-custom leading-tight">Himalayan</h1>
+                  <p className="text-sm sm:text-base md:text-xl font-bold text-gray-800">Curry & Tandoor House</p>
+                  <p className="text-xs sm:text-sm md:text-base font-medium text-gray-700">Nepali - Indian Cuisine</p>
+                </div>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <button 
-                onClick={() => scrollToSection('menu')}
-                className="text-gray-700 hover:text-primary-custom transition-colors text-sm font-medium"
-              >
-                Menu
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-primary-custom transition-colors text-sm font-medium"
-              >
-                About
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="text-gray-700 hover:text-primary-custom transition-colors text-sm font-medium"
-              >
-                Contact
-              </button>
-              <a 
-                href="tel:01234567890"
-                className="flex items-center px-4 py-2 bg-primary-custom text-white rounded-full text-sm font-medium hover:bg-primary-600 transition-colors"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Book a Table
-              </a>
+            <nav className="hidden md:flex items-center space-x-1">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    'px-4 py-2 text-sm font-medium rounded-md transition-colors',
+                    location === item.href.split('#')[0]
+                      ? 'bg-primary-custom/10 text-primary-custom'
+                      : 'text-gray-700 hover:bg-gray-100',
+                    item.href.startsWith('/#') && 'hover:text-primary-custom hover:bg-transparent'
+                  )}
+                  onClick={(e) => {
+                    if (item.href.startsWith('/#')) {
+                      e.preventDefault();
+                      const sectionId = item.href.split('#')[1];
+                      scrollToSection(sectionId);
+                    }
+                  }}
+                >
+                  {item.name}
+                </Link>
+              ))}
             </nav>
 
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden p-3 -mr-2 touch-manipulation"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              style={{
-                WebkitTapHighlightColor: 'transparent',
-                touchAction: 'manipulation'
-              }}
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-700" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-700" />
-              )}
-            </button>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                type="button"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-custom hover:bg-gray-100 focus:outline-none"
+                onClick={() => document.getElementById('mobile-menu')?.classList.toggle('hidden')}
+              >
+                <span className="sr-only">Open main menu</span>
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        <div id="mobile-menu" className="hidden md:hidden bg-white border-t border-gray-200">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  'block px-3 py-2 rounded-md text-base font-medium',
+                  location === item.href.split('#')[0]
+                    ? 'bg-primary-custom/10 text-primary-custom'
+                    : 'text-gray-700 hover:bg-gray-100',
+                  item.href.startsWith('/#') && 'hover:text-primary-custom hover:bg-transparent'
+                )}
+                onClick={(e) => {
+                  if (item.href.startsWith('/#')) {
+                    e.preventDefault();
+                    const sectionId = item.href.split('#')[1];
+                    scrollToSection(sectionId);
+                  }
+                  document.getElementById('mobile-menu')?.classList.add('hidden');
+                }}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="px-3 py-2">
+              <Link
+                href="/reservations"
+                className="block w-full text-center bg-primary-custom hover:bg-primary-custom/90 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}
+              >
+                Book a Table
+              </Link>
+            </div>
           </div>
         </div>
       </header>
-
-      {/* Mobile Menu */}
-      <div 
-        id="mobile-menu"
-        className={`fixed inset-0 z-40 bg-white transition-all duration-300 ease-in-out transform ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-        style={{
-          willChange: 'transform',
-          overscrollBehavior: 'contain',
-          WebkitOverflowScrolling: 'touch'
-        }}
-      >
-        <div className="h-full flex flex-col pt-20 pb-8 px-6 space-y-6 overflow-y-auto">
-          <button 
-            onClick={() => scrollToSection('menu')}
-            className="text-2xl py-4 px-4 text-left rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-colors font-medium touch-manipulation"
-            style={{
-              WebkitTapHighlightColor: 'transparent',
-              touchAction: 'manipulation'
-            }}
-          >
-            Menu
-          </button>
-          <button 
-            onClick={() => scrollToSection('about')}
-            className="text-2xl py-4 px-4 text-left rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-colors font-medium touch-manipulation"
-            style={{
-              WebkitTapHighlightColor: 'transparent',
-              touchAction: 'manipulation'
-            }}
-          >
-            About
-          </button>
-          <button 
-            onClick={() => scrollToSection('contact')}
-            className="text-2xl py-4 px-4 text-left rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-colors font-medium touch-manipulation"
-            style={{
-              WebkitTapHighlightColor: 'transparent',
-              touchAction: 'manipulation'
-            }}
-          >
-            Contact
-          </button>
-          
-          <div className="mt-auto pt-6 border-t border-gray-100">
-            <a 
-              href="tel:01234567890"
-              className="flex items-center space-x-4 mb-4 text-gray-700 hover:text-primary-custom"
-            >
-              <Phone className="w-6 h-6 text-gray-500" />
-              <span>01234 567890</span>
-            </a>
-            <a 
-              href="mailto:info@himalayancuisine.com"
-              className="flex items-center space-x-4 text-gray-700 hover:text-primary-custom"
-            >
-              <Mail className="w-6 h-6 text-gray-500" />
-              <span>info@himalayancuisine.com</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      {/* Overlay when mobile menu is open */}
-      {isMenuOpen && (
-        <div 
-          className="md:hidden fixed inset-0 bg-black/50 z-30"
-          onClick={() => setIsMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
     </>
   );
 }
