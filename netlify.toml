@@ -1,8 +1,10 @@
 [build]
-  command = "cd client && npm install --legacy-peer-deps && npm run build"
+  command = "npm install -g npm@latest && cd client && npm install --legacy-peer-deps && npm run build"
   publish = "client/dist"
-  [build.environment]
-    PYTHON_VERSION = "3.10"
+
+[build.environment]
+  NODE_VERSION = "18"
+  PYTHON_VERSION = "3.10"
 
 # Handle SPA routing
 [[redirects]]
