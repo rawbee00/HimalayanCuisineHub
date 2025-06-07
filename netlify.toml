@@ -1,9 +1,9 @@
 [build]
-  command = "npm install -g npm@latest && cd client && npm install --legacy-peer-deps && npm run build"
+  command = "cd client && npm install --legacy-peer-deps && npm run build"
   publish = "client/dist"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
   PYTHON_VERSION = "3.10"
 
 # Handle SPA routing
