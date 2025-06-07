@@ -1,0 +1,9 @@
+# Ignore large files and directories
+attached_assets/
+*.zip
+*.pdf
+*.xlsx
+*.DS_Store
+node_modules/
+.next/
+*.log
