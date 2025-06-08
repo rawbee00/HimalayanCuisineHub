@@ -62,13 +62,8 @@ export default function ContactSection() {
             </div>
             <h3 className="text-xl font-semibold mb-2" style={{ color: '#040844' }}>Opening Hours</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              MONDAY: 1:00 PM - 10:00 PM<br />
-              TUESDAY: 1:00 PM - 10:00 PM<br />
-              WEDNESDAY: 1:00 PM - 10:00 PM<br />
-              THURSDAY: 1:00 PM - 10:00 PM<br />
-              FRIDAY: 1:00 PM - 10:00 PM<br />
-              SATURDAY: 1:00 PM - 10:00 PM<br />
-              SUNDAY: 1:00 PM - 10:00 PM
+              MONDAY - SUNDAY<br />
+              <span className="font-medium">13:00 - 22:00</span>
             </p>
           </div>
         </div>

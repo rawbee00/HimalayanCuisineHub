@@ -42,33 +42,42 @@ export default function Header() {
     <>
       <header 
         className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 shadow-md backdrop-blur-sm' : 'bg-white/90'
+          isScrolled ? 'bg-white shadow-md' : 'bg-white'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3 md:py-4">
-            {/* Logo */}
-            <Link 
-              href="/" 
-              className="flex items-center group"
-              onClick={handleLogoClick}
-            >
-              <div className="flex flex-col sm:flex-row items-center">
-                <img 
-                  src="/assets/logo.png" 
-                  alt="Himalayan Cuisine Logo" 
-                  width={500}
-                  height={500}
-                  loading="lazy"
-                  className="h-32 sm:h-44 md:h-56 w-auto transition-transform group-hover:scale-105"
-                />
-                <div className="ml-0 sm:ml-3 md:ml-5 mt-2 sm:mt-0 text-center sm:text-left">
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-yatra text-primary-custom leading-tight">Himalayan</h1>
-                  <p className="text-sm sm:text-base md:text-xl font-bold text-gray-800">Curry & Tandoor House</p>
-                  <p className="text-xs sm:text-sm md:text-base font-medium text-gray-700">Nepali - Indian Cuisine</p>
+            {/* Logo and Title */}
+            <div className="flex items-center w-full md:w-auto">
+              {/* Logo */}
+              <Link 
+                href="/" 
+                className="group flex-shrink-0 bg-transparent"
+                onClick={handleLogoClick}
+              >
+                <div className="h-40 w-40 md:h-64 md:w-auto rounded-full overflow-hidden transition-transform group-hover:scale-105">
+                  <img 
+                    src="/assets/logo.png" 
+                    alt="Himalayan Cuisine Logo" 
+                    width={500}
+                    height={500}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                    style={{
+                      mixBlendMode: 'multiply',
+                      backgroundColor: 'transparent'
+                    }}
+                  />
                 </div>
+              </Link>
+              
+              {/* Title - Centered on mobile */}
+              <div className="flex-1 md:flex-none md:ml-5 text-center md:text-left">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-yatra text-primary-custom leading-tight">Himalayan</h1>
+                <p className="text-sm md:text-base lg:text-xl font-bold text-gray-800">Curry & Tandoor House</p>
+                <p className="text-xs md:text-sm lg:text-base font-medium text-gray-700">Nepali - Indian Cuisine</p>
               </div>
-            </Link>
+            </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-1">

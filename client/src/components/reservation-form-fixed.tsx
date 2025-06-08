@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useForm, Controller, type SubmitHandler, type Resolver } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -199,40 +200,50 @@ export function ReservationForm({ onSuccess }: { onSuccess?: () => void }) {
               <Controller
                 name="date"
                 control={control}
-                render={({ field }) => (
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
-                        className={cn(
-                          'w-full justify-start text-left font-normal',
-                          !field.value && 'text-muted-foreground',
-                          errors.date && 'border-red-500'
-                        )}
-                      >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {field.value ? (
-                          format(field.value, 'PPP')
-                        ) : (
-                          <span>Pick a date</span>
-                        )}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={field.value as Date | undefined}
-                        onSelect={field.onChange}
-                        initialFocus
-                        disabled={(date) => {
-                          const today = new Date();
-                          today.setHours(0, 0, 0, 0);
-                          return date < today;
-                        }}
-                      />
-                    </PopoverContent>
-                  </Popover>
-                )}
+                render={({ field }) => {
+                  const [isOpen, setIsOpen] = React.useState(false);
+                  return (
+                    <Popover open={isOpen} onOpenChange={setIsOpen}>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className={cn(
+                            'w-full justify-start text-left font-normal',
+                            !field.value && 'text-muted-foreground',
+                            errors.date && 'border-red-500',
+                            'cursor-pointer'
+                          )}
+                          onClick={() => setIsOpen(true)}
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {field.value ? (
+                            format(field.value, 'PPP')
+                          ) : (
+                            <span>Pick a date</span>
+                          )}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0 bg-white" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value as Date | undefined}
+                          onSelect={(date) => {
+                            if (date) {
+                              field.onChange(date);
+                              setIsOpen(false);
+                            }
+                          }}
+                          initialFocus
+                          disabled={(date) => {
+                            const today = new Date();
+                            today.setHours(0, 0, 0, 0);
+                            return date < today;
+                          }}
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  );
+                }}
               />
               {errors.date && (
                 <p className="text-sm text-red-500">{errors.date.message}</p>

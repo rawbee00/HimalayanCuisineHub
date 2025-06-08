@@ -10,13 +10,8 @@ export default function Footer() {
           </div>
           <div className="text-center md:text-left">
             <h4 className="text-xl font-semibold mb-4">Opening Hours</h4>
-            <p className="text-gray-300 mb-1">MONDAY: 1:00 PM - 10:00 PM</p>
-            <p className="text-gray-300 mb-1">TUESDAY: 1:00 PM - 10:00 PM</p>
-            <p className="text-gray-300 mb-1">WEDNESDAY: 1:00 PM - 10:00 PM</p>
-            <p className="text-gray-300 mb-1">THURSDAY: 1:00 PM - 10:00 PM</p>
-            <p className="text-gray-300 mb-1">FRIDAY: 1:00 PM - 10:00 PM</p>
-            <p className="text-gray-300 mb-1">SATURDAY: 1:00 PM - 10:00 PM</p>
-            <p className="text-gray-300">SUNDAY: 1:00 PM - 10:00 PM</p>
+            <p className="text-gray-300">MONDAY - SUNDAY</p>
+            <p className="text-gray-300 font-medium">13:00 - 22:00</p>
           </div>
           <div className="text-center md:text-right">
             <h5 className="font-semibold mb-4">Contact</h5>
