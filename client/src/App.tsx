@@ -1,58 +1,24 @@
-import { useState, useEffect } from 'react';
-import { Switch, Route, useLocation } from "wouter";
-import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Home from "@/pages/home";
-import NotFound from "@/pages/not-found";
-import Welcome from "@/pages/new-welcome";
-import ReservationsPage from "@/pages/reservations";
-import MenuPage from "@/pages/MenuPage";
+import { LanguageSelector } from '@/components/LanguageSelector';
+import Maintenance from "@/components/Maintenance";
+import { queryClient } from "./lib/queryClient";
 
-console.log('App.tsx: App component is rendering');
-
-function Router() {
-  const [location] = useLocation();
-  console.log('Current wouter location:', location);
-
-  return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/reservations" component={ReservationsPage} />
-      <Route path="/menu" component={MenuPage} />
-      {/* Keep backward compatibility with old route */}
-      <Route path="/menu/rice" component={MenuPage} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
+console.log('App.tsx: App component is rendering in maintenance mode');
 
 function App() {
-  const [showWelcome, setShowWelcome] = useState(true);
-  
-  useEffect(() => {
-    console.log('App.tsx: Welcome state changed:', showWelcome);
-  }, [showWelcome]);
-
-  // This function is passed to the Welcome component
-  const handleEnterSite = () => {
-    console.log('App.tsx: handleEnterSite called');
-    setShowWelcome(false);
-  };
+  // Maintenance mode is active - showing maintenance page to all visitors
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <div className="fixed top-3 right-3 z-[9999] bg-white/80 hover:bg-white/90 backdrop-blur-sm rounded-md shadow-sm border border-gray-200 transition-all">
+          <LanguageSelector />
+        </div>
         <div className="min-h-screen">
-          {showWelcome ? (
-            <Welcome onEnter={handleEnterSite} />
-          ) : (
-            <div className="animate-zoom-in">
-              <Router />
-            </div>
-          )}
+          <Maintenance />
         </div>
       </TooltipProvider>
     </QueryClientProvider>
