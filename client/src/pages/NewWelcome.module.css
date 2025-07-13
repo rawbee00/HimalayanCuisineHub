@@ -16,15 +16,11 @@
   align-items: center;
   font-family: 'Poppins', Arial, sans-serif;
   box-sizing: border-box;
-  overflow: hidden;
   position: relative;
   height: 100vh;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  overflow: auto;
 }
 
 /* Ensure proper rendering on mobile devices */

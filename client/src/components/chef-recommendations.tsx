@@ -1,52 +1,54 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
 import { Star, ChefHat, Award } from "lucide-react";
 
 export default function ChefRecommendations({ id = 'chef-recommendations' }: { id?: string }) {
+  const { t } = useTranslation();
   const recommendations = [
     {
       id: 1,
-      name: "Essence of Himalayan Set Menu",
-      category: "Nepali Specialty",
+      name: t('chefRecommendations.dishes.essenceOfHimalayan.name'),
+      category: t('chefRecommendations.categories.nepaliSpecialty'),
       price: "39,99 €",
-      description: "A traditional 4-course journey through authentic Nepali flavors. Experience Mo:Mo, Thukpa, Thakali curry, and Yomari dessert.",
-      badge: "Most Popular",
+      description: t('chefRecommendations.dishes.essenceOfHimalayan.description'),
+      badge: t('chefRecommendations.badges.mostPopular'),
       badgeColor: "bg-red-500",
       rating: 5,
-      chefNote: "Our signature dining experience showcasing the authentic taste of the Himalayas"
+      chefNote: t('chefRecommendations.dishes.essenceOfHimalayan.chefNote')
     },
     {
       id: 2,
-      name: "Butter Chicken",
-      category: "House Special",
+      name: t('chefRecommendations.dishes.butterChicken.name'),
+      category: t('chefRecommendations.categories.houseSpecial'),
       price: "14,50 €",
-      description: "Chicken pieces in a creamy sauce with extra butter, almond & a touch of garlic & fenugreek.",
-      badge: "Chef's Choice",
+      description: t('chefRecommendations.dishes.butterChicken.description'),
+      badge: t('chefRecommendations.badges.chefsChoice'),
       badgeColor: "bg-blue-500",
       rating: 5,
-      chefNote: "Rich, creamy, and perfectly spiced - a crowd favorite"
+      chefNote: t('chefRecommendations.dishes.butterChicken.chefNote')
     },
     {
       id: 3,
-      name: "Tandoori Mix Grill",
-      category: "Sizzler",
+      name: t('chefRecommendations.dishes.tandooriMixGrill.name'),
+      category: t('chefRecommendations.categories.sizzler'),
       price: "15,95 €",
-      description: "Mix of lamb tikka, sheekh kebab, chicken tikka & king prawns served on a sizzling hot plate.",
-      badge: "Best Seller",
+      description: t('chefRecommendations.dishes.tandooriMixGrill.description'),
+      badge: t('chefRecommendations.badges.bestSeller'),
       badgeColor: "bg-green-500",
       rating: 5,
-      chefNote: "Perfect for sharing and experiencing multiple tandoori flavors"
+      chefNote: t('chefRecommendations.dishes.tandooriMixGrill.chefNote')
     },
     {
       id: 4,
-      name: "Special Himalayan Biryani",
-      category: "Biryani",
+      name: t('chefRecommendations.dishes.specialHimalayanBiryani.name'),
+      category: t('chefRecommendations.categories.biryani'),
       price: "15,95 €",
-      description: "Our signature biryani with unique spice blend. Fragrant basmati rice with authentic Himalayan spices.",
-      badge: "Signature",
+      description: t('chefRecommendations.dishes.specialHimalayanBiryani.description'),
+      badge: t('chefRecommendations.badges.signature'),
       badgeColor: "bg-purple-500",
       rating: 5,
-      chefNote: "A unique blend of Nepali and Indian flavors in every grain"
+      chefNote: t('chefRecommendations.dishes.specialHimalayanBiryani.chefNote')
     }
   ];
 
@@ -58,13 +60,12 @@ export default function ChefRecommendations({ id = 'chef-recommendations' }: { i
             <div className="flex justify-center items-center gap-3 mb-4">
               <ChefHat className="text-primary-custom w-8 h-8" />
               <h3 className="yadri-font text-4xl md:text-5xl font-bold text-primary-custom">
-                Chef's Recommendations
+                {t('chefRecommendations.title')}
               </h3>
               <Award className="text-primary-custom w-8 h-8" />
             </div>
             <p className="text-lg text-primary-custom max-w-3xl mx-auto leading-relaxed">
-              Discover our most beloved dishes, carefully curated by our head chef to showcase 
-              the finest flavors from the Himalayas and India
+              {t('chefRecommendations.subtitle')}
             </p>
           </div>
 
@@ -128,11 +129,10 @@ export default function ChefRecommendations({ id = 'chef-recommendations' }: { i
           <div className="text-center mt-12">
             <div className="bg-primary-custom/5 rounded-2xl p-8 border border-primary-custom/10">
               <h4 className="yadri-font text-2xl font-bold text-primary-custom mb-3">
-                Can't decide? Let our chef surprise you!
+                {t('chefRecommendations.cta.title')}
               </h4>
               <p className="text-primary-custom leading-relaxed max-w-2xl mx-auto">
-                Ask your server about our daily chef's special or let us create a custom menu 
-                featuring the best of both Nepali and Indian cuisines
+                {t('chefRecommendations.cta.description')}
               </p>
             </div>
           </div>

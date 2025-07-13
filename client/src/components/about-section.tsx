@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function AboutSection() {
+  const { t } = useTranslation();
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
@@ -29,7 +31,7 @@ export default function AboutSection() {
       <section className="story-section py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="yadri-font text-4xl font-bold text-primary-custom text-center mb-8">
-            Our Story
+            {t('about.title')}
           </h2>
           
           {/* Gallery Button */}
@@ -38,30 +40,30 @@ export default function AboutSection() {
               onClick={() => setIsGalleryOpen(true)}
               className="bg-gradient-to-r from-blue-600 to-primary-custom hover:from-primary-custom hover:to-blue-600 text-white px-8 py-3 text-lg font-medium rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
             >
-              View Gallery
+              {t('about.viewGallery')}
             </Button>
           </div>
           
           {/* Story Content - Always Visible */}
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
             <p className="text-lg">
-              Our story is a journey—one that begins high in the Himalayas, near the foot of Sagarmatha (Mount Everest), and winds its way to the tranquil shores of Costa del Silencio.
+              {t('about.paragraph1')}
             </p>
             
             <p>
-              Raised among the rich traditions of Nepali cuisine, we learned that food is more than ingredients—it's a connection to land, family, and heritage. From open-fire sekuwa to the comforting warmth of goat curry, every meal was a celebration of life's simplest joys.
+              {t('about.paragraph2')}
             </p>
             
             <p>
-              With time, our path led us across continents. Carrying our flavors, our stories, and our dreams, we arrived in Tenerife with one goal: to share the essence of Nepal with a new home.
+              {t('about.paragraph3')}
             </p>
             
             <p>
-              Himalayan Curry & Tandoori House is the result of that journey—a humble space where bold Himalayan spices meet the breeze of the Atlantic. Every dish is prepared with care, tradition, and the hope that you'll taste not just the food, but the journey behind it.
+              {t('about.paragraph4')}
             </p>
             
             <p className="text-xl font-medium text-primary-custom italic text-center mt-8 pt-6 border-t border-gray-200">
-              This is more than a restaurant. It's a story served on a plate.
+              {t('about.quote')}
             </p>
           </div>
         </div>
@@ -87,8 +89,8 @@ export default function AboutSection() {
             {/* Gallery Content */}
             {galleryImages.length === 0 ? (
               <div className="text-center text-white">
-                <h3 className="text-2xl font-bold mb-4">Gallery Coming Soon</h3>
-                <p className="text-lg">We're preparing beautiful photos of our authentic cuisine and restaurant ambiance.</p>
+                <h3 className="text-2xl font-bold mb-4">{t('about.galleryComingSoon.title')}</h3>
+                <p className="text-lg">{t('about.galleryComingSoon.description')}</p>
               </div>
             ) : selectedImage === null ? (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[80vh] overflow-y-auto">

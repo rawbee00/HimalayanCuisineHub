@@ -1,101 +1,74 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
 interface WelcomeProps {
   onEnter: () => void;
 }
 
 export default function Welcome({ onEnter }: WelcomeProps) {
+  const [isEntering, setIsEntering] = useState(false);
+
+  const handleEnter = () => {
+    setIsEntering(true);
+    // Add zoom-from-H effect
+    const himalyanText = document.querySelector('.himalayan-text');
+    if (himalyanText) {
+      himalyanText.classList.add('zoom-from-h');
+    }
+    setTimeout(() => {
+      onEnter();
+    }, 500); // 0.5 second delay
+  };
+
   return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: '#e0ccaa',
-      color: '#2d3748',
-      padding: '20px',
-      textAlign: 'center',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
-      <h1 style={{
-        fontSize: '3rem',
-        fontWeight: 'bold',
-        marginBottom: '1rem'
-      }}>HIMALAYAN</h1>
+    <div 
+      className={`fixed inset-0 bg-cover bg-center bg-no-repeat text-white flex items-center justify-center z-50 transition-transform duration-500 ease-in-out ${
+        isEntering ? 'scale-150 opacity-0' : 'scale-100 opacity-100'
+      }`}
+      style={{
+        backgroundImage: `url(/assets/ktm.png)`
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       
-      <h2 style={{
-        fontSize: '2rem',
-        marginBottom: '2rem'
-      }}>Curry & Tandoor House</h2>
-      
-      <div style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        padding: '2rem',
-        borderRadius: '8px',
-        maxWidth: '800px',
-        margin: '0 auto 2rem',
-        textAlign: 'left',
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-      }}>
-        <h3 style={{
-          fontSize: '1.5rem',
-          fontWeight: 'bold',
-          marginBottom: '1.5rem',
-          textAlign: 'center'
-        }}>
-          Namaste and welcome to Himalayan Curry & Tandoor House!
-        </h3>
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+        <div className="mb-8 animate-fade-in">
+          <h1 className="yadri-font text-6xl md:text-8xl font-bold mb-4 text-white drop-shadow-2xl animate-slide-down himalayan-text">
+            <span className="h-letter">H</span>IMALAYAN
+          </h1>
+          <h2 className="yadri-font text-3xl md:text-5xl font-semibold mb-2 text-white drop-shadow-xl animate-slide-up delay-200">
+            Curry & Tandoor House
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in delay-400">
+            Nepali - Indian Cuisine
+          </p>
+        </div>
         
-        <p style={{
-          fontSize: '1.125rem',
-          marginBottom: '1rem',
-          lineHeight: '1.6'
-        }}>
-          We're so glad you're here! Our kitchen is filled with the rich, comforting flavors of Nepal—just like home—along with some of our favorite Indian dishes.
-        </p>
+        <div className="mb-8 animate-fade-in delay-500">
+          <div className="bg-black bg-opacity-50 rounded-2xl p-8 max-w-4xl mx-auto backdrop-blur-sm border border-white border-opacity-20">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 yadri-font">
+              Namaste and welcome to Himalayan Curry & Tandoor House!
+            </h3>
+            <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6">
+              We're so glad you're here. Our kitchen is filled with the rich, comforting flavors of Nepal—just like home—along with some of our favorite Indian dishes. Every bite is made with love, tradition, and a little extra spice. Come in, relax, and enjoy!
+            </p>
+            <p className="text-base md:text-lg text-gray-300 leading-relaxed italic">
+              Discover the bold, fresh flavors of Nepal—a hidden gem of the Himalayas—making its debut here, paired with the familiar comfort of Indian cuisine.
+            </p>
+          </div>
+        </div>
         
-        <p style={{
-          fontSize: '1.125rem',
-          marginBottom: '1.5rem',
-          lineHeight: '1.6'
-        }}>
-          Every bite is made with love, tradition, and a little extra spice. Come in, relax, and enjoy!
-        </p>
-        
-        <p style={{
-          color: '#9f1d21',
-          fontStyle: 'italic',
-          fontSize: '1.125rem',
-          lineHeight: '1.6',
-          fontWeight: '500'
-        }}>
-          Discover the bold, fresh flavors of Nepal—a hidden gem of the Himalayas—making its debut here, paired with the familiar comfort of Indian cuisine.
-        </p>
+        <div className="animate-bounce-in delay-700">
+          <Button
+            onClick={handleEnter}
+            className="bg-white text-primary-custom px-12 py-4 text-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-110 shadow-2xl border-4 border-white"
+            disabled={isEntering}
+          >
+            {isEntering ? 'Entering...' : 'Get to know us'}
+          </Button>
+        </div>
       </div>
-      
-      <button 
-        onClick={onEnter}
-        style={{
-          backgroundColor: '#9f1d21',
-          color: 'white',
-          fontWeight: 'bold',
-          padding: '1rem 2rem',
-          borderRadius: '9999px',
-          fontSize: '1.125rem',
-          border: 'none',
-          cursor: 'pointer',
-          transition: 'all 0.3s',
-          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
-        }}
-        onMouseOver={(e) => {
-          e.currentTarget.style.backgroundColor = '#7e171a';
-          e.currentTarget.style.transform = 'translateY(-2px)';
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.backgroundColor = '#9f1d21';
-          e.currentTarget.style.transform = 'translateY(0)';
-        }}
-      >
-        Enter Site
-      </button>
     </div>
   );
 }

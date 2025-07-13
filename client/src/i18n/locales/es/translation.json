@@ -1,0 +1,315 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "menu": "Menú",
+    "about": "Sobre Nosotros",
+    "contact": "Contacto",
+    "reservations": "Reservar Mesa"
+  },
+  "about": {
+    "title": "Nuestra Historia",
+    "viewGallery": "Ver Galería",
+    "paragraph1": "Nuestra historia es un viaje que comienza en lo alto del Himalaya, cerca del pie del Sagarmatha (Monte Everest), y serpentea hasta las tranquilas costas de Costa del Silencio.",
+    "paragraph2": "Criados entre las ricas tradiciones de la cocina nepalí, aprendimos que la comida es más que ingredientes: es una conexión con la tierra, la familia y la herencia. Desde el sekuwa a la parrilla hasta el reconfortante calor del curry de cabra, cada comida era una celebración de las alegrías más simples de la vida.",
+    "paragraph3": "Con el tiempo, nuestro camino nos llevó a través de continentes. Llevando nuestros sabores, nuestras historias y nuestros sueños, llegamos a Tenerife con un objetivo: compartir la esencia de Nepal con un nuevo hogar.",
+    "paragraph4": "Himalayan Curry & Tandoori House es el resultado de ese viaje: un espacio humilde donde las especias audaces del Himalaya se encuentran con la brisa del Atlántico. Cada plato se prepara con cuidado, tradición y la esperanza de que pruebes no solo la comida, sino el viaje que hay detrás.",
+    "quote": "Esto es más que un restaurante. Es una historia servida en un plato.",
+    "galleryComingSoon": {
+      "title": "Galería Próximamente",
+      "description": "Estamos preparando hermosas fotos de nuestra auténtica cocina y el ambiente del restaurante."
+    }
+  },
+  "footer": {
+    "title": "Himalayan",
+    "subtitle": "Curry & Tandoor House",
+    "tagline": "Cocina Auténtica Nepalí e India",
+    "hours": {
+      "title": "Horario de Apertura",
+      "days": "LUNES - DOMINGO",
+      "time": "13:00 - 22:00"
+    },
+    "contact": "Contacto",
+    "copyright": "Himalayan Curry & Tandoor House. Todos los derechos reservados."
+  },
+  "contact": {
+    "title": "Contáctenos",
+    "subtitle": "Visítenos para disfrutar de una auténtica experiencia gastronómica del Himalaya o póngase en contacto con nosotros para reservas y consultas.",
+    "address": {
+      "title": "Dirección"
+    },
+    "phone": {
+      "title": "Teléfono"
+    },
+    "email": {
+      "title": "Correo Electrónico"
+    },
+    "hours": {
+      "title": "Horario de Apertura",
+      "days": "LUNES - DOMINGO",
+      "time": "13:00 - 22:00"
+    },
+    "findUs": {
+      "title": "Encuéntranos en Costa del Silencio",
+      "description": "Ubicado en el corazón de Costa del Silencio, nuestro restaurante ofrece fácil acceso y un ambiente acogedor. Estamos a solo unos pasos de la hermosa costa, perfecto para una comida después de explorar la zona."
+    },
+    "buttons": {
+      "call": "Llamar Ahora",
+      "email": "Enviar Correo"
+    }
+  },
+  "chefRecommendations": {
+    "title": "Recomendaciones del Chef",
+    "subtitle": "Descubre nuestros platos más queridos, cuidadosamente seleccionados por nuestro chef para mostrar los mejores sabores del Himalaya y la India",
+    "cta": {
+      "title": "¿No te decides? ¡Deja que nuestro chef te sorprenda!",
+      "description": "Pregunta a tu camarero sobre el plato especial del chef o déjanos crear un menú personalizado con lo mejor de las cocinas nepalí e india"
+    },
+    "categories": {
+      "nepaliSpecialty": "Especialidad Nepalí",
+      "houseSpecial": "Especialidad de la Casa",
+      "sizzler": "Plato Caliente",
+      "biryani": "Biryani"
+    },
+    "badges": {
+      "mostPopular": "Más Popular",
+      "chefsChoice": "Elección del Chef",
+      "bestSeller": "Más Vendido",
+      "signature": "Firma"
+    },
+    "dishes": {
+      "essenceOfHimalayan": {
+        "name": "Menú Degustación Esencia del Himalaya",
+        "description": "Un viaje tradicional de 4 platos a través de los sabores auténticos de Nepal. Disfruta de Mo:Mo, Thukpa, curry Thakali y postre Yomari.",
+        "chefNote": "Nuestra experiencia culinaria insignia que muestra el auténtico sabor del Himalaya"
+      },
+      "butterChicken": {
+        "name": "Pollo Mantequilla",
+        "description": "Trozos de pollo en una salsa cremosa con mantequilla extra, almendras y un toque de ajo y fenogreco.",
+        "chefNote": "Rico, cremoso y perfectamente especiado - el favorito de nuestros clientes"
+      },
+      "tandooriMixGrill": {
+        "name": "Parrilla Mixta Tandoori",
+        "description": "Mezcla de tikka de cordero, kebab sheekh, tikka de pollo y langostinos reales servidos en un plato caliente.",
+        "chefNote": "Perfecto para compartir y experimentar múltiples sabores tandoori"
+      },
+      "specialHimalayanBiryani": {
+        "name": "Biryani Especial del Himalaya",
+        "description": "Nuestro biryani insignia con una mezcla única de especias. Arroz basmati fragante con auténticas especias del Himalaya.",
+        "chefNote": "Una mezcla única de sabores nepalíes e indios en cada grano"
+      }
+    }
+  },
+  "hero": {
+    "title": "Sabores Auténticos del Himalaya",
+    "subtitle": "Experimenta las ricas tradiciones culinarias de Nepal e India, elaboradas con recetas ancestrales y las mejores especias de las regiones montañosas.",
+    "viewStory": "Nuestra Historia",
+    "ourMenu": "Nuestro Menú",
+    "chefSpecials": "Especiales del Chef",
+    "makeReservation": "Hacer Reserva"
+  },
+  "menu": {
+    "title": "Nuestro Menú",
+    "tabs": {
+      "food": "Comida",
+      "drinks": "Bebidas",
+      "wine": "Vino"
+    },
+    "cuisineTypes": {
+      "nepali": "Nepalí",
+      "indian": "India"
+    },
+    "foodTabs": {
+      "appetizer": "Entrantes",
+      "starter": "Aperitivos",
+      "curry": "Platos al Curry",
+      "sizzler": "Platos a la Plancha",
+      "special": "Especialidades del Chef",
+      "sides": "Acompañamientos",
+      "biryani": "Biryanis",
+      "rice": "Platos de Arroz",
+      "bread": "Pan"
+    },
+    "curryTabs": {
+      "proteins": "Proteínas",
+      "sauces": "Salsas"
+    },
+    "wineTabs": {
+      "house": "Vinos de la Casa",
+      "red": "Vinos Tintos",
+      "white": "Vinos Blancos",
+      "rose": "Vinos Rosados",
+      "prosecco": "Prosecco",
+      "sangria": "Sangría"
+    },
+    "drinkTabs": {
+      "coffeeTea": "Café y Té",
+      "softDrinks": "Refrescos",
+      "beers": "Cervezas",
+      "spirits": "Licores",
+      "cocktails": "Cócteles"
+    },
+    "spiritTabs": {
+      "whiskey": "Whisky",
+      "vodka": "Vodka",
+      "gin": "Ginebra",
+      "rum": "Ron",
+      "brandy": "Brandy",
+      "aperitifs": "Aperitivos",
+      "liqueur": "Licores"
+    },
+    "sections": {
+      "nepaliFlavors": "SABORES NEPALÍES",
+      "nepaliSetMenu": "MENÚ NEPALÍ",
+      "indianStarters": "ENTRANTES INDIOS",
+      "tandooriSpecialties": "ESPECIALIDADES TANDOORI",
+      "currySelection": "SELECCIÓN DE CURRY",
+      "signatureDishes": "PLATOS ESTRELLA",
+      "riceSpecialties": "ESPECIALIDADES DE ARROZ",
+      "naanBread": "PAN NAAN",
+      "sideDishes": "GUARNICIONES"
+    },
+    "items": {
+      "moMo": {
+        "name": "Mo: Mo - VEGANO 🌱",
+        "description": "Soja texturizada, repollo y especias del Himalaya",
+        "veg": true,
+        "vegan": true,
+        "spiceLevel": 1,
+        "category": "appetizer"
+      },
+      "vegSpringRolls": {
+        "name": "Rollitos de Primavera Vegetales",
+        "description": "Crujientes rollitos rellenos de verduras frescas y servidos con salsa agridulce",
+        "veg": true,
+        "spiceLevel": 1,
+        "category": "appetizer"
+      },
+      "barraKebab": {
+        "name": "Barra Kebab",
+        "description": "Pollo deshuesado marinado en yogur y especias, a la parrilla para un sabor ahumado",
+        "spiceLevel": 2,
+        "category": "starter"
+      },
+      "tandooriPrawns": {
+        "name": "Gambas Tandoori",
+        "description": "Gambas gigantes marinadas en yogur, ajo y especias tandoori, cocinadas en horno de barro",
+        "spiceLevel": 2,
+        "category": "starter"
+      },
+      "specialHimalayan": {
+        "name": "Especial del Himalaya",
+        "description": "Nuestro curry especial con una mezcla única de especias, preparado con pollo, cordero y gambas",
+        "spiceLevel": 3,
+        "category": "special"
+      },
+      "lambVindaloo": {
+        "name": "Cordero Vindaloo",
+        "description": "Picante curry al estilo Goan con tiernos trozos de cordero, patatas y una salsa a base de vinagre",
+        "spiceLevel": 4,
+        "category": "curry"
+      },
+      "vegetableBiryani": {
+        "name": "Biryani de Verduras",
+        "description": "Fragante arroz basmati cocinado con verduras mixtas, azafrán y especias aromáticas",
+        "veg": true,
+        "spiceLevel": 2,
+        "category": "biryani"
+      },
+      "garlicNaan": {
+        "name": "Pan Naan al Ajo",
+        "description": "Pan tradicional fermentado horneado en el tandoor con ajo fresco y cilantro",
+        "veg": true,
+        "vegan": true,
+        "category": "bread"
+      },
+      "mangoLassi": {
+        "name": "Lassi de Mango",
+        "description": "Refrescante bebida a base de yogur con puré de mango dulce",
+        "veg": true,
+        "category": "drink"
+      },
+      "masalaChai": {
+        "name": "Té Masala",
+        "description": "Té indio tradicional especiado con leche y especias aromáticas",
+        "veg": true,
+        "veganOption": true,
+        "category": "drink"
+      },
+      "houseRed": {
+        "name": "Vino Tinto de la Casa",
+        "description": "Copa / Botella",
+        "priceGlass": "4,50",
+        "priceBottle": "16,00",
+        "category": "wine"
+      },
+      "houseWhite": {
+        "name": "Vino Blanco de la Casa",
+        "description": "Copa / Botella",
+        "priceGlass": "4,50",
+        "priceBottle": "16,00",
+        "category": "wine"
+      }
+    },
+    "common": {
+      "serves": "Para",
+      "people": "personas",
+      "allergens": "Alérgenos",
+      "spiceLevel": "Nivel de Picante",
+      "mild": "Suave",
+      "medium": "Medio",
+      "hot": "Picante",
+      "veryHot": "Muy Picante",
+      "vegan": "Vegano",
+      "vegetarian": "Vegetariano",
+      "glutenFree": "Sin Gluten",
+      "containsNuts": "Contiene Frutos Secos",
+      "price": "Precio",
+      "addToOrder": "Añadir al Pedido",
+      "customize": "Personalizar",
+      "sauceOptions": "Opciones de Salsa",
+      "chooseYourSpiceLevel": "Elige Tu Nivel de Picante",
+      "specialInstructions": "Instrucciones Especiales",
+      "addToCart": "Añadir al Carrito"
+    }
+  },
+  "buttons": {
+    "view_menu": "Ver Menú",
+    "book_table": "Reservar Mesa",
+    "order_online": "Pedir en Línea",
+    "see_more": "Ver Más",
+    "add_to_cart": "Añadir al Carrito"
+  },
+  "reviews": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "errorLoading": "Error al cargar las reseñas. Por favor, inténtelo de nuevo más tarde.",
+    "noReviews": "No hay reseñas disponibles en este momento.",
+    "readMore": "Leer Más"
+  },
+  "newWelcome": {
+    "title": "Himalayan",
+    "subtitle": "Curry & Tandoor House",
+    "tagline": "Cocina Nepalesa e India",
+    "welcomeText1": "Bienvenido a Himalayan Curry & Tandoor House, donde cobran vida los ricos sabores del Himalaya. Disfruta de auténticos platos nepalíes e indios elaborados con recetas tradicionales e ingredientes frescos.",
+    "welcomeText2": "Descubre los sabores audaces y frescos de Nepal, una joya oculta del Himalaya, combinados con la familiar comodidad de la cocina india.",
+    "buttonText": "Conócenos"
+  },
+  "sections": {
+    "welcome": "Bienvenido a Himalayan Cuisine Hub",
+    "specialties": "Nuestras Especialidades",
+    "testimonials": "Lo Que Dicen Nuestros Clientes",
+    "gallery": "Galería",
+    "ingredients": "Ingredientes",
+    "allergens": "Alérgenos",
+    "spice_level": "Nivel de Picante"
+  },
+  "common": {
+    "price": "Precio",
+    "currency": "€",
+    "spicy": "Picante",
+    "vegetarian": "Vegetariano",
+    "vegan": "Vegano",
+    "gluten_free": "Sin Gluten",
+    "serves": "Para",
+    "people": "personas"
+  }
+}

@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useTranslation } from "react-i18next";
 
 const backgroundImage = "/attached_assets/5761A4A3-073E-4CB8-9054-2E7BB28A077D.PNG";
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   return (
     <section 
       className="bg-black text-white py-16 md:py-24 hero-pattern relative"
@@ -16,10 +18,10 @@ export default function HeroSection() {
     >
       <div className="max-w-4xl mx-auto px-4 text-center">
         <h3 className="yadri-font text-3xl md:text-5xl font-bold mb-6 slide-in">
-          Authentic Flavors from the Himalayas
+          {t('hero.title')}
         </h3>
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 slide-in">
-          Experience the rich culinary traditions of Nepal and India, crafted with time-honored recipes and the finest spices from the mountain regions.
+          {t('hero.subtitle')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center slide-in">
           <Button 
@@ -31,7 +33,7 @@ export default function HeroSection() {
             }}
             className="bg-white text-[#040844] px-8 py-3 text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105 rounded-full"
           >
-            View Our Story
+            {t('hero.viewStory')}
           </Button>
           <Button 
             onClick={() => {
@@ -42,7 +44,7 @@ export default function HeroSection() {
             }}
             className="bg-white text-[#040844] hover:bg-gray-100 px-8 py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 rounded-full"
           >
-            Our Menu
+            {t('hero.ourMenu')}
           </Button>
           <Button 
             onClick={() => {
@@ -53,13 +55,13 @@ export default function HeroSection() {
             }}
             className="border-2 border-white text-white hover:bg-white/10 transition-colors duration-300 transform hover:scale-105 rounded-full px-8 py-3 text-lg font-semibold"
           >
-            Chef's Specials
+            {t('hero.chefSpecials')}
           </Button>
           <Link href="/reservations">
             <Button 
               className="bg-primary-custom hover:bg-[#03062d] text-white px-8 py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 rounded-full"
             >
-              Make Reservation
+              {t('hero.makeReservation')}
             </Button>
           </Link>
         </div>

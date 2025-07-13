@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 interface MenuItem {
   name: string;
@@ -29,6 +30,7 @@ type DrinkTab = 'coffeeTea' | 'softDrinks' | 'beers' | 'spirits' | 'cocktails';
 type SpiritTab = 'whiskey' | 'vodka' | 'gin' | 'rum' | 'brandy' | 'aperitifs' | 'liqueur';
 
 const SimpleMenu = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<MenuTab>('food');
   const [activeCuisine, setActiveCuisine] = useState<CuisineType>('nepali');
   const [activeFoodTab, setActiveFoodTab] = useState<FoodTab>('appetizer');
@@ -40,11 +42,11 @@ const SimpleMenu = () => {
   // Nepali/Himalayan Set Menu
   const nepaliSetMenu = [
     {
-      title: 'NEPALI FLAVOURS',
+      title: t('menu.sections.nepaliFlavors', {defaultValue: 'NEPALI FLAVOURS'}),
       items: [
         {
-          name: 'Mo: Mo - VEGAN 🌱',
-          description: 'Textured soy, cabbage, and Himalayan spices',
+          name: t('menu.items.moMo.name', {defaultValue: 'Mo: Mo - VEGAN 🌱'}),
+          description: t('menu.items.moMo.description', {defaultValue: 'Textured soy, cabbage, and Himalayan spices'}),
           isVeg: true
         },
         {
@@ -399,7 +401,7 @@ const SimpleMenu = () => {
         },
         {
           name: 'Barra Kebab',
-          description: 'Succulent lamb chop marinated in yogurt & spices, flame-grilled for a smoky bite',
+          description: 'Boneless chicken peace marinated in yogurt & spices, flame-grilled for a smoky bite',
           price: '5.50 €',
           isVeg: false,
           isSpicy: true
@@ -563,7 +565,7 @@ const SimpleMenu = () => {
         },
         {
           name: 'Special Himalayan',
-          description: 'Our signature curry with a special blend of spices, made with your choice of protein',
+          description: 'Our signature curry with a special blend of spices, made with chicken, lamb & King prawn',
           price: '15.95 €',
           isVeg: false,
           isSpicy: true
@@ -1677,8 +1679,6 @@ const SimpleMenu = () => {
                   { id: 'red' as WineTab, label: 'Red Wines' },
                   { id: 'white' as WineTab, label: 'White Wines' },
                   { id: 'rose' as WineTab, label: 'Rosé Wines' },
-                  { id: 'prosecco' as WineTab, label: 'Prosecco' },
-                  { id: 'sangria' as WineTab, label: 'Sangria' },
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -1689,7 +1689,7 @@ const SimpleMenu = () => {
                         : 'text-amber-800 hover:bg-amber-100'
                     }`}
                   >
-                    {tab.label}
+                    {t(tab.label)}
                   </button>
                 ))}
               </div>

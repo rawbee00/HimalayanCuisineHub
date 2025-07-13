@@ -1,0 +1,315 @@
+{
+  "navbar": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About Us",
+    "contact": "Contact",
+    "reservations": "Book a Table"
+  },
+  "about": {
+    "title": "Our Story",
+    "viewGallery": "View Gallery",
+    "paragraph1": "Our story is a journey—one that begins high in the Himalayas, near the foot of Sagarmatha (Mount Everest), and winds its way to the tranquil shores of Costa del Silencio.",
+    "paragraph2": "Raised among the rich traditions of Nepali cuisine, we learned that food is more than ingredients—it's a connection to land, family, and heritage. From open-fire sekuwa to the comforting warmth of goat curry, every meal was a celebration of life's simplest joys.",
+    "paragraph3": "With time, our path led us across continents. Carrying our flavors, our stories, and our dreams, we arrived in Tenerife with one goal: to share the essence of Nepal with a new home.",
+    "paragraph4": "Himalayan Curry & Tandoori House is the result of that journey—a humble space where bold Himalayan spices meet the breeze of the Atlantic. Every dish is prepared with care, tradition, and the hope that you'll taste not just the food, but the journey behind it.",
+    "quote": "This is more than a restaurant. It's a story served on a plate.",
+    "galleryComingSoon": {
+      "title": "Gallery Coming Soon",
+      "description": "We're preparing beautiful photos of our authentic cuisine and restaurant ambiance."
+    }
+  },
+  "footer": {
+    "title": "Himalayan",
+    "subtitle": "Curry & Tandoor House",
+    "tagline": "Authentic Nepali - Indian Cuisine",
+    "hours": {
+      "title": "Opening Hours",
+      "days": "MONDAY - SUNDAY",
+      "time": "13:00 - 22:00"
+    },
+    "contact": "Contact",
+    "copyright": "Himalayan Curry & Tandoor House. All rights reserved."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Visit us for an authentic Himalayan dining experience or get in touch for reservations and inquiries.",
+    "address": {
+      "title": "Address"
+    },
+    "phone": {
+      "title": "Phone"
+    },
+    "email": {
+      "title": "Email"
+    },
+    "hours": {
+      "title": "Opening Hours",
+      "days": "MONDAY - SUNDAY",
+      "time": "13:00 - 22:00"
+    },
+    "findUs": {
+      "title": "Find Us in Costa del Silencio",
+      "description": "Located in the heart of Costa del Silencio, our restaurant offers easy access and a welcoming atmosphere. We're just steps away from the beautiful coastline, perfect for a meal after exploring the area."
+    },
+    "buttons": {
+      "call": "Call Now",
+      "email": "Send Email"
+    }
+  },
+  "chefRecommendations": {
+    "title": "Chef's Recommendations",
+    "subtitle": "Discover our most beloved dishes, carefully curated by our head chef to showcase the finest flavors from the Himalayas and India",
+    "cta": {
+      "title": "Can't decide? Let our chef surprise you!",
+      "description": "Ask your server about our daily chef's special or let us create a custom menu featuring the best of both Nepali and Indian cuisines"
+    },
+    "categories": {
+      "nepaliSpecialty": "Nepali Specialty",
+      "houseSpecial": "House Special",
+      "sizzler": "Sizzler",
+      "biryani": "Biryani"
+    },
+    "badges": {
+      "mostPopular": "Most Popular",
+      "chefsChoice": "Chef's Choice",
+      "bestSeller": "Best Seller",
+      "signature": "Signature"
+    },
+    "dishes": {
+      "essenceOfHimalayan": {
+        "name": "Essence of Himalayan Set Menu",
+        "description": "A traditional 4-course journey through authentic Nepali flavors. Experience Mo:Mo, Thukpa, Thakali curry, and Yomari dessert.",
+        "chefNote": "Our signature dining experience showcasing the authentic taste of the Himalayas"
+      },
+      "butterChicken": {
+        "name": "Butter Chicken",
+        "description": "Chicken pieces in a creamy sauce with extra butter, almond & a touch of garlic & fenugreek.",
+        "chefNote": "Rich, creamy, and perfectly spiced - a crowd favorite"
+      },
+      "tandooriMixGrill": {
+        "name": "Tandoori Mix Grill",
+        "description": "Mix of lamb tikka, sheekh kebab, chicken tikka & king prawns served on a sizzling hot plate.",
+        "chefNote": "Perfect for sharing and experiencing multiple tandoori flavors"
+      },
+      "specialHimalayanBiryani": {
+        "name": "Special Himalayan Biryani",
+        "description": "Our signature biryani with unique spice blend. Fragrant basmati rice with authentic Himalayan spices.",
+        "chefNote": "A unique blend of Nepali and Indian flavors in every grain"
+      }
+    }
+  },
+  "hero": {
+    "title": "Authentic Flavors from the Himalayas",
+    "subtitle": "Experience the rich culinary traditions of Nepal and India, crafted with time-honored recipes and the finest spices from the mountain regions.",
+    "viewStory": "View Our Story",
+    "ourMenu": "Our Menu",
+    "chefSpecials": "Chef's Specials",
+    "makeReservation": "Make Reservation"
+  },
+  "menu": {
+    "title": "Our Menu",
+    "tabs": {
+      "food": "Food",
+      "drinks": "Drinks",
+      "wine": "Wine"
+    },
+    "cuisineTypes": {
+      "nepali": "Nepali",
+      "indian": "Indian"
+    },
+    "foodTabs": {
+      "appetizer": "Appetizers",
+      "starter": "Starters",
+      "curry": "Curry Dishes",
+      "sizzler": "Sizzler Dishes",
+      "special": "Chef's Specials",
+      "sides": "Sides",
+      "biryani": "Biryani",
+      "rice": "Rice Dishes",
+      "bread": "Bread"
+    },
+    "curryTabs": {
+      "proteins": "Proteins",
+      "sauces": "Sauces"
+    },
+    "wineTabs": {
+      "house": "House Wines",
+      "red": "Red Wines",
+      "white": "White Wines",
+      "rose": "Rosé Wines",
+      "prosecco": "Prosecco",
+      "sangria": "Sangria"
+    },
+    "drinkTabs": {
+      "coffeeTea": "Coffee & Tea",
+      "softDrinks": "Soft Drinks",
+      "beers": "Beers",
+      "spirits": "Spirits",
+      "cocktails": "Cocktails"
+    },
+    "spiritTabs": {
+      "whiskey": "Whiskey",
+      "vodka": "Vodka",
+      "gin": "Gin",
+      "rum": "Rum",
+      "brandy": "Brandy",
+      "aperitifs": "Aperitifs",
+      "liqueur": "Liqueurs"
+    },
+    "sections": {
+      "nepaliFlavors": "NEPALI FLAVOURS",
+      "nepaliSetMenu": "NEPALI SET MENU",
+      "indianStarters": "INDIAN STARTERS",
+      "tandooriSpecialties": "TANDOORI SPECIALTIES",
+      "currySelection": "CURRY SELECTION",
+      "signatureDishes": "SIGNATURE DISHES",
+      "riceSpecialties": "RICE SPECIALTIES",
+      "naanBread": "NAAN BREAD",
+      "sideDishes": "SIDE DISHES"
+    },
+    "items": {
+      "moMo": {
+        "name": "Mo: Mo - VEGAN 🌱",
+        "description": "Textured soy, cabbage, and Himalayan spices",
+        "veg": true,
+        "vegan": true,
+        "spiceLevel": 1,
+        "category": "appetizer"
+      },
+      "vegSpringRolls": {
+        "name": "Vegetable Spring Rolls",
+        "description": "Crispy rolls filled with fresh vegetables and served with sweet chili sauce",
+        "veg": true,
+        "spiceLevel": 1,
+        "category": "appetizer"
+      },
+      "barraKebab": {
+        "name": "Barra Kebab",
+        "description": "Boneless chicken marinated in yogurt & spices, flame-grilled for a smoky bite",
+        "spiceLevel": 2,
+        "category": "starter"
+      },
+      "tandooriPrawns": {
+        "name": "Tandoori King Prawns",
+        "description": "Jumbo prawns marinated in yogurt, garlic, and tandoori spices, cooked in the clay oven",
+        "spiceLevel": 2,
+        "category": "starter"
+      },
+      "specialHimalayan": {
+        "name": "Special Himalayan",
+        "description": "Our signature curry with a special blend of spices, made with chicken, lamb & King prawn",
+        "spiceLevel": 3,
+        "category": "special"
+      },
+      "lambVindaloo": {
+        "name": "Lamb Vindaloo",
+        "description": "Spicy Goan-style curry with tender lamb pieces, potatoes, and a vinegar-based sauce",
+        "spiceLevel": 4,
+        "category": "curry"
+      },
+      "vegetableBiryani": {
+        "name": "Vegetable Biryani",
+        "description": "Fragrant basmati rice cooked with mixed vegetables, saffron, and aromatic spices",
+        "veg": true,
+        "spiceLevel": 2,
+        "category": "biryani"
+      },
+      "garlicNaan": {
+        "name": "Garlic Naan",
+        "description": "Traditional leavened bread baked in the tandoor with fresh garlic and coriander",
+        "veg": true,
+        "vegan": true,
+        "category": "bread"
+      },
+      "mangoLassi": {
+        "name": "Mango Lassi",
+        "description": "Refreshing yogurt-based drink with sweet mango puree",
+        "veg": true,
+        "category": "drink"
+      },
+      "masalaChai": {
+        "name": "Masala Chai",
+        "description": "Traditional Indian spiced tea with milk and aromatic spices",
+        "veg": true,
+        "veganOption": true,
+        "category": "drink"
+      },
+      "houseRed": {
+        "name": "House Red Wine",
+        "description": "Glass / Bottle",
+        "priceGlass": "4.50",
+        "priceBottle": "16.00",
+        "category": "wine"
+      },
+      "houseWhite": {
+        "name": "House White Wine",
+        "description": "Glass / Bottle",
+        "priceGlass": "4.50",
+        "priceBottle": "16.00",
+        "category": "wine"
+      }
+    },
+    "common": {
+      "serves": "Serves",
+      "people": "people",
+      "allergens": "Allergens",
+      "spiceLevel": "Spice Level",
+      "mild": "Mild",
+      "medium": "Medium",
+      "hot": "Hot",
+      "veryHot": "Very Hot",
+      "vegan": "Vegan",
+      "vegetarian": "Vegetarian",
+      "glutenFree": "Gluten Free",
+      "containsNuts": "Contains Nuts",
+      "price": "Price",
+      "addToOrder": "Add to Order",
+      "customize": "Customize",
+      "sauceOptions": "Sauce Options",
+      "chooseYourSpiceLevel": "Choose Your Spice Level",
+      "specialInstructions": "Special Instructions",
+      "addToCart": "Add to Cart"
+    }
+  },
+  "buttons": {
+    "view_menu": "View Menu",
+    "book_table": "Book a Table",
+    "order_online": "Order Online",
+    "see_more": "See More",
+    "add_to_cart": "Add to Cart"
+  },
+  "reviews": {
+    "title": "What Our Guests Say",
+    "errorLoading": "Error loading reviews. Please try again later.",
+    "noReviews": "No reviews available at the moment.",
+    "readMore": "Read More"
+  },
+  "newWelcome": {
+    "title": "Himalayan",
+    "subtitle": "Curry & Tandoor House",
+    "tagline": "Nepali - Indian Cuisine",
+    "welcomeText1": "Welcome to Himalayan Curry & Tandoor House, where the rich flavors of the Himalayas come to life. Experience authentic Nepali and Indian dishes crafted with traditional recipes and fresh ingredients.",
+    "welcomeText2": "Discover the bold, fresh flavors of Nepal—a hidden gem of the Himalayas—paired with the familiar comfort of Indian cuisine.",
+    "buttonText": "Get to Know Us"
+  },
+  "sections": {
+    "welcome": "Welcome to Himalayan Cuisine Hub",
+    "specialties": "Our Specialties",
+    "testimonials": "What Our Guests Say",
+    "gallery": "Gallery",
+    "ingredients": "Ingredients",
+    "allergens": "Allergens",
+    "spice_level": "Spice Level"
+  },
+  "common": {
+    "price": "Price",
+    "currency": "$",
+    "spicy": "Spicy",
+    "vegetarian": "Vegetarian",
+    "vegan": "Vegan",
+    "gluten_free": "Gluten Free",
+    "serves": "Serves",
+    "people": "people"
+  }
+}

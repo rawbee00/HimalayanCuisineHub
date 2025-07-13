@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 
 const navigation = [
-  { name: 'Contact', href: '/#contact' },
+  { name: 'navbar.contact', href: '/#contact' }
 ];
 
 export default function Header() {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleLogoClick = () => {
@@ -100,7 +102,7 @@ export default function Header() {
                     }
                   }}
                 >
-                  {item.name}
+                  {t(item.name)}
                 </Link>
               ))}
             </nav>
@@ -128,43 +130,43 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile menu */}
-        <div id="mobile-menu" className="hidden md:hidden bg-white border-t border-gray-200">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  'block px-3 py-2 rounded-md text-base font-medium',
-                  location === item.href.split('#')[0]
-                    ? 'bg-primary-custom/10 text-primary-custom'
-                    : 'text-gray-700 hover:bg-gray-100',
-                  item.href.startsWith('/#') && 'hover:text-primary-custom hover:bg-transparent'
-                )}
-                onClick={(e) => {
-                  if (item.href.startsWith('/#')) {
-                    e.preventDefault();
-                    const sectionId = item.href.split('#')[1];
-                    scrollToSection(sectionId);
-                  }
-                  document.getElementById('mobile-menu')?.classList.add('hidden');
-                }}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="px-3 py-2">
-              <Link
-                href="/reservations"
-                className="block w-full text-center bg-primary-custom hover:bg-primary-custom/90 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
-                onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}
-              >
-                Book a Table
-              </Link>
+          {/* Mobile menu */}
+          <div id="mobile-menu" className="hidden md:hidden bg-white border-t border-gray-200">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    'block px-3 py-2 rounded-md text-base font-medium',
+                    location === item.href.split('#')[0]
+                      ? 'bg-primary-custom/10 text-primary-custom'
+                      : 'text-gray-700 hover:bg-gray-100',
+                    item.href.startsWith('/#') && 'hover:text-primary-custom hover:bg-transparent'
+                  )}
+                  onClick={(e) => {
+                    if (item.href.startsWith('/#')) {
+                      e.preventDefault();
+                      const sectionId = item.href.split('#')[1];
+                      scrollToSection(sectionId);
+                    }
+                    document.getElementById('mobile-menu')?.classList.add('hidden');
+                  }}
+                >
+                  {t(item.name)}
+                </Link>
+              ))}
+              <div className="px-3 py-2">
+                <Link
+                  href="/reservations"
+                  className="block w-full text-center bg-primary-custom hover:bg-primary-custom/90 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                  onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}
+                >
+                  {t('navbar.reservations')}
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
       </header>
     </>
   );

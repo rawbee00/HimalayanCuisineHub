@@ -1,0 +1,201 @@
+{
+  "navbar": {
+    "home": "Startseite",
+    "menu": "Speisekarte",
+    "about": "Über Uns",
+    "contact": "Kontakt",
+    "reservations": "Tisch Reservieren"
+  },
+  "about": {
+    "title": "Unsere Geschichte",
+    "viewGallery": "Galerie Ansehen",
+    "paragraph1": "Unsere Geschichte ist eine Reise – sie beginnt hoch im Himalaya, in der Nähe des Fußes des Sagarmatha (Mount Everest), und schlängelt sich bis zu den ruhigen Ufern von Costa del Silencio.",
+    "paragraph2": "Aufgewachsen inmitten der reichen Traditionen der nepalesischen Küche, haben wir gelernt, dass Essen mehr ist als nur Zutaten – es ist eine Verbindung zu Land, Familie und Erbe. Vom über offenem Feuer gegrillten Sekuwa bis zur wärmenden Wärme des Ziegencurrys war jede Mahlzeit eine Feier der einfachen Freuden des Lebens.",
+    "paragraph3": "Mit der Zeit führte uns unser Weg über Kontinente hinweg. Mit unseren Aromen, unseren Geschichten und unseren Träumen kamen wir nach Teneriffa mit einem Ziel: das Wesen Nepals mit einer neuen Heimat zu teilen.",
+    "paragraph4": "Das Himalayan Curry & Tandoori House ist das Ergebnis dieser Reise – ein bescheidener Ort, an dem kühne Himalaya-Gewürze auf die Brise des Atlantiks treffen. Jedes Gericht wird mit Sorgfalt, Tradition und der Hoffnung zubereitet, dass Sie nicht nur das Essen, sondern auch die Reise dahinter schmecken werden.",
+    "quote": "Dies ist mehr als ein Restaurant. Es ist eine Geschichte, die auf einem Teller serviert wird.",
+    "galleryComingSoon": {
+      "title": "Galerie Kommt Bald",
+      "description": "Wir bereiten wunderschöne Fotos unserer authentischen Küche und des Restaurant-Ambientes vor."
+    }
+  },
+  "footer": {
+    "title": "Himalayan",
+    "subtitle": "Curry & Tandoor House",
+    "tagline": "Authentische Nepalesisch-Indische Küche",
+    "hours": {
+      "title": "Öffnungszeiten",
+      "days": "MONTAG - SONNTAG",
+      "time": "13:00 - 22:00"
+    },
+    "contact": "Kontakt",
+    "copyright": "Himalayan Curry & Tandoor House. Alle Rechte vorbehalten."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Besuchen Sie uns für ein authentisches Himalaya-Kulinarik-Erlebnis oder kontaktieren Sie uns für Reservierungen und Anfragen.",
+    "address": {
+      "title": "Adresse"
+    },
+    "phone": {
+      "title": "Telefon"
+    },
+    "email": {
+      "title": "E-Mail"
+    },
+    "hours": {
+      "title": "Öffnungszeiten",
+      "days": "MONTAG - SONNTAG",
+      "time": "13:00 - 22:00"
+    },
+    "findUs": {
+      "title": "Finden Sie uns in Costa del Silencio",
+      "description": "Unser Restaurant befindet sich im Herzen von Costa del Silencio und bietet eine gute Erreichbarkeit und eine einladende Atmosphäre. Wir sind nur einen Steinwurf von der wunderschönen Küste entfernt, perfekt für eine Mahlzeit nach dem Erkunden der Umgebung."
+    },
+    "buttons": {
+      "call": "Jetzt Anrufen",
+      "email": "E-Mail Senden"
+    }
+  },
+  "chefRecommendations": {
+    "title": "Empfehlungen des Küchenchefs",
+    "subtitle": "Entdecken Sie unsere beliebtesten Gerichte, sorgfältig von unserem Küchenchef ausgewählt, um die besten Aromen des Himalaya und Indiens zu präsentieren",
+    "cta": {
+      "title": "Können Sie sich nicht entscheiden? Lassen Sie sich von unserem Küchenchef überraschen!",
+      "description": "Fragen Sie Ihren Kellner nach der Tagesempfehlung oder lassen Sie sich ein individuelles Menü mit den besten Gerichten der nepalesischen und indischen Küche zusammenstellen"
+    },
+    "categories": {
+      "nepaliSpecialty": "Nepalesische Spezialität",
+      "houseSpecial": "Hausgericht",
+      "sizzler": "Sizzler",
+      "biryani": "Biryani"
+    },
+    "badges": {
+      "mostPopular": "Am Beliebtesten",
+      "chefsChoice": "Küchenchefs Wahl",
+      "bestSeller": "Bestseller",
+      "signature": "Hausgemacht"
+    },
+    "dishes": {
+      "essenceOfHimalayan": {
+        "name": "Himalaya-Genuss Menü",
+        "description": "Eine traditionelle 4-Gänge-Reise durch authentische nepalesische Aromen. Erleben Sie Mo:Mo, Thukpa, Thakali-Curry und Yomari-Dessert.",
+        "chefNote": "Unser kulinarisches Highlight, das den authentischen Geschmack des Himalaya zeigt"
+      },
+      "butterChicken": {
+        "name": "Butterhuhn",
+        "description": "Hühnerstücke in einer cremigen Soße mit extra Butter, Mandeln und einer Prise Knoblauch und Bockshornklee.",
+        "chefNote": "Reichhaltig, cremig und perfekt gewürzt - der Liebling unserer Gäste"
+      },
+      "tandooriMixGrill": {
+        "name": "Tandoori-Mix-Grill",
+        "description": "Eine Mischung aus Lamm-Tikka, Sheekh Kebab, Hühnchen-Tikka und Riesengarnelen, serviert auf einer heißen Platte.",
+        "chefNote": "Perfekt zum Teilen und zum Erleben verschiedener Tandoori-Aromen"
+      },
+      "specialHimalayanBiryani": {
+        "name": "Spezielles Himalaya-Biryani",
+        "description": "Unser spezielles Biryani mit einzigartiger Gewürzmischung. Duftender Basmatireis mit authentischen Himalaya-Gewürzen.",
+        "chefNote": "Eine einzigartige Mischung aus nepalesischen und indischen Aromen in jedem Korn"
+      }
+    }
+  },
+  "hero": {
+    "title": "Authentische Aromen aus dem Himalaya",
+    "subtitle": "Erleben Sie die reichen kulinarischen Traditionen Nepals und Indiens, zubereitet mit traditionellen Rezepten und den feinsten Gewürzen aus den Bergregionen.",
+    "viewStory": "Unsere Geschichte",
+    "ourMenu": "Unsere Speisekarte",
+    "chefSpecials": "Empfehlungen des Küchenchefs",
+    "makeReservation": "Tisch Reservieren"
+  },
+  "menu": {
+    "title": "Unsere Speisekarte",
+    "food": "Essen",
+    "drinks": "Getränke",
+    "wine": "Wein",
+    "spirits": "Spirituosen",
+    "appetizers": "Vorspeisen",
+    "starters": "Vorspeisen",
+    "curry": "Currygerichte",
+    "sizzler": "Pfannengerichte",
+    "special": "Küchenchefs Spezialitäten",
+    "sides": "Beilagen",
+    "sections": {
+      "nepaliFlavors": "NEPALISCHE AROMEN"
+    },
+    "items": {
+      "moMo": {
+        "name": "Mo: Mo - VEGAN 🌱",
+        "description": "Texturiertes Soja, Kohl und Himalaya-Gewürze"
+      },
+      "barraKebab": {
+        "name": "Barra Kebab",
+        "description": "Hähnchenbrustfilet mariniert in Joghurt & Gewürzen, feurig gegrillt für ein rauchiges Aroma"
+      },
+      "specialHimalayan": {
+        "name": "Spezial Himalaya",
+        "description": "Unser spezielles Curry mit einer besonderen Gewürzmischung, zubereitet mit Hühnchen, Lamm und Königskrabben"
+      }
+    },
+    "biryani": "Biryani",
+    "rice": "Reisgerichte",
+    "bread": "Brot",
+    "main_courses": "Hauptgerichte",
+    "desserts": "Nachspeisen",
+    "coffee_tea": "Kaffee & Tee",
+    "soft_drinks": "Erfrischungsgetränke",
+    "beers": "Biere",
+    "cocktails": "Cocktails",
+    "red_wines": "Rote Weine",
+    "white_wines": "Weiße Weine",
+    "rose_wines": "Roséweine",
+    "prosecco": "Prosecco",
+    "sangria": "Sangria",
+    "whiskey": "Whiskey",
+    "vodka": "Wodka",
+    "gin": "Gin",
+    "rum": "Rum",
+    "brandy": "Weinbrand",
+    "aperitifs": "Aperitifs",
+    "liqueur": "Liköre"
+  },
+  "buttons": {
+    "view_menu": "Speisekarte ansehen",
+    "book_table": "Tisch reservieren",
+    "order_online": "Online bestellen",
+    "see_more": "Mehr anzeigen",
+    "add_to_cart": "Zum Warenkorb hinzufügen"
+  },
+  "reviews": {
+    "title": "Was unsere Gäste sagen",
+    "errorLoading": "Fehler beim Laden der Bewertungen. Bitte versuchen Sie es später noch einmal.",
+    "noReviews": "Derzeit sind keine Bewertungen verfügbar.",
+    "readMore": "Mehr lesen"
+  },
+  "newWelcome": {
+    "title": "Himalayan",
+    "subtitle": "Curry & Tandoor House",
+    "tagline": "Nepalesisch-Indische Küche",
+    "welcomeText1": "Willkommen im Himalayan Curry & Tandoor House, wo die reichen Aromen des Himalaya zum Leben erwachen. Erleben Sie authentische nepalesische und indische Gerichte, die mit traditionellen Rezepten und frischen Zutaten zubereitet werden.",
+    "welcomeText2": "Entdecken Sie die kühnen, frischen Aromen Nepals - einem verborgenen Juwel des Himalaya - gepaart mit dem vertrauten Komfort der indischen Küche.",
+    "buttonText": "Lernen Sie uns kennen"
+  },
+  "sections": {
+    "welcome": "Willkommen im Himalayan Cuisine Hub",
+    "specialties": "Unsere Spezialitäten",
+    "testimonials": "Was unsere Gäste sagen",
+    "gallery": "Galerie",
+    "ingredients": "Zutaten",
+    "allergens": "Allergene",
+    "spice_level": "Scharfegrad"
+  },
+  "common": {
+    "price": "Preis",
+    "currency": "€",
+    "spicy": "Scharf",
+    "vegetarian": "Vegetarisch",
+    "vegan": "Vegan",
+    "gluten_free": "Glutenfrei",
+    "serves": "Für",
+    "people": "Personen"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "navbar": {
+    "home": "Home",
+    "menu": "Menù",
+    "about": "Chi Siamo",
+    "contact": "Contatti",
+    "reservations": "Prenota un Tavolo"
+  },
+  "about": {
+    "title": "La Nostra Storia",
+    "viewGallery": "Guarda la Galleria",
+    "paragraph1": "La nostra storia è un viaggio che inizia in alto sull'Himalaya, vicino al piede del Sagarmatha (Monte Everest), e si snoda fino alle tranquille sponde di Costa del Silencio.",
+    "paragraph2": "Cresciuti tra le ricche tradizioni della cucina nepalese, abbiamo imparato che il cibo è più di semplici ingredienti: è un legame con la terra, la famiglia e le origini. Dal sekuwa cotto sul fuoco al calore rassicurante del curry di capra, ogni pasto era una celebrazione delle gioie più semplici della vita.",
+    "paragraph3": "Con il tempo, il nostro cammino ci ha portato attraverso i continenti. Portando con noi i nostri sapori, le nostre storie e i nostri sogni, siamo arrivati a Tenerife con un obiettivo: condividere l'essenza del Nepal con una nuova casa.",
+    "paragraph4": "Himalayan Curry & Tandoori House è il risultato di quel viaggio - uno spazio umile dove le spezie audaci dell'Himalaya incontrano la brezza dell'Atlantico. Ogni piatto è preparato con cura, tradizione e la speranza che possiate assaporare non solo il cibo, ma il viaggio che c'è dietro.",
+    "quote": "Questo è più di un ristorante. È una storia servita in un piatto.",
+    "galleryComingSoon": {
+      "title": "Galleria in Arrivo",
+      "description": "Stiamo preparando bellissime foto della nostra cucina autentica e dell'atmosfera del ristorante."
+    }
+  },
+  "footer": {
+    "title": "Himalayan",
+    "subtitle": "Curry & Tandoor House",
+    "tagline": "Cucina Autentica Nepalese e Indiana",
+    "hours": {
+      "title": "Orari di Apertura",
+      "days": "LUNEDÌ - DOMENICA",
+      "time": "13:00 - 22:00"
+    },
+    "contact": "Contatto",
+    "copyright": "Himalayan Curry & Tandoor House. Tutti i diritti riservati."
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Vieni a trovarci per un'autentica esperienza culinaria himalayana o contattaci per prenotazioni e informazioni.",
+    "address": {
+      "title": "Indirizzo"
+    },
+    "phone": {
+      "title": "Telefono"
+    },
+    "email": {
+      "title": "Email"
+    },
+    "hours": {
+      "title": "Orari di Apertura",
+      "days": "LUNEDÌ - DOMENICA",
+      "time": "13:00 - 22:00"
+    },
+    "findUs": {
+      "title": "Trovarci a Costa del Silencio",
+      "description": "Situato nel cuore di Costa del Silencio, il nostro ristorante offre facile accesso e un'atmosfera accogliente. Siamo a pochi passi dalla bellissima costa, perfetti per un pasto dopo aver esplorato la zona."
+    },
+    "buttons": {
+      "call": "Chiama Ora",
+      "email": "Invia Email"
+    }
+  },
+  "chefRecommendations": {
+    "title": "Consigli dello Chef",
+    "subtitle": "Scopri i nostri piatti più amati, accuratamente selezionati dal nostro chef per mostrare i sapori più raffinati dell'Himalaya e dell'India",
+    "cta": {
+      "title": "Non sai decidere? Lascia che sia lo chef a sorprenderti!",
+      "description": "Chiedi al cameriere lo speciale del giorno o lascia che ti prepariamo un menu personalizzato con il meglio delle cucine nepalese e indiana"
+    },
+    "categories": {
+      "nepaliSpecialty": "Specialità Nepalese",
+      "houseSpecial": "Specialità della Casa",
+      "sizzler": "Sizzler",
+      "biryani": "Biryani"
+    },
+    "badges": {
+      "mostPopular": "Più Popolare",
+      "chefsChoice": "Scelta dello Chef",
+      "bestSeller": "Più Venduto",
+      "signature": "Firma"
+    },
+    "dishes": {
+      "essenceOfHimalayan": {
+        "name": "Menu Essenza dell'Himalaya",
+        "description": "Un viaggio tradizionale in 4 portate attraverso i sapori autentici del Nepal. Prova i Mo:Mo, Thukpa, curry Thakali e il dessert Yomari.",
+        "chefNote": "La nostra esperienza culinaria che mostra il gusto autentico dell'Himalaya"
+      },
+      "butterChicken": {
+        "name": "Pollo al Burro",
+        "description": "Pezzi di pollo in una salsa cremosa con burro extra, mandorle e un tocco di aglio e fieno greco.",
+        "chefNote": "Ricco, cremoso e perfettamente speziato - il preferito dai nostri clienti"
+      },
+      "tandooriMixGrill": {
+        "name": "Grigliata Mista Tandoori",
+        "description": "Misto di tikka di agnello, sheekh kebab, tikka di pollo e gamberoni serviti su una piastra bollente.",
+        "chefNote": "Perfetto da condividere e per assaporare i diversi sapori del tandoori"
+      },
+      "specialHimalayanBiryani": {
+        "name": "Biryani Speciale dell'Himalaya",
+        "description": "Il nostro biryani speciale con una miscela unica di spezie. Riso basmati profumato con autentiche spezie himalayane.",
+        "chefNote": "Un'armoniosa fusione di sapori nepalesi e indiani in ogni chicco"
+      }
+    }
+  },
+  "hero": {
+    "title": "Sapori Autentici dell'Himalaya",
+    "subtitle": "Scopri le ricche tradizioni culinarie del Nepal e dell'India, preparate con ricette secolari e le migliori spezie delle regioni montuose.",
+    "viewStory": "La Nostra Storia",
+    "ourMenu": "Il Nostro Menù",
+    "chefSpecials": "Specialità dello Chef",
+    "makeReservation": "Prenota un Tavolo"
+  },
+  "menu": {
+    "title": "Il Nostro Menù",
+    "food": "Cibo",
+    "drinks": "Bevande",
+    "wine": "Vino",
+    "spirits": "Superalcolici",
+    "appetizers": "Antipasti",
+    "starters": "Antipasti",
+    "curry": "Piatti al Curry",
+    "sizzler": "Piatti alla Piastra",
+    "special": "Specialità dello Chef",
+    "sides": "Contorni",
+    "sections": {
+      "nepaliFlavors": "SAPORI DEL NEPAL"
+    },
+    "items": {
+      "moMo": {
+        "name": "Mo: Mo - VEGANO 🌱",
+        "description": "Soia testurizzata, cavolo e spezie dell'Himalaya"
+      },
+      "barraKebab": {
+        "name": "Barra Kebab",
+        "description": "Petto di pollo disossato marinato in yogurt e spezie, grigliato al fuoco per un tocco affumicato"
+      },
+      "specialHimalayan": {
+        "name": "Speciale Himalaya",
+        "description": "Il nostro curry speciale con una miscela unica di spezie, preparato con pollo, agnello e gamberi"
+      }
+    },
+    "biryani": "Biryani",
+    "rice": "Piatti di Riso",
+    "bread": "Pane",
+    "main_courses": "Piatti Principali",
+    "desserts": "Dolci",
+    "coffee_tea": "Caffè e Tè",
+    "soft_drinks": "Bibite",
+    "beers": "Birre",
+    "cocktails": "Cocktail",
+    "red_wines": "Vini Rossi",
+    "white_wines": "Vini Bianchi",
+    "rose_wines": "Vini Rosati",
+    "prosecco": "Prosecco",
+    "sangria": "Sangria",
+    "whiskey": "Whisky",
+    "vodka": "Vodka",
+    "gin": "Gin",
+    "rum": "Rum",
+    "brandy": "Brandy",
+    "aperitifs": "Aperitivi",
+    "liqueur": "Liquori"
+  },
+  "buttons": {
+    "view_menu": "Vedi Menù",
+    "book_table": "Prenota un Tavolo",
+    "order_online": "Ordina Online",
+    "see_more": "Vedi di più",
+    "add_to_cart": "Aggiungi al Carrello"
+  },
+  "reviews": {
+    "title": "Cosa Dicono i Nostri Ospiti",
+    "errorLoading": "Errore nel caricamento delle recensioni. Si prega di riprovare più tardi.",
+    "noReviews": "Al momento non ci sono recensioni disponibili.",
+    "readMore": "Leggi di più"
+  },
+  "newWelcome": {
+    "title": "Himalayan",
+    "subtitle": "Curry & Tandoor House",
+    "tagline": "Cucina Nepalese e Indiana",
+    "welcomeText1": "Benvenuti al Himalayan Curry & Tandoor House, dove prendono vita i ricchi sapori dell'Himalaya. Scopri autentici piatti nepalesi e indiani preparati con ricette tradizionali e ingredienti freschi.",
+    "welcomeText2": "Scopri i sapori audaci e freschi del Nepal, un gioiello nascosto dell'Himalaya, abbinati al comfort familiare della cucina indiana.",
+    "buttonText": "Conosci la Nostra Storia"
+  },
+  "sections": {
+    "welcome": "Benvenuti al Himalayan Cuisine Hub",
+    "specialties": "Le Nostre Specialità",
+    "testimonials": "Cosa Dicono i Nostri Ospiti",
+    "gallery": "Galleria",
+    "ingredients": "Ingredienti",
+    "allergens": "Allergeni",
+    "spice_level": "Livello di Piccantezza"
+  },
+  "common": {
+    "price": "Prezzo",
+    "currency": "€",
+    "spicy": "Piccante",
+    "vegetarian": "Vegetariano",
+    "vegan": "Vegano",
+    "gluten_free": "Senza Glutine",
+    "serves": "Per",
+    "people": "persone"
+  }
+}

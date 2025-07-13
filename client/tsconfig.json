@@ -26,7 +26,10 @@
     }
   },
   "include": ["src"],
-  "typeRoots": ["./node_modules/@types", "./src/types"],
+  "typeRoots": [
+    "./node_modules/@types",
+    "./src/types"
+  ],
   "types": ["vite/client"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
